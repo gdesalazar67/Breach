@@ -1,52 +1,46 @@
-# Ncaa Wrestling Championships
+# Breach
 
 ## Background and Overview:<br>
-  Is an interactive results bracket of the 2019 Ncaa wrestling championships. By clicking on certain parts of the circular bracket you see the different paths wrestlers took to their final placing in the tornament. You can see results per round, per wrestler, per team, per weight class.  Team colors are incoprarated into the brackets so at a glance you can see which teams has the most wrestlers in the tournament in any given round.  All data comes from http://api.centermatwrestling.com/
+  Seach Database to see if you user email has ever been compramised in a date breach. 
+  User will enter into search field and results will be displayed in a dendrogram. <br> [haveibeenpwnd](https://haveibeenpwned.com/API/v2#APIVersion) api
+
   
 ## Functionality and MVP Features: <br>
   ### Basic graph:<br>
-    Will show over all completed bracket per wieght class with winner in center.<br>
-    ability to switch between weight classes.<br>
-    ability to zoom focus in on rounds: maybe thru a modal<br>
+    will have search area, name breach below, and info on what site does<br>
+    Will diplay reusults in Dendrogram. 
   ### Intermidiate goals:<br>
-    be able to select a wrestler and zoom focus on his path in the tournament.<br>
-    select on specific matches and show results of match and wrestler stats.<br>
-    show team results of top three teams in the tournament per round on the side.<br>
-  ### Challange goals:<br>
-    incorporate profile photos of wrestler, regular season record, and info on match up<br>
+    Brach node will display company and date of breach<br>
+    breach node will have child node of what info has exposed and breach info<br>
 
 ## Architecture and Technologies:<br>
  ### Technologies employed:<br>
  Vanilla JavaScript<br>
-  [D3 circle match tree](https://charts.animateddata.co.uk/tennis/matchTree.html)<br>
+  D3 Dendrogram<br>
   Webpack to bundle various scripts into a single source.<br>
-  React.js for basic page structure and functionality.<br>
   
 ### Architecture:<br>
-bracket.js main page, holds all the state info.<br>
-match_tree.jsx responsible for rendering circle tree.<br>
-weight_class.jsx contains weight class drop down menu.<br>
-team_standing.jsx handles team scores render.<br>
-scorebaord.jsx shows match score <br>
+main.js main page.<br>
+search.js responsible for rendering search area and logic.<br>
+dendrogram.js render dendrogram.<br>
 
 ## Development timeline:
 ### day one:
 build structure and be able to retrive data from api<br>
 ### day two:
 half day to continue day one if not yet completed<br>
-start circletree<br>
+start search area <br>
 ### day three:
-continue on circletree<br>
-start weightclass dropdown<br>
+continue on search<br>
+start on dendrogram<br>
 ### day four:
-half day to continue dropdown<br>
-start on scoreboard<br>
+ continue dendrogram<br>
 ### day five:
-half day to continue scoreboard<br>
-work on making round or wreslter path pop out <br>
+add title and subtext<br>
+add links to profile <br>
 
 ##Wireframe
-![wireframe ](https://user-images.githubusercontent.com/48927999/62913699-2a3fab00-bd5b-11e9-8bdf-af6943d71fb5.png)
+![breachwireframe](https://user-images.githubusercontent.com/48927999/62974272-d928c900-bde5-11e9-90f7-0becb7e95891.png)
 
 
  
