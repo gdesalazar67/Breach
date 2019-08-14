@@ -8,7 +8,7 @@ const searchInput = document.querySelector("#email")
 searchInput.addEventListener("keydown", event=>{
     let email;
     let newUrl = 'https://haveibeenpwned.com/api/v3/breachedaccount/';
-debugger
+
     if(event.key === "Enter" && searchInput.value.length > 0){
         event.preventDefault();
         email = searchInput.value;
@@ -31,8 +31,14 @@ debugger
 // fetch(newUrl,{method: "GET", headers: keyHeader})
 //     .then(res => res.json())
 //     .then(function(data){
+//         debugger
 //        console.log(data)
 //     })
+//     .catch(error => {
+//         debugger
+//         console.log(error)
+//     }
+        
 
 
 // api key 03a794521329432bad12af5f5bc6db3e
