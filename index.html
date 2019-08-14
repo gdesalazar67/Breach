@@ -6,20 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BREACH</title>
     <script src='https://d3js.org/d3.v4.min.js'></script>
-    <style>
-        .axis {
-                fill: none;
-                stroke: black;
-                shape-rendering: crispEdges;
-        }
-        </style>
 </head>
 <body>
-    
-    <h1>Breach</h1>
-    <ul id='test'></ul>
+    <main class="content-container">
+        <header class="title-search-container">
+           <div class="title-description-container">
+                <h1 class="title">BREACH</h1>
+                <p class="description">Has your info been leaked?</p>
+           </div>
+           <input class="search" type="text" id="email" placeholder="Enter email"/>
+           <div class="link-container"> links to profiles</div>
+        </header>
+        <div class="svg"></div>
+        <footer>
+            source: <a href="https://haveibeenpwned.com/API/v3"> HaveIbeenpawned.com  </a>
+        </footer>
+    </main>
+   
+    <!-- <ul id='test'></ul>
      <div id="canvas"></div>
-    <div id="plot"></div>
+    <div id="plot"></div> -->
      <!-- <script>
     var canvas = d3.select("#canvas") // D3 uses a jQuery like selector
         .append("svg")
@@ -41,7 +47,7 @@
         .attr("stroke-width", 2)
         .attr("stroke", "black");
     </script> -->
-
+<!-- 
     <script>
         var w = 500, h = 500, pad = 50; // defining width and height of the SVG element; and a little padding for the plot
 
@@ -74,7 +80,7 @@
                         .attr("cy", function (d) { return yScale(d[1]); })
                         .attr("r", function (d) { return rScale(d[2]); })
                         .attr("fill", "blue").attr("opacity", 0.5);
-    </script>
+    </script> -->
     
 </body>
     <script src="src/index.js"></script>
