@@ -59,7 +59,7 @@ const childParentObject = (child, parent) =>{
 
 
 
-export const childParentArray = (email, data)=>{
+export const childParentData = (email, data)=>{
     let array = [];
     const rootParent = {"child": email, "parent": ""};
     array.push(rootParent);

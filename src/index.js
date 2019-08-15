@@ -2,6 +2,7 @@
 // import data from "./seed_data";
 // data returns an array of objects
 import * as Data from "./seed_data";
+// import {resultsTree} from "./dendrogram";
 
 const searchInput = document.querySelector("#email")
 
@@ -15,7 +16,10 @@ searchInput.addEventListener("keydown", event=>{
         email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email;
-        console.log(Data.childParentArray(email, Data.data)); 
+        debugger
+        let hiroData = Data.childParentData(email, Data.data); 
+        debugger
+        resultsTree(hiroData);
     }else{
         console.log("Please enter email");
     }
