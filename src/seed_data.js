@@ -49,10 +49,11 @@ export const data = [
     }
 ]
 
-const childParentObject = (child, parent) =>{
+const childParentObject = (child, parent, details = undefined) =>{
     return({
         "child": child,
         "parent": parent,
+        details,
     })
 }
 
@@ -65,8 +66,9 @@ export const childParentData = (email, data)=>{
     array.push(rootParent);
     
     data.map(breach =>{
-        array.push(childParentObject(breach["Title"], email));
+        array.push(childParentObject(breach["Title"], email, breach["LogoPath"]));
         array.push(childParentObject(breach["Description"], breach["Title"]));
+        debugger
         breach["DataClasses"].map(type =>{
             array.push(childParentObject(type, breach["Description"]));
         })

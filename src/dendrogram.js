@@ -1,6 +1,6 @@
 
 
-let w = 600, h = 600, pad = 50; 
+let w = 800, h = 800, pad = 50; 
 
 let svg = d3.select("#svg") 
     .append("svg") 
@@ -9,16 +9,19 @@ let svg = d3.select("#svg")
     .append("g").attr("transform", "translate(50,50)");
 
 const resultsTree = (hiroData)=>{
-    let treeStructure = d3.tree().size([300, 300]);
+    let treeStructure = d3.tree().size([400, 570]);
     let information = treeStructure(hiroData);
-    
+    console.log(information)
+
     let circles = svg.append("g").selectAll("circle")
         .data(information.descendants());
+    console.log(information.descendants())
+
       circles.enter().append("circle")
         .attr("cx", function(d){return d.x;})
         .attr("cy", function(d){return d.y;})  
         .attr("r",30)
-        .attr('fill', 'blue');
+        .attr('fill', d => (d.depth === 1)? "red": "blue");
 
     let connections =svg.append("g").selectAll("path")
         .data(information.links());
@@ -43,6 +46,7 @@ const resultsTree = (hiroData)=>{
         .attr('fill', 'black');
 
 } 
+
 
 
 //const dataset = // our cleaned up dataset will go here;
