@@ -1,6 +1,7 @@
 // overview of code structure inspired by catena developed by clericl github
 // import data from "./seed_data";
 // data returns an array of objects
+import * as Data from "./seed_data";
 
 const searchInput = document.querySelector("#email")
 
@@ -14,8 +15,7 @@ searchInput.addEventListener("keydown", event=>{
         email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email;
-        console.log(email);
-        console.log(newUrl);
+        console.log(Data.childParentArray(email, Data.data)); 
     }else{
         console.log("Please enter email");
     }

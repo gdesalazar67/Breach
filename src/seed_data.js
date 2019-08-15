@@ -1,6 +1,6 @@
 
 
-const data = [
+export const data = [
     {
         "Name": "HauteLook",
         "Title": "HauteLook",
@@ -49,4 +49,26 @@ const data = [
     }
 ]
 
-export default data;
+const childParentObject = (child, parent) =>{
+    return({
+        "child": child,
+        "parent": parent,
+    })
+}
+
+
+export const childParentArray = (email, data)=>{
+    let array = [];
+    const rootParent = {"child": email, "parent": ""};
+    array.push(rootParent);
+
+    data.map(breach =>{
+        array.push(childParentObject(breach["Title"], email));
+        array.push(childParentObject(breach["Description"], breach["Title"]));
+        breach["DataClasses"].map(type =>{
+            array.push(childParentObject(type, breach["Description"]));
+        })
+    })
+    return array;
+}
+
