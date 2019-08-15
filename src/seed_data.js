@@ -1,4 +1,4 @@
-
+//https://www.youtube.com/watch?v=DvqeaVSe6Ko used as referance for d3 data structuring
 
 export const data = [
     {
@@ -57,11 +57,13 @@ const childParentObject = (child, parent) =>{
 }
 
 
+
+
 export const childParentArray = (email, data)=>{
     let array = [];
     const rootParent = {"child": email, "parent": ""};
     array.push(rootParent);
-
+    
     data.map(breach =>{
         array.push(childParentObject(breach["Title"], email));
         array.push(childParentObject(breach["Description"], breach["Title"]));
@@ -69,6 +71,14 @@ export const childParentArray = (email, data)=>{
             array.push(childParentObject(type, breach["Description"]));
         })
     })
-    return array;
+    
+    let dataStructure = d3.stratify()
+        .id(function(d){return d.child;})
+        .parentId(function(d){return d.parent})
+        (array);
+
+    return dataStructure;
 }
+
+
 
