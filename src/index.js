@@ -16,9 +16,9 @@ searchInput.addEventListener("keydown", event=>{
         email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email;
-        debugger
+        
         let hiroData = Data.childParentData(email, Data.data); 
-        debugger
+        
         resultsTree(hiroData);
     }else{
         console.log("Please enter email");
@@ -35,11 +35,11 @@ searchInput.addEventListener("keydown", event=>{
 // fetch(newUrl,{method: "GET", headers: keyHeader})
 //     .then(res => res.json())
 //     .then(function(data){
-//         debugger
+//         
 //        console.log(data)
 //     })
 //     .catch(error => {
-//         debugger
+//         
 //         console.log(error)
 //     }
         
