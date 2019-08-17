@@ -41,7 +41,8 @@ searchInput.addEventListener("keydown", event=>{
             searchInput.value = "Enter email";  
             })
             .catch(error => {
-
+                alert('Lucky you! Your email is safe for now')
+                searchInput.value = "Enter email"; 
                 console.log(error)
             })
 
