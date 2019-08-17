@@ -37,7 +37,8 @@ searchInput.addEventListener("keydown", event=>{
             debugger
             console.log(data);
             let hiroData = Data.childParentData(email, data); 
-            resultsTree(hiroData);    
+            resultsTree(hiroData); 
+            searchInput.value = "Enter email";  
             })
             .catch(error => {
 

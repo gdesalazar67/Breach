@@ -9,6 +9,30 @@ const childParentObject = (child, parent, details = undefined) =>{
     })
 }
 
+export const childParentData = (email, data)=>{
+    let array = [];
+    const rootParent = {"child": email, "parent": ""};
+    array.push(rootParent);
+    
+    data.map(breach =>{
+        array.push(childParentObject(breach["Title"], email, breach["LogoPath"]));
+        array.push(childParentObject(breach["Description"], breach["Title"]));
+        debugger
+        breach["DataClasses"].map(type =>{
+            array.push(childParentObject(type, breach["Description"]));
+        })
+    })
+    
+    let dataStructure = d3.stratify()
+    .id(function(d){return d.child;})
+    .parentId(function(d){return d.parent})
+    (array);
+    
+    return dataStructure;
+}
+
+
+
 
 // export const data = [
 //     {
@@ -58,27 +82,3 @@ const childParentObject = (child, parent, details = undefined) =>{
 //         "IsSpamList": false
 //     }
 // ]
-export const childParentData = (email, data)=>{
-    let array = [];
-    const rootParent = {"child": email, "parent": ""};
-    array.push(rootParent);
-    
-    data.map(breach =>{
-        array.push(childParentObject(breach["Title"], email, breach["LogoPath"]));
-        array.push(childParentObject(breach["Description"], breach["Title"]));
-        debugger
-        breach["DataClasses"].map(type =>{
-            array.push(childParentObject(type, breach["Description"]));
-        })
-    })
-    
-    let dataStructure = d3.stratify()
-        .id(function(d){return d.child;})
-        .parentId(function(d){return d.parent})
-        (array);
-
-    return dataStructure;
-}
-
-
-
