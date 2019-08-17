@@ -1,15 +1,16 @@
 
 
-let w = 800, h = 800, pad = 50; 
+const svgDiv = document.getElementById("svg")
+let svg = d3.select(svgDiv) 
+    .append("svg")
+    .attr("width", svgDiv.clientWidth)
+    .attr("height", svgDiv.clientHeight)
+    .append("g").attr("transform", `translate(50,50)`);
 
-let svg = d3.select("#svg") 
-    .append("svg") 
-    .attr("height", h)
-    .attr("width", w)
-    .append("g").attr("transform", "translate(50,50)");
 
 const resultsTree = (hiroData)=>{
-    let treeStructure = d3.tree().size([400, 570]);
+   
+    let treeStructure = d3.tree().size([svgDiv.clientWidth, svgDiv.clientHeight]);
     let information = treeStructure(hiroData);
     console.log(information)
 
@@ -40,13 +41,10 @@ const resultsTree = (hiroData)=>{
         .data(information.descendants());
         
     names.enter().append("text")
-        .text(function(d){return d.data.child;})
+        .text(function(d){return `${d.data.depth}`;})
         .attr("x", function(d){return d.x-100;})
         .attr("y", function(d){return d.y+30;})
         .attr('fill', 'black');
 
 } 
 
-
-
-//const dataset = // our cleaned up dataset will go here;

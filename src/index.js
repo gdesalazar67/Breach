@@ -24,27 +24,28 @@ searchInput.addEventListener("keydown", event=>{
         // email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
-        
+        let hiroData = Data.childParentData(email, Data.data);
+        resultsTree(hiroData);
         //////////////////////////////////
-        const hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
-        let keyHeaders = new Headers();
-        debugger
-        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
+        // const hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
+        // let keyHeaders = new Headers();
+        // debugger
+        // keyHeaders.append('Hibp-Api-Key', hibpApiKey)
         
-        fetch(newUrl, { method: "GET", headers: keyHeaders })
-        .then(res => res.json())
-        .then(function (data) {
-            debugger
-            console.log(data);
-            let hiroData = Data.childParentData(email, data); 
-            resultsTree(hiroData); 
-            searchInput.value = "Enter email";  
-            })
-            .catch(error => {
-                alert('Lucky you! Your email is safe for now')
-                searchInput.value = "Enter email"; 
-                console.log(error)
-            })
+        // fetch(newUrl, { method: "GET", headers: keyHeaders })
+        // .then(res => res.json())
+        // .then(function (data) {
+        //     debugger
+        //     console.log(data);
+        //     let hiroData = Data.childParentData(email, data); 
+        //     resultsTree(hiroData); 
+        //     searchInput.value = "Enter email";  
+        //     })
+        //     .catch(error => {
+        //         alert('Lucky you! Your email is safe for now')
+        //         searchInput.value = "Enter email"; 
+        //         console.log(error)
+        //     })
 
             ///////////////////////////////
     }else{

@@ -1,3 +1,86 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html{
+    height: 100%;
+}
+
+
+
 svg {
     filter: drop-shadow(30px 10px 4px #dcdcdc);
+}
+
+body{
+    background-color: rgb(10, 9, 3);
+    height: 100%;
+}
+.content-container{
+    display: block;
+    background-color: yellow;
+}
+.title-search-link-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: aqua;
+}
+.title-search-container{
+    display: flex;
+    flex-direction: row;
+}
+.title-description-container{
+    background-color: burlywood;
+}
+
+.title{
+    color: rgb(2, 0, 0);
+    background-color: palegreen;
+}
+.description{
+    color: rgb(2, 0, 0);
+    background-color: rgb(240, 176, 226);
+}
+.search{
+    border: none;
+    width: 233px;
+    margin-left: 30px;
+    background-color: lightslategray;
+}
+.link-container{
+    background-color: deepskyblue;
+}
+.canvas{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 93vh;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+}
+footer{
+    position: absolute;
+    display: block;
+    bottom: 0%;
+    background-color: teal;
 }
