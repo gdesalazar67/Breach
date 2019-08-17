@@ -6,17 +6,25 @@ import * as Data from "./seed_data";
 const searchInput = document.querySelector("#email")
 
 
+const ValidateEmail = (email) =>{
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)) {
+        return true
+    }
+    alert("You have entered an invalid email address!")
+    return false
+};
+
+
 searchInput.addEventListener("keydown", event=>{
-    let email;
+    let email = searchInput.value;
     let newUrl = 'https://cors-anywhere.herokuapp.com/https://haveibeenpwned.com/api/v3/breachedaccount/';
    
-    if(event.key === "Enter" && searchInput.value.length > 0){
+    if (event.key === "Enter" && ValidateEmail(email)){
         event.preventDefault();
-        email = searchInput.value;
+        // email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
         
-        let hiroData = Data.childParentData(email, Data.data); 
         //////////////////////////////////
         const hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
         let keyHeaders = new Headers();
@@ -24,10 +32,12 @@ searchInput.addEventListener("keydown", event=>{
         keyHeaders.append('Hibp-Api-Key', hibpApiKey)
         
         fetch(newUrl, { method: "GET", headers: keyHeaders })
-            .then(res => res.json())
-            .then(function (data) {
-
-                console.log(data)
+        .then(res => res.json())
+        .then(function (data) {
+            debugger
+            console.log(data);
+            let hiroData = Data.childParentData(email, data); 
+            resultsTree(hiroData);    
             })
             .catch(error => {
 
@@ -35,31 +45,7 @@ searchInput.addEventListener("keydown", event=>{
             })
 
             ///////////////////////////////
-        resultsTree(hiroData);
     }else{
         console.log("Please enter email");
     }
 })
-
-
-// const hibpApiKey = '[03a794521329432bad12af5f5bc6db3e]';
-// let keyHeader = new Headers();
-// keyHeader.append('Hibp-Api-Key', hibpApiKey)
-
-
-
-// fetch(newUrl,{method: "GET", headers: keyHeader})
-//     .then(res => res.json())
-//     .then(function(data){
-        
-//        console.log(data)
-//     })
-//     .catch(error => {
-        
-//         console.log(error)
-//     })
-        
-
-
-// api key 03a794521329432bad12af5f5bc6db3e
-// hibp-api-key: [03a794521329432bad12af5f5bc6db3e]
