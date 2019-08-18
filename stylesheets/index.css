@@ -72,11 +72,12 @@ body{
     box-sizing: border-box;
     width: 100%;
     min-height: 93vh;
-    height: max-content;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: lightcoral;
+    overflow: auto;
 }
 footer{
     position: absolute;

@@ -11,14 +11,14 @@ const childParentObject = (child, parent, details = undefined) =>{
 
 export const childParentData = (email, data)=>{
     let array = [];
-    const rootParent = {"child": email, "parent": ""};
+    const rootParent = {"child": email, "parent": "", "details": [email]};
     array.push(rootParent);
     
     data.map(breach =>{
-        array.push(childParentObject(breach["Title"], email, breach["LogoPath"]));
-        array.push(childParentObject(breach["Description"], breach["Title"]));
+        array.push(childParentObject(breach["Title"], email, [breach["Title"], breach["LogoPath"]]));
+        array.push(childParentObject(breach["Description"], breach["Title"], ["Breach Info"]));
         breach["DataClasses"].map(type =>{
-            array.push(childParentObject(type, breach["Description"]));
+            array.push(childParentObject(type, breach["Description"], ["Data Leaked"]));
         })
     })
     
