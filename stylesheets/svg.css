@@ -1,7 +1,11 @@
 .leaves{
     stroke-width: 3px;
     stroke: black;
+}
 
+.leaves:hover{
+    stroke: blue;
+    fill: black;
 }
 
 .tooltip {

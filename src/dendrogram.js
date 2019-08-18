@@ -16,11 +16,10 @@ const resultsTree = (hiroData)=>{
     let information = treeStructure(hiroData);
     let leaves = information.leaves();
 
-    ///append div to svg for popup window 
+    // append div to svg for popup window 
     let div = d3.select(svgDiv).append("div")
         .attr("class", "tooltip")
         .style("display", "none");
-
 
     ///pop up window functions 
     const mouseover = ()=> {
