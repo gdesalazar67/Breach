@@ -30,7 +30,7 @@ svg {
 }
 
 body{
-    background-color: rgb(10, 9, 3);
+    background-color: hsl(60, 33%, 4%);
     height: 100%;
 }
 .content-container{
@@ -85,3 +85,4 @@ footer{
     bottom: 0%;
     background-color: teal;
 }
+
