@@ -26,10 +26,10 @@ const resultsTree = (hiroData)=>{
         div.style("display", "inline");
     }
 
-    const mousemove =()=> {
-       
+    const mousemove =(data)=> {
+        debugger
         div
-            .text(d3.event.pageX + "," + d3.event.pageY)
+            .text(data.data.child)
             .style("left", (d3.event.pageX - 34) + "px")
             .style("top", (d3.event.pageY - 12) + "px");
     }
@@ -37,6 +37,7 @@ const resultsTree = (hiroData)=>{
     const mouseout =()=> {
         div.style("display", "none");
     }
+
     // create leaf circles 
     let circles = svg.append("g").selectAll("circle")
         .data(leaves);
@@ -48,7 +49,7 @@ const resultsTree = (hiroData)=>{
         .attr("r",10)
         .attr('fill', "blue")
         .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
+        .on("mousemove", d=>mousemove(d))
         .on("mouseout", mouseout);
 
 
