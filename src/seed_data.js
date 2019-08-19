@@ -15,6 +15,7 @@ export const childParentData = (email, data)=>{
     array.push(rootParent);
     
     data.map(breach =>{
+
         array.push(childParentObject(breach["Title"], email, [breach["Title"], breach["LogoPath"]]));
         array.push(childParentObject(breach["Description"], breach["Title"], ["Breach Info"]));
         breach["DataClasses"].map(type =>{

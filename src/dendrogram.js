@@ -33,10 +33,30 @@ const resultsTree = (hiroData)=>{
     }
 
     const mousemove =(data)=> {
+        if (data.depth !== 1){
         div
-            .text(data.data.child)
+            .text(function(d){return data.data.child})
+            .style("left", (d3.event.pageX - 34) + "px")
+            .style("top", (d3.event.pageY - 12) + "px")
+            .style("height", "auto")
+            .style("width", "auto")
+            .style("background-image", "none")
+            .style("background-color", "#ddd");
+        }
+        else {
+
+        div
+            .text("")
+            .style("background-color", "black")
+            .style("background-repeat", "no-repeat")
+            .style("background-position", "center")
+            .style("height", "100px")
+            .style("width", "100px")
+            .style("", "70px")
+            .style("background-image", `url(${data.data.details[1]})`)
             .style("left", (d3.event.pageX - 34) + "px")
             .style("top", (d3.event.pageY - 12) + "px");
+        }
     }
 
     const mouseout =()=> {
@@ -60,7 +80,6 @@ const resultsTree = (hiroData)=>{
 // create reactangles for parents
     let rects = svg.append("g").selectAll("rect")
         .data(parents);
-        debugger
         
     rects.enter().append("rect")
             .attr('class', "Reacts")
@@ -88,7 +107,29 @@ const resultsTree = (hiroData)=>{
         })
         .attr('stroke', 'red')
         .attr('fill', 'none');
+//step down paths
+    // let lineFunction = function(){ debugger
+    //      return d3.line()
+    //     .x(function (d) { return d.x; })
+    //     .y(function (d) { return d.y; })
+    //     .curve(d3.curveStep);
+    // }
+    // let connections = svg.append("g").selectAll("path")
+    //     .data(information.links());
+// debugger
+    // connections.enter().append("path")
+    //     .attr("d", d=>{
+    //         let points =  ("M" + d.source.x + "," + d.source.y + " C " +
+    //         d.source.x + "," + (d.source.y + d.target.y)/2 + " " +
+    //         d.target.x + "," + (d.source.y + d.target.y)/2 + " " +
+    //         d.target.x + "," + d.target.y);
 
+    //         lineFunction(points)
+    //     })
+    //     .attr("stroke", "blue")
+    //     .attr("stroke-width", 2)
+    //     .attr("fill", "none");
+       
 ///append text to tree nodes
     let names = svg.append("g").selectAll("text")
         .data(information.descendants());
