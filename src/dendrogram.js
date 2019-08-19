@@ -12,6 +12,8 @@ let svg = d3.select(svgDiv)
    
 const resultsTree = (hiroData)=>{
    
+    svg.selectAll("*").remove();
+    
     let treeStructure = d3.tree().size([svgDiv.clientWidth, 800]);
     //hierarchy breakdown
     let information = treeStructure(hiroData);
