@@ -19,3 +19,9 @@
   background: #ddd;
   pointer-events: none;
 }
+
+.rect{
+  fill: aquamarine;
+  stroke: cornflowerblue;
+  stroke-width: 2px; 
+}

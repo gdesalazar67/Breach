@@ -54,10 +54,17 @@ body{
 .title{
     color: rgb(2, 0, 0);
     background-color: palegreen;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 90px;
+
 }
 .description{
     color: rgb(2, 0, 0);
     background-color: rgb(240, 176, 226);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;  
+    font-size: 15px;
+    text-align: center;
 }
 .search{
     border: none;

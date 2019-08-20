@@ -13,7 +13,7 @@ let svg = d3.select(svgDiv)
 const resultsTree = (hiroData)=>{
    
     svg.selectAll("*").remove();
-    
+
     let treeStructure = d3.tree().size([svgDiv.clientWidth, 800]);
     //hierarchy breakdown
     let information = treeStructure(hiroData);
@@ -52,8 +52,8 @@ const resultsTree = (hiroData)=>{
             .style("background-color", "black")
             .style("background-repeat", "no-repeat")
             .style("background-position", "center")
-            .style("height", "100px")
-            .style("width", "100px")
+            .style("height", "70px")
+            .style("width", "156px")
             .style("", "70px")
             .style("background-image", `url(${data.data.details[1]})`)
             .style("left", (d3.event.pageX - 34) + "px")
@@ -84,11 +84,11 @@ const resultsTree = (hiroData)=>{
         .data(parents);
         
     rects.enter().append("rect")
-            .attr('class', "Reacts")
-            .attr("x", d =>(d.x))
+            .attr('class', "rect")
+            .attr("x", d =>(d.x - 78))
             .attr("y", d =>(d.y))
-            .attr("width", 50)
-            .attr("height", 30)
+            .attr("width", 156)
+            .attr("height", 70)
             .on("mouseover", mouseover)
             .on("mousemove", d => mousemove(d))
             .on("mouseout", mouseout);
@@ -99,48 +99,43 @@ const resultsTree = (hiroData)=>{
 //Build paths connecting child and parent 
     let connections =svg.append("g").selectAll("path")
         .data(information.links());
-
+    console.log(information.links());
     connections.enter().append("path")
         .attr("d", function(d){
-            return "M" + d.source.x + "," + d.source.y + " C " +
-            d.source.x + "," + (d.source.y + d.target.y)/2 + " " +
-            d.target.x + "," + (d.source.y + d.target.y)/2 + " " +
-            d.target.x + "," + d.target.y;
+        
+            return "M" + d.source.x + "," + d.source.y + " V " +
+            (d.source.y + d.target.y)/2 + " H " +
+            d.target.x + " V " + d.target.y;
         })
         .attr('stroke', 'red')
         .attr('fill', 'none');
-//step down paths
-    // let lineFunction = function(){ debugger
-    //      return d3.line()
-    //     .x(function (d) { return d.x; })
-    //     .y(function (d) { return d.y; })
-    //     .curve(d3.curveStep);
-    // }
-    // let connections = svg.append("g").selectAll("path")
-    //     .data(information.links());
-// debugger
-    // connections.enter().append("path")
-    //     .attr("d", d=>{
-    //         let points =  ("M" + d.source.x + "," + d.source.y + " C " +
-    //         d.source.x + "," + (d.source.y + d.target.y)/2 + " " +
-    //         d.target.x + "," + (d.source.y + d.target.y)/2 + " " +
-    //         d.target.x + "," + d.target.y);
 
-    //         lineFunction(points)
-    //     })
-    //     .attr("stroke", "blue")
-    //     .attr("stroke-width", 2)
-    //     .attr("fill", "none");
-       
+
+//step down paths
+//     let lineFunction = d3.line()
+//         .x(function (d) { return d.source.x; })
+//         .y(function (d) { return d.source.y; })
+//         .curve(d3.curveStep);
+
+//     let pathData = lineFunction(information.links())
+//     debugger
+//    let connections =svg.append("g").selectAll("path")   
+//     connections.enter().append("path")
+//         .attr("d", pathData)
+//         .attr("stroke", "blue")
+//         .attr("stroke-width", 2)
+//         .attr("fill", "none");
+//   
 ///append text to tree nodes
     let names = svg.append("g").selectAll("text")
         .data(information.descendants());
         
     names.enter().append("text")
         .text(d=>(d.depth !== 3) ? d.data.details[0]: "")
-        .attr("x", function(d){return d.x-100;})
-        .attr("y", function(d){return d.y+30;})
-        .attr('fill', 'black');
+        // .text("text-anchor", "middle")
+        .attr("x", function(d){return d.x - 40;})
+        .attr("y", function(d){return d.y + 40;})
+        // .attr('fill', 'black');
 
 } 
 
