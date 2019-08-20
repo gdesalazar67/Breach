@@ -32,6 +32,8 @@ svg {
 body{
     background-color: hsl(60, 33%, 4%);
     height: 100%;
+    min-width: 537px;
+    
 }
 .content-container{
     display: block;
@@ -42,13 +44,21 @@ body{
     flex-direction: row;
     justify-content: space-between;
     background-color: aqua;
+    right: 0;
+    
+   
+   
 }
 .title-search-container{
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+    width: 68%;
 }
 .title-description-container{
     background-color: burlywood;
+    
 }
 
 .title{
@@ -68,13 +78,27 @@ body{
 }
 .search{
     border: none;
-    width: 233px;
-    margin-left: 30px;
-    background-color: lightslategray;
+    /* width: 100%; */
+    background-color: transparent;
+    /* margin-left: 50px; */
+    font-size: 30px;
+    text-align: center;
+    min-width: 200px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;  
+    
 }
 .link-container{
+    
     background-color: deepskyblue;
+    /* min-width: 108px; */
+    float: right;
 }
+.clear {
+     clear: both; }
+
+
+
 .canvas{
     box-sizing: border-box;
     width: 100%;

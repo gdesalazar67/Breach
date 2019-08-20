@@ -5,7 +5,7 @@ let svg = d3.select(svgDiv)
     .append("svg")
     .attr("width", svgDiv.clientWidth)
     .attr("height", 3000)// this controls the scroll needs to be bigger then the tree
-    .append("g").attr("transform", `translate(50,50)`);
+    .append("g").attr("transform", `translate(0,50)`);
 
 
 
@@ -56,6 +56,7 @@ const resultsTree = (hiroData)=>{
             .style("width", "156px")
             .style("", "70px")
             .style("background-image", `url(${data.data.details[1]})`)
+            .style("background-size", "contain")
             .style("left", (d3.event.pageX - 34) + "px")
             .style("top", (d3.event.pageY - 12) + "px");
         }
@@ -64,6 +65,21 @@ const resultsTree = (hiroData)=>{
     const mouseout =()=> {
         div.style("display", "none");
     }
+
+
+    //Build paths connecting child and parent 
+    let connections = svg.append("g").selectAll("path")
+        .data(information.links());
+    console.log(information.links());
+    connections.enter().append("path")
+        .attr("d", function (d) {
+
+            return "M" + d.source.x + "," + d.source.y + " V " +
+                (d.source.y + d.target.y) / 2 + " H " +
+                d.target.x + " V " + d.target.y;
+        })
+        .attr('stroke', 'red')
+        .attr('fill', 'none');
 
     // create leaf circles 
     let circles = svg.append("g").selectAll("circle")
@@ -92,24 +108,6 @@ const resultsTree = (hiroData)=>{
             .on("mouseover", mouseover)
             .on("mousemove", d => mousemove(d))
             .on("mouseout", mouseout);
-
-
-
-
-//Build paths connecting child and parent 
-    let connections =svg.append("g").selectAll("path")
-        .data(information.links());
-    console.log(information.links());
-    connections.enter().append("path")
-        .attr("d", function(d){
-        
-            return "M" + d.source.x + "," + d.source.y + " V " +
-            (d.source.y + d.target.y)/2 + " H " +
-            d.target.x + " V " + d.target.y;
-        })
-        .attr('stroke', 'red')
-        .attr('fill', 'none');
-
 
 //step down paths
 //     let lineFunction = d3.line()

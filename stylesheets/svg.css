@@ -23,5 +23,10 @@
 .rect{
   fill: aquamarine;
   stroke: cornflowerblue;
-  stroke-width: 2px; 
+  stroke-width: 2px;
+  position: relative;
+}
+
+path{
+  stroke: aquamarine;
 }
