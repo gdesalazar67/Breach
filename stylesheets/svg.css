@@ -14,11 +14,18 @@
   text-align: center;
   /* width: 60px; */
   /* height: 12px; */
-  padding: 8px;
+  padding: 20px;
   margin-top: -20px;
   font: 10px sans-serif;
   background: #ddd;
   pointer-events: none;
+  min-height: 100px;
+  max-width: 300px;
+  border-radius: 5px;
+  background-color: #e8);
+  /* background-color: transparent; */
+  background-size: contain;
+  /* border: 20px solid rgb(221, 221, 221); */
 }
 
 .rect{
@@ -36,5 +43,5 @@ path{
 text{
   font-family: 'Bungee Shade', cursive;
   font-size: 29px;
-  
+
 }

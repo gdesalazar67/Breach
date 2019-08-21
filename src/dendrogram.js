@@ -17,43 +17,50 @@ const resultsTree = (hiroData)=>{
     let treeStructure = d3.tree().size([svgDiv.clientWidth, 800]);
     //hierarchy breakdown
     let information = treeStructure(hiroData);
-    let leaves = information.leaves();
     let circleData = rootLeaves(information.descendants());
+    // let leaves = information.leaves();
     // let parents= noLeaves(information.descendants());
 
+
+    
     //test
     console.log(information.descendants());
     console.log(noLeaves(information.descendants()));
-
+    
     // append div to svg for popup window 
     let div = d3.select(svgDiv).append("div")
-        .attr("class", "tooltip")
-        .style("display", "none");
-
+    .attr("class", "tooltip")
+    .style("display", "none");
+    
+    
     ///pop up window functions 
     const mouseover = ()=> {
         div.style("display", "inline");
     }
 
+
     const mousemove =(data)=> {
         let x = (d3.event.pageX)
         let y = (d3.event.pageY)
-
+        const windowWidth = svgDiv.clientWidth;
+        const windowHeight = svgDiv.clientHeight;
+        
         if (data.depth !== 1){
         div
             .text(function(d){return data.data.child})
-            .style("left", (x - 20) + "px")
-            .style("top", (y- 100) + "px")
+            .style("left", ()=> (x > windowWidth/2) ? (windowWidth/2) + "px":(windowWidth/2) + "px")
+            .style("top", (windowHeight/2) + "px")
             .style("height", "auto")
             .style("width", "auto")
             .style("background-image", "none")
-            .style("background-color", "#ddd");
+            .style("background-color", "#ddd")
+            .style("background-color", "");
         }
         else {
 
         div
             .text("")
-            .style("background-color", "black")
+            .style("background-color", "")
             .style("background-repeat", "no-repeat")
             .style("background-position", "center")
             .style("height", "70px")
@@ -74,8 +81,8 @@ const resultsTree = (hiroData)=>{
     //Build paths connecting child and parent 
     let connections = svg.append("g").selectAll("path")
         .data(information.links());
-    console.log(information.links());
-    connections.enter().append("path")
+
+     connections.enter().append("path")
         .attr("d", function (d) {
 
             return "M" + d.source.x + "," + d.source.y + " V " +
@@ -94,7 +101,7 @@ const resultsTree = (hiroData)=>{
         .attr("cx", function(d){return d.x;})
         .attr("cy", function(d){return d.y;})  
         .attr("r", d =>(d.depth === 0)? 4: 10)
-          .attr('fill', d => (d.depth === 0) ? "#851e3e": "#dddddd")
+        .attr('fill', d => (d.depth === 0) ? "#851e3e": "#dddddd")
         .on("mouseover", mouseover)
         .on("mousemove", d=>mousemove(d))
         .on("mouseout", mouseout);
@@ -133,17 +140,35 @@ const resultsTree = (hiroData)=>{
 ///append text to tree nodes
     let names = svg.append("g").selectAll("text")
         .data(information.descendants());
-        
-    names.enter().append("text")
-        .text(d=>((d.depth !== 0) && (d.depth !== 3) ) ? d.data.details[0]: "")
-        // .text("text-anchor", "middle")
-        .attr("x", function(d){return d.x +5;})
-        .attr("y", function(d){return d.y;})
-        .on("mouseover", mouseover)
-        .on("mousemove", d => mousemove(d))
-        .on("mouseout", mouseout);
-        // .attr('fill', 'black');
-
+        console.log(sortD2(information.descendants()))
+    
+    if (sortD2(information.descendants())){    
+        let i = 0;
+        names.enter().append("text")
+           .text(d=>((d.depth !== 0) && (d.depth !== 3) ) ? d.data.details[0]: "")
+           .attr("x", function(d){return d.x +5;})
+           .attr("y", function(d){ if (i%2 === 0){
+               console.log(i);
+                   i += 1;
+                    return (d.y + 50);
+                }else{
+                    i += 1;
+                    return (d.y);
+                }
+            })
+           .style("font-size", "20px")
+           .on("mouseover", mouseover)
+           .on("mousemove", d => mousemove(d))
+           .on("mouseout", mouseout);
+    }else{
+        names.enter().append("text")
+            .text(d => ((d.depth !== 0) && (d.depth !== 3)) ? d.data.details[0] : "")
+            .attr("x", function (d) { return d.x + 5; })
+            .attr("y", function (d) { return d.y; })
+            .on("mouseover", mouseover)
+            .on("mousemove", d => mousemove(d))
+            .on("mouseout", mouseout);
+    }
 } 
 
 const noLeaves = (root)=>{
@@ -157,6 +182,14 @@ const rootLeaves = (root)=>{
         return (obj.depth === 0 || obj.depth === 3)
     });
 };
+
+const sortD2 = (root)=>{
+    let sorted = root.filter(obj=>{
+        return (obj.depth === 1)
+    })
+
+    return (sorted.length > 4)? true: false;
+}
 
 
 
