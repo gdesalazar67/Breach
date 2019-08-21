@@ -18,6 +18,9 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+a{
+    text-decoration: none;
+}
 
 html{
     height: 100%;
