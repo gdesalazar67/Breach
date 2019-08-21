@@ -1,11 +1,12 @@
 .leaves{
-    stroke-width: 3px;
-    stroke: black;
+    /* stroke-width: 3px; */
+    /* stroke: black; */
 }
 
 .leaves:hover{
-    stroke: blue;
-    fill: black;
+    stroke: #aaaaaa;
+    fill: #aaaaaa;
+    stroke-width: 4px
 }
 
 .tooltip {
@@ -21,12 +22,19 @@
 }
 
 .rect{
-  fill: aquamarine;
-  stroke: cornflowerblue;
+  fill: #eeeeee;
+  /* stroke: cornflowerblue; */
   stroke-width: 2px;
   position: relative;
+  border-radius: 5px;
+
 }
 
 path{
-  stroke: aquamarine;
+  stroke:  #851e3e;
+}
+text{
+  font-family: 'Bungee Shade', cursive;
+  font-size: 29px;
+  
 }

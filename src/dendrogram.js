@@ -4,7 +4,7 @@ const svgDiv = document.getElementById("svg")
 let svg = d3.select(svgDiv) 
     .append("svg")
     .attr("width", svgDiv.clientWidth)
-    .attr("height", 3000)// this controls the scroll needs to be bigger then the tree
+    .attr("height", 1000)// this controls the scroll needs to be bigger then the tree
     .append("g").attr("transform", `translate(0,50)`);
 
 
@@ -90,24 +90,26 @@ const resultsTree = (hiroData)=>{
         .attr("cx", function(d){return d.x;})
         .attr("cy", function(d){return d.y;})  
         .attr("r",10)
-        .attr('fill', "blue")
+        .attr('fill', "#dddddd")
         .on("mouseover", mouseover)
         .on("mousemove", d=>mousemove(d))
         .on("mouseout", mouseout);
 
 // create reactangles for parents
-    let rects = svg.append("g").selectAll("rect")
-        .data(parents);
+    // let rects = svg.append("g").selectAll("rect")
+    //     .data(parents);
         
-    rects.enter().append("rect")
-            .attr('class', "rect")
-            .attr("x", d =>(d.x - 78))
-            .attr("y", d =>(d.y))
-            .attr("width", 156)
-            .attr("height", 70)
-            .on("mouseover", mouseover)
-            .on("mousemove", d => mousemove(d))
-            .on("mouseout", mouseout);
+    // rects.enter().append("rect")
+    //         .attr('class', "rect")
+    //         .attr("x", d =>(d.x - 78))
+    //         .attr("y", d =>(d.y))
+    //         .attr("width", 156)
+    //         .attr("height", 70)
+    //         .attr("rx", 5)         
+    //         .attr("ry", 5)
+    //         .on("mouseover", mouseover)
+    //         .on("mousemove", d => mousemove(d))
+    //         .on("mouseout", mouseout);
 
 //step down paths
 //     let lineFunction = d3.line()
@@ -129,7 +131,7 @@ const resultsTree = (hiroData)=>{
         .data(information.descendants());
         
     names.enter().append("text")
-        .text(d=>(d.depth !== 3) ? d.data.details[0]: "")
+        .text(d=>((d.depth !== 0) && (d.depth !== 3) ) ? d.data.details[0]: "")
         // .text("text-anchor", "middle")
         .attr("x", function(d){return d.x - 40;})
         .attr("y", function(d){return d.y + 40;})
