@@ -18,7 +18,8 @@ const resultsTree = (hiroData)=>{
     //hierarchy breakdown
     let information = treeStructure(hiroData);
     let leaves = information.leaves();
-    let parents= noLeaves(information.descendants());
+    let circleData = rootLeaves(information.descendants());
+    // let parents= noLeaves(information.descendants());
 
     //test
     console.log(information.descendants());
@@ -35,11 +36,14 @@ const resultsTree = (hiroData)=>{
     }
 
     const mousemove =(data)=> {
+        let x = (d3.event.pageX)
+        let y = (d3.event.pageY)
+
         if (data.depth !== 1){
         div
             .text(function(d){return data.data.child})
-            .style("left", (d3.event.pageX - 34) + "px")
-            .style("top", (d3.event.pageY - 12) + "px")
+            .style("left", (x - 20) + "px")
+            .style("top", (y- 100) + "px")
             .style("height", "auto")
             .style("width", "auto")
             .style("background-image", "none")
@@ -83,14 +87,14 @@ const resultsTree = (hiroData)=>{
 
     // create leaf circles 
     let circles = svg.append("g").selectAll("circle")
-        .data(leaves);
+        .data(circleData);
     
       circles.enter().append("circle")
         .attr('class', 'leaves')
         .attr("cx", function(d){return d.x;})
         .attr("cy", function(d){return d.y;})  
-        .attr("r",10)
-        .attr('fill', "#dddddd")
+        .attr("r", d =>(d.depth === 0)? 4: 10)
+          .attr('fill', d => (d.depth === 0) ? "#851e3e": "#dddddd")
         .on("mouseover", mouseover)
         .on("mousemove", d=>mousemove(d))
         .on("mouseout", mouseout);
@@ -133,8 +137,11 @@ const resultsTree = (hiroData)=>{
     names.enter().append("text")
         .text(d=>((d.depth !== 0) && (d.depth !== 3) ) ? d.data.details[0]: "")
         // .text("text-anchor", "middle")
-        .attr("x", function(d){return d.x - 40;})
-        .attr("y", function(d){return d.y + 40;})
+        .attr("x", function(d){return d.x +5;})
+        .attr("y", function(d){return d.y;})
+        .on("mouseover", mouseover)
+        .on("mousemove", d => mousemove(d))
+        .on("mouseout", mouseout);
         // .attr('fill', 'black');
 
 } 
@@ -142,6 +149,12 @@ const resultsTree = (hiroData)=>{
 const noLeaves = (root)=>{
     return root.filter(obj=> {
         return (obj.depth !== 3);
+    });
+};
+
+const rootLeaves = (root)=>{
+    return root.filter(obj=>{
+        return (obj.depth === 0 || obj.depth === 3)
     });
 };
 
