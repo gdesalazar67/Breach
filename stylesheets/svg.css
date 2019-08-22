@@ -1,6 +1,8 @@
 .leaves{
-    /* stroke-width: 3px; */
-    /* stroke: black; */
+    stroke-width: 3px;
+    stroke:  #851e3e;
+    fill:  #851e3e;
+    
 }
 
 .leaves:hover{
@@ -17,15 +19,16 @@
   padding: 20px;
   margin-top: -20px;
   font: 10px sans-serif;
-  background: #ddd;
+  background: rgb(96, 160, 151);
   pointer-events: none;
   min-height: 100px;
   max-width: 300px;
   border-radius: 5px;
-  background-color: #e8);
+  /* background-color: ); */
   /* background-color: transparent; */
   background-size: contain;
-  /* border: 20px solid rgb(221, 221, 221); */
+  border: 20px solid rgb(96, 160, 151);
+  filter: drop-shadow(-21px 24px 4px #17191a);
 }
 
 .rect{

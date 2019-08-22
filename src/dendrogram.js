@@ -45,17 +45,30 @@ const resultsTree = (hiroData)=>{
         const windowWidth = svgDiv.clientWidth;
         const windowHeight = svgDiv.clientHeight;
         
-        if (data.depth !== 1){
+        if (data.depth === 2){
         div
             .text(function(d){return data.data.child})
-            .style("left", ()=> (x > windowWidth/2) ? (windowWidth/2) + "px":(windowWidth/2) + "px")
-            .style("top", (windowHeight/2) + "px")
+            .style("left", ()=> (x > windowWidth/2) ? (x - 375) + "px":(x + 50) + "px")
+            .style("top", (y - 150) + "px")
             .style("height", "auto")
             .style("width", "auto")
             .style("background-image", "none")
             .style("background-color", "#ddd")
-            .style("background-color", "");
+            .style("background-color", "")
+            .style("font-size", "12px");
+
+        }else if (data.depth === 0){
+            div
+                .text(function (d) { return data.data.child })
+                .style("left", () => (x > windowWidth / 2) ? (windowWidth / 2) + "px" : (windowWidth / 2) + "px")
+                .style("top", (windowHeight / 2) + "px")
+                .style("height", "auto")
+                .style("width", "auto")
+                .style("background-image", "none")
+                .style("background-color", "#ddd")
+                .style("background-color", "");      
         }
+
         else {
 
         div
@@ -68,8 +81,8 @@ const resultsTree = (hiroData)=>{
             .style("", "70px")
             .style("background-image", `url(${data.data.details[1]})`)
             .style("background-size", "contain")
-            .style("left", (d3.event.pageX - 34) + "px")
-            .style("top", (d3.event.pageY - 12) + "px");
+            .style("left", () => (x > windowWidth / 2) ? (x - 200) + "px" : (x + 50) + "px")
+            .style("top", (y - 150) + "px");
         }
     }
 
@@ -96,7 +109,7 @@ const resultsTree = (hiroData)=>{
     let circles = svg.append("g").selectAll("circle")
         .data(circleData);
         console.log(circleData)
-        const leafRad = (circleData.length > 50) ? 5: 10;
+        const leafRad = (circleData.length > 50) ? 5: 8;
         debugger
       circles.enter().append("circle")
         .attr('class', 'leaves')

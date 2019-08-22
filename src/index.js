@@ -50,7 +50,5 @@ searchInput.addEventListener("keydown", event=>{
             })
 
             ///////////////////////////////
-    }else{
-        console.log("Please enter email");
     }
 })
