@@ -95,12 +95,14 @@ const resultsTree = (hiroData)=>{
     // create leaf circles 
     let circles = svg.append("g").selectAll("circle")
         .data(circleData);
-    
+        console.log(circleData)
+        const leafRad = (circleData.length > 50) ? 5: 10;
+        debugger
       circles.enter().append("circle")
         .attr('class', 'leaves')
         .attr("cx", function(d){return d.x;})
         .attr("cy", function(d){return d.y;})  
-        .attr("r", d =>(d.depth === 0)? 4: 10)
+        .attr("r", d =>(d.depth === 0)? 4: leafRad)
         .attr('fill', d => (d.depth === 0) ? "#851e3e": "#dddddd")
         .on("mouseover", mouseover)
         .on("mousemove", d=>mousemove(d))
