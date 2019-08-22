@@ -14,7 +14,7 @@ const resultsTree = (hiroData)=>{
    
     svg.selectAll("*").remove();
 
-    let treeStructure = d3.tree().size([svgDiv.clientWidth, 800]);
+    let treeStructure = d3.tree().size([(svgDiv.clientWidth - 150), 800]);
     //hierarchy breakdown
     let information = treeStructure(hiroData);
     let circleData = rootLeaves(information.descendants());
@@ -141,26 +141,81 @@ const resultsTree = (hiroData)=>{
     let names = svg.append("g").selectAll("text")
         .data(information.descendants());
         console.log(sortD2(information.descendants()))
-    
-    if (sortD2(information.descendants())){    
-        let i = 0;
+    if(sortD4(information.descendants())){
+        let k = 0;
+        let step = 0;
+        console.log(step)
         names.enter().append("text")
-           .text(d=>((d.depth !== 0) && (d.depth !== 3) ) ? d.data.details[0]: "")
-           .attr("x", function(d){return d.x +5;})
-           .attr("y", function(d){ if (i%2 === 0){
-               console.log(i);
-                   i += 1;
-                    return (d.y + 50);
-                }else{
-                    i += 1;
-                    return (d.y);
+            .text(d => ((d.depth !== 0) && (d.depth !== 3)) ? d.data.details[0] : "")
+            .attr("x", function (d) { return d.x + 5; })
+            .attr("y", function (d) {
+                if (k === 2) {
+                    k += 1;
+                   return (step % 2 === 0) ? (d.y -35):(d.y - 12.5);
+                } else if (k === 1) {
+                    k += 1;
+                   return (step % 2 === 0) ? (d.y + 10) : (d.y + 32.5);
+                } else if(k === 0){
+                    k += 1;
+                   return (step % 2 === 0) ? (d.y + 55) : (d.y + 77.5);
+                }
+                else {
+                    k = 0;  
+                    step +=1;
+                    if (step % 2 !== 0){
+                        return (d.y -57.5);
+                    }
+                    return(d.y - 80) 
                 }
             })
-           .style("font-size", "20px")
-           .on("mouseover", mouseover)
-           .on("mousemove", d => mousemove(d))
-           .on("mouseout", mouseout);
-    }else{
+            .style("font-size", "18px")
+            .on("mouseover", mouseover)
+            .on("mousemove", d => mousemove(d))
+            .on("mouseout", mouseout);
+
+    }else if(sortD3(information.descendants())) {
+            let j = 0;
+            names.enter().append("text")
+                .text(d => ((d.depth !== 0) && (d.depth !== 3)) ? d.data.details[0] : "")
+                .attr("x", function (d) { return d.x + 5; })
+                .attr("y", function (d) {
+                    if (j === 0) {
+                        j += 1;
+                        return (d.y + 20);
+                    } else if (j === 1) {
+                        j += 1;
+                        return (d.y + 65);
+                    }
+                    else {
+                        j = 0;
+                        return (d.y - 30);
+                    }
+                })
+                .style("font-size", "20px")
+                .on("mouseover", mouseover)
+                .on("mousemove", d => mousemove(d))
+                .on("mouseout", mouseout);
+
+    }else if(sortD2(information.descendants())){
+            let i = 0;
+            names.enter().append("text")
+                .text(d => ((d.depth !== 0) && (d.depth !== 3)) ? d.data.details[0] : "")
+                .attr("x", function (d) { return d.x + 5; })
+                .attr("y", function (d) {
+                    if (i % 2 === 0) {
+                        i += 1;
+                        return (d.y + 20);
+                    } else {
+                        i += 1;
+                        return (d.y -30);
+                    }
+                })
+                .style("font-size", "20px")
+                .on("mouseover", mouseover)
+                .on("mousemove", d => mousemove(d))
+                .on("mouseout", mouseout);
+    }
+    else{
         names.enter().append("text")
             .text(d => ((d.depth !== 0) && (d.depth !== 3)) ? d.data.details[0] : "")
             .attr("x", function (d) { return d.x + 5; })
@@ -183,12 +238,28 @@ const rootLeaves = (root)=>{
     });
 };
 
+
 const sortD2 = (root)=>{
     let sorted = root.filter(obj=>{
         return (obj.depth === 1)
     })
 
     return (sorted.length > 4)? true: false;
+}
+const sortD3 = (root)=>{
+    let sorted = root.filter(obj=>{
+        return (obj.depth === 1)
+    })
+
+    return (sorted.length > 9)? true: false;
+}
+
+const sortD4 = (root)=>{
+    let sorted = root.filter(obj=>{
+        return (obj.depth === 1)
+    })
+
+    return (sorted.length > 15)? true: false;
 }
 
 

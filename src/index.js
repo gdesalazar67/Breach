@@ -37,10 +37,10 @@ searchInput.addEventListener("keydown", event=>{
         fetch(newUrl, { method: "GET", headers: keyHeaders })
         .then(res => res.json())
         .then(function (data) {
-            debugger
             console.log(data);
             let hiroData = Data.childParentData(email, data); 
             resultsTree(hiroData); 
+            debugger
             // searchInput.value = "Enter email";  
             })
             .catch(error => {
