@@ -4,7 +4,7 @@ const svgDiv = document.getElementById("svg")
 let svg = d3.select(svgDiv) 
     .append("svg")
     .attr("width", svgDiv.clientWidth)
-    .attr("height", 1000)// this controls the scroll needs to be bigger then the tree
+    .attr("height", 1000)// this controls the div needs to be bigger then the tree
     .append("g").attr("transform", `translate(0,50)`);
 
 
@@ -57,11 +57,12 @@ const resultsTree = (hiroData)=>{
             .style("background-color", "")
             .style("font-size", "12px");
 
-        }else if (data.depth === 0){
+        }else if (data.depth === 0 || data.depth === 3){
             div
-                .text(function (d) { return data.data.child })
-                .style("left", () => (x > windowWidth / 2) ? (windowWidth / 2) + "px" : (windowWidth / 2) + "px")
-                .style("top", (windowHeight / 2) + "px")
+                .text(function (d) { return `Leaked info: ${data.data.child}` })
+                .style("left", () => (x > windowWidth / 2) ? (x - 150) + "px" : (x) + "px")
+                // .style("left", () => (x > windowWidth / 2) ? (windowWidth / 2) + "px" : (windowWidth / 2) + "px")
+                .style("top", (y - 100) + "px")
                 .style("height", "auto")
                 .style("width", "auto")
                 .style("background-image", "none")

@@ -19,7 +19,7 @@
   font: 10px sans-serif;
   background: rgb(96, 160, 151);
   pointer-events: none;
-  min-height: 100px;
+  /* min-height: 100px; */
   max-width: 300px;
   border-radius: 5px;
   background-size: contain;
