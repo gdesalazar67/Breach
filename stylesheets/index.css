@@ -20,6 +20,7 @@ time, mark, audio, video {
 }
 a{
     text-decoration: none;
+     color: #809cb0;
 }
 
 html{
@@ -130,13 +131,21 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: lightcoral; */
     overflow: auto;
 }
+
 footer{
     position: absolute;
     display: block;
     bottom: 0%;
-    /* background-color: teal; */
+    align-content: left;
+    width: 100%;
+    margin-left: 30px;
+    margin-bottom: 11px;
+    color: #809cb0;
 }
 
+main{
+    position: relative;
+
+}
