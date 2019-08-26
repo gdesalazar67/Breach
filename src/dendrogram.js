@@ -121,37 +121,7 @@ const resultsTree = (hiroData)=>{
         .on("mousemove", d=>mousemove(d))
         .on("mouseout", mouseout);
 
-// create reactangles for parents
-    // let rects = svg.append("g").selectAll("rect")
-    //     .data(parents);
-        
-    // rects.enter().append("rect")
-    //         .attr('class', "rect")
-    //         .attr("x", d =>(d.x - 78))
-    //         .attr("y", d =>(d.y))
-    //         .attr("width", 156)
-    //         .attr("height", 70)
-    //         .attr("rx", 5)         
-    //         .attr("ry", 5)
-    //         .on("mouseover", mouseover)
-    //         .on("mousemove", d => mousemove(d))
-    //         .on("mouseout", mouseout);
 
-//step down paths
-//     let lineFunction = d3.line()
-//         .x(function (d) { return d.source.x; })
-//         .y(function (d) { return d.source.y; })
-//         .curve(d3.curveStep);
-
-//     let pathData = lineFunction(information.links())
-//     debugger
-//    let connections =svg.append("g").selectAll("path")   
-//     connections.enter().append("path")
-//         .attr("d", pathData)
-//         .attr("stroke", "blue")
-//         .attr("stroke-width", 2)
-//         .attr("fill", "none");
-//   
 ///append text to tree nodes
     let names = svg.append("g").selectAll("text")
         .data(information.descendants());

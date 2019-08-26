@@ -14,8 +14,6 @@
 .tooltip {
   position: absolute;
   text-align: center;
-  /* width: 60px; */
-  /* height: 12px; */
   padding: 20px;
   margin-top: -20px;
   font: 10px sans-serif;
@@ -24,8 +22,6 @@
   min-height: 100px;
   max-width: 300px;
   border-radius: 5px;
-  /* background-color: ); */
-  /* background-color: transparent; */
   background-size: contain;
   border: 20px solid rgb(96, 160, 151);
   filter: drop-shadow(-21px 24px 4px #17191a);
@@ -33,7 +29,6 @@
 
 .rect{
   fill: #eeeeee;
-  /* stroke: cornflowerblue; */
   stroke-width: 2px;
   position: relative;
   border-radius: 5px;

@@ -1,7 +1,12 @@
 // overview of code structure inspired by catena developed by clericl github
 //cors-anywhere used https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141
 import * as Data from "./seed_data";
-// import {resultsTree} from "./dendrogram";
+
+//on refresh scroll to top of page 
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
+
 
 const searchInput = document.querySelector("#email")
 
