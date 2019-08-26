@@ -45,7 +45,7 @@ searchInput.addEventListener("keydown", event=>{
             console.log(data);
             let hiroData = Data.childParentData(email, data); 
             resultsTree(hiroData); 
-            debugger
+            
             })
             .catch(error => {
                 alert('Lucky you! Your email is safe for now')

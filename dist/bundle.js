@@ -129,13 +129,13 @@ searchInput.addEventListener("keydown", function (event) {
         //////////////////////////////////
         var hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
         var keyHeaders = new Headers();
-        debugger;
+        ;
         keyHeaders.append('Hibp-Api-Key', hibpApiKey);
 
         fetch(newUrl, { method: "GET", headers: keyHeaders }).then(function (res) {
             return res.json();
         }).then(function (data) {
-            debugger;
+            ;
             console.log(data);
             var hiroData = Data.childParentData(email, data);
             resultsTree(hiroData);
@@ -188,7 +188,7 @@ var childParentData = exports.childParentData = function childParentData(email, 
     data.map(function (breach) {
         array.push(childParentObject(breach["Title"], email, breach["LogoPath"]));
         array.push(childParentObject(breach["Description"], breach["Title"]));
-        debugger;
+        ;
         breach["DataClasses"].map(function (type) {
             array.push(childParentObject(type, breach["Description"]));
         });

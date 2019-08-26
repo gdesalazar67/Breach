@@ -111,7 +111,7 @@ const resultsTree = (hiroData)=>{
         .data(circleData);
         console.log(circleData)
         const leafRad = (circleData.length > 50) ? 5: 8;
-        debugger
+        
       circles.enter().append("circle")
         .attr('class', 'leaves')
         .attr("cx", function(d){return d.x;})
