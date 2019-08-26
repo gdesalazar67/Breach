@@ -47,6 +47,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     right: 0;
+    position: relative;
     
    
    
@@ -60,10 +61,7 @@ body{
     padding-top: 13px;
     padding-left: 36px;
 }
-.title-description-container{
-    /* background-color: burlywood; */
-    
-}
+
 
 .title{
     color: rgb(2, 0, 0);
@@ -129,7 +127,7 @@ footer{
 
 main{
     position: relative;
-
+  
 }
 
 .icon{
@@ -140,3 +138,4 @@ main{
 .icon-container{
  margin-left: 10px;
 }
+

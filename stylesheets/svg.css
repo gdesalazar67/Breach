@@ -19,12 +19,12 @@
   font: 10px sans-serif;
   background: rgb(96, 160, 151);
   pointer-events: none;
-  /* min-height: 100px; */
   max-width: 300px;
   border-radius: 5px;
   background-size: contain;
   border: 20px solid rgb(96, 160, 151);
   filter: drop-shadow(-21px 24px 4px #17191a);
+  word-break: break-all;
 }
 
 .rect{
@@ -32,6 +32,7 @@
   stroke-width: 2px;
   position: relative;
   border-radius: 5px;
+ 
 
 }
 
@@ -41,5 +42,6 @@ path{
 text{
   font-family: 'Bungee Shade', cursive;
   font-size: 29px;
+  
 
 }
