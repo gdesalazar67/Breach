@@ -139,3 +139,31 @@ main{
  margin-left: 10px;
 }
 
+
+.intro-container{
+    position: relative;
+    display: block;
+    width: 100%;
+    align-content: center;
+}
+.text-container{
+    /* position: absolute; */
+  width: 30%;
+    /* margin: auto; */
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text-title{
+    text-align: center;
+    color: rgb(2, 0, 0);
+    font-family: 'Bungee Shade', cursive;
+    text-shadow: -5px 3px 4px #52585cb8;
+    font-size: 45px;
+}
+.intro-text{
+    word-break: break-all;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
