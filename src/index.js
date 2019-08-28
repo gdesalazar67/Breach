@@ -35,6 +35,9 @@ searchInput.addEventListener("keydown", event=>{
         // resultsTree(hiroData);
 
         //////////////////////////////////
+        let intro = document.getElementById("intro");
+            intro.style.display = "none"
+
         const hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
         let keyHeaders = new Headers();
         keyHeaders.append('Hibp-Api-Key', hibpApiKey)
@@ -44,6 +47,7 @@ searchInput.addEventListener("keydown", event=>{
         .then(function (data) {
             console.log(data);
             let hiroData = Data.childParentData(email, data); 
+            
             resultsTree(hiroData); 
             
             })
