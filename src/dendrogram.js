@@ -55,7 +55,7 @@ const resultsTree = (hiroData)=>{
             .style("background-image", "none")
             .style("background-color", "#ddd")
             .style("background-color", "")
-            .style("font-size", "12px");
+            .style("font-size", "16px");
 
         }else if (data.depth === 0 || data.depth === 3){
             div

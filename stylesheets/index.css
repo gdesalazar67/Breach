@@ -192,4 +192,11 @@ main{
 
 #no-breach{
     display: none;
+
+}
+#no-breach-txt{
+    font-size: 22px;
+}
+#no-breach-text{
+    
 }

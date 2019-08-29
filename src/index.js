@@ -57,7 +57,7 @@ searchInput.addEventListener("keydown", event=>{
             
             })
             .catch(error => {
-               
+                svg.selectAll("*").remove();
                 noBreach.style.display = "block";
                 searchInput.value = "Enter email"; 
             })
