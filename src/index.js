@@ -30,6 +30,13 @@ searchInput.addEventListener("keydown", event=>{
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
 
+        //hide intro and no-breach
+        let intro = document.getElementById("intro");
+        intro.style.display = "none";
+
+        let noBreach = document.getElementById("no-breach");
+            noBreach.style.display = "none";
+
         ///////////////////for testing only 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
@@ -45,16 +52,14 @@ searchInput.addEventListener("keydown", event=>{
         .then(function (data) {
             console.log(data);
             let hiroData = Data.childParentData(email, data); 
-            let intro = document.getElementById("intro");
-            intro.style.display = "none";
-
+        
             resultsTree(hiroData); 
             
             })
             .catch(error => {
-                alert('Lucky you! Your email is safe for now')
+               
+                noBreach.style.display = "block";
                 searchInput.value = "Enter email"; 
-                console.log(error)
             })
 
             ///////////////////////////////
