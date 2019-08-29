@@ -117,7 +117,7 @@ body{
 footer{
     position: absolute;
     display: block;
-    bottom: 0%;
+    bottom: 5%;
     align-content: left;
     width: 100%;
     margin-left: 30px;
@@ -147,13 +147,13 @@ main{
     align-content: center;
 }
 .text-container{
-    /* position: absolute; */
-  width: 30%;
-    /* margin: auto; */
+  /* width: 20%; */
   position: fixed;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 420px;
+  min-width: 400px;
   
   border: 2px solid #851e3e;
   border-radius: 5px;
@@ -165,11 +165,11 @@ main{
     text-align: center;
     color: rgb(2, 0, 0);
     font-family: 'Bungee Shade', cursive;
-    text-shadow: -5px 3px 4px #52585cb8;
-    font-size: 45px;
+    
+    font-size: 52px;
     border-bottom: 2px solid #851e3e;
     padding-bottom: 10px;
-    /* filter: drop-shadow(none); */
+    
 }
 .intro-text{
     /* word-break: break-all; */
