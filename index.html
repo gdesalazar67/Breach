@@ -20,7 +20,7 @@
                     </a>
                         <p class="description">Has your info been leaked?</p>
                 </div>                  
-                    <input class="search" type="text" id="email" value="...Enter email..." onfocus="this.value=''"/>
+                    <input class="search" type="text" id="email" value="...Enter email..." onblur="if(this.value == ''){this.value='...Enter email...'}" onfocus="this.value=''"/>
             </div>
            <div class="link-container">
                <div class="icon-container">
