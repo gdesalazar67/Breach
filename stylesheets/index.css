@@ -151,7 +151,7 @@ main{
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 500px;
+  max-width: 475px;
   min-width: 400px;
   
   border: 2px solid #851e3e;
@@ -179,7 +179,7 @@ main{
     padding-bottom: 10px;
     border-bottom: 2px solid #851e3e;
     line-height: 1.25em;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .enter-email{
