@@ -18,7 +18,7 @@ const resultsTree = (hiroData)=>{
     //hierarchy breakdown
     let information = treeStructure(hiroData);
     let circleData = rootLeaves(information.descendants());
-    console.log(information.descendants());
+
     // append div to svg for popup window 
     let div = d3.select(svgDiv).append("div")
     .attr("class", "tooltip")
