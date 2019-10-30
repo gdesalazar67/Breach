@@ -54,7 +54,6 @@ searchInput.addEventListener("keydown", event=>{
             //extract data needed 
             let hiroData = Data.childParentData(email, data); 
             //sent data to tree building function
-            console.log(hiroData);
             resultsTree(hiroData);            
             })
             .catch(error => {
