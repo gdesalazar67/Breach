@@ -7,10 +7,10 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 
-
+//select tag with id email
 const searchInput = document.querySelector("#email")
 
-
+// validate email
 const ValidateEmail = (email) =>{
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)) {
         return true
@@ -19,9 +19,10 @@ const ValidateEmail = (email) =>{
     return false
 };
 
-
+//Event listener on #email tag for keydown on enter;
 searchInput.addEventListener("keydown", event=>{
     let email = searchInput.value;
+    //send request to cors-anywhere to satisfy CORS header restrictions with/out buiding back end
     let newUrl = 'https://cors-anywhere.herokuapp.com/https://haveibeenpwned.com/api/v3/breachedaccount/';
    
     if (event.key === "Enter" && ValidateEmail(email)){
@@ -40,9 +41,9 @@ searchInput.addEventListener("keydown", event=>{
         ///////////////////for testing only 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
-
-        //////////////////////////////////
+        ///////////////////
        
+        //create header for fetch request 
         const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
         let keyHeaders = new Headers();
         keyHeaders.append('Hibp-Api-Key', hibpApiKey)
@@ -50,18 +51,16 @@ searchInput.addEventListener("keydown", event=>{
         fetch(newUrl, { method: "GET", headers: keyHeaders })
         .then(res => res.json())
         .then(function (data) {
-            console.log(data);
+            //extract data needed 
             let hiroData = Data.childParentData(email, data); 
-        
-            resultsTree(hiroData); 
-            
+            //sent data to tree building function
+            console.log(hiroData);
+            resultsTree(hiroData);            
             })
             .catch(error => {
                 svg.selectAll("*").remove();
                 noBreach.style.display = "block";
                 searchInput.value = "Enter email"; 
-            })
-
-            ///////////////////////////////
-    }
-})
+            });
+    };
+});
