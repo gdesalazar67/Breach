@@ -43,7 +43,7 @@ searchInput.addEventListener("keydown", event=>{
 
         //////////////////////////////////
        
-        const hibpApiKey = '03a794521329432bad12af5f5bc6db3e';
+        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
         let keyHeaders = new Headers();
         keyHeaders.append('Hibp-Api-Key', hibpApiKey)
         
