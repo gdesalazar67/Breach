@@ -18,3 +18,42 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+.logo-navburger-container {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    /* background-color: aqua; */
+}
+
+/* .logo-navburger-container-inner {
+    background-color: aqua;
+    
+} */
+
+.logotext-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: coral; */
+
+}
+
+.logo-container{
+    height: 32px;
+    width: 32px;
+    /* background-color: aliceblue; */
+}
+
+div.okaytext {
+    /* background-color: aliceblue; */
+    padding-bottom: 2px;
+    margin-left: 2px;
+    font-family: Lato;
+    font-size: 28px;  
+    font-weight: 900;
+    color: hsl(212, 51%, 39%);
+    text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
+}
+
