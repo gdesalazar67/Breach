@@ -89,37 +89,54 @@ div.okaytext {
 }
 
 
-
-@media screen and (max-width: 600px) {
-  .topnav.topnav.responsive{
-      padding-top: 0;
-      width: 100vw;
-  }
-  .topnav.responsive a {
+#myTopnav {
+    padding-top: 0;
+}
+.topnav.responsive a {
     display: block;
     text-align: center;
     font-family: Lato;
     color: #ffffff;
-    /* text-shadow: 1px 1px 1px hsl(211, 92%, 66%); */
     font-weight: 900;
     padding: 2rem;
     font-size: 1.4rem;
-  }
+}
 
-  .topnav.responsive a:hover {
-      color: #343642;
-      background-color: white;
-  }
-  .github {
-      background-color: rgb(89, 166, 248);
-  }
-  .linkedin {
-      background-color: #5f6270;
-  }
-  .port {
-      background-color: #bbbec7;
-  }
+.topnav.responsive a:hover {
+    color: #343642;
+    background-color: white;
+}
+.github {
+    background-color: rgb(89, 166, 248);
+}
+.linkedin {
+    background-color: #5f6270;
+}
+.port {
+    background-color: #bbbec7;
+}
 
+@media screen and (min-width: 770px){
+    .logo-navburger-container-inner {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;  
+    }
+}
+
+@media screen and (min-width: 1156px) { 
+    .logo-navburger-container-inner {
+    padding-top: .25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;  
+    }
+    .content-container {
+        display: flex;
+        justify-content: center;
+    }
+    .logo-navburger-container {
+        max-width: 72rem;
+    }
+  }
 /* /////////topNav/////////////// */
 
 
