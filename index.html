@@ -26,15 +26,19 @@
                         <div class="okaytext">Breach</div>
                     </div>
                 </a>
-                <div class="topnav" id="myTopnav">
-                    <a href="https://github.com/gdesalazar67/Breach">GitHub</a>
+                <div class="topnav" >
+                    <a href="javascript:void(0);" class="icon" onclick="topNavIconToggle()">&#9776;</a>
+                    <!-- <a href="https://github.com/gdesalazar67/Breach">GitHub</a>
                     <a href="https://linkedin.com/in/galo-desalazar-44092b41">Linkedin</a>
-                    <a href="https://gdesalazar67.github.io/gdesalazar67/">Portfolio</a>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                    <a href="https://gdesalazar67.github.io/gdesalazar67/">Portfolio</a> -->
                 </div>
-
+                
             </div>
-
+            <div class="topnav" id="myTopnav">
+                    <a href="https://github.com/gdesalazar67/Breach" class="github">GitHub</a>
+                    <a href="https://linkedin.com/in/galo-desalazar-44092b41" class="linkedin">Linkedin</a>
+                    <a href="https://gdesalazar67.github.io/gdesalazar67/" class="port">Portfolio</a>
+            </div>
 
                            
                     <!-- <input class="search" type="text" id="email" value="...Enter email..." onblur="if(this.value == ''){this.value='...Enter email...'}" onfocus="this.value=''"/> -->
@@ -67,6 +71,16 @@
             </footer> -->
         </main>
 </body>
+    <script>
+        function topNavIconToggle() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            };
+    </script>
     <script src="dist/bundle.js"></script>
     <!-- <script src="src/index.js"></script> -->
     <script src="src/dendrogram.js"></script> 

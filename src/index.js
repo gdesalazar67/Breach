@@ -2,10 +2,20 @@
 //cors-anywhere used https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141
 import * as Data from "./seed_data";
 
+// export const myFunction = () => {
+//     var x = document.getElementById("myTopnav");
+//     if (x.className === "topnav") {
+//         x.className += " responsive";
+//     } else {
+//         x.className = "topnav";
+//     }
+// };
+
+
 //on refresh scroll to top of page 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-}
+};
 
 //select tag with id email
 const searchInput = document.querySelector("#email")
