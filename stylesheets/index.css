@@ -19,6 +19,11 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* header */
 .logo-navburger-container {
     position: relative;
     top: 0;
@@ -26,11 +31,19 @@ time, mark, audio, video {
     /* background-color: aqua; */
 }
 
-/* .logo-navburger-container-inner {
-    background-color: aqua;
+.logo-navburger-container-inner {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
     
-} */
+}
 
+
+
+
+/* logo and text */
 .logotext-container{
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -57,4 +70,26 @@ div.okaytext {
     color: hsl(212, 51%, 39%);
     text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
 }
+/* /////////logo and text//////// */
+/* topNav */
+.topnav{
+    padding-top: 1.53rem;
+}
+.topnav a{
+    display: none;
+}
 
+.topnav a.icon{
+    display: block;
+    font-size: 35px;
+    font-family: Lato;
+    color: hsl(212, 51%, 39%);
+    text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
+    font-weight: 900;
+}
+
+
+/* /////////topNav/////////////// */
+
+
+/* //////////header///////////////*/
