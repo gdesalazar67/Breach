@@ -19,6 +19,8 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+* {-webkit-font-smoothing: antialiased;}
+
 a {
     text-decoration: none;
 }
@@ -66,7 +68,7 @@ div.okaytext {
     margin-left: 2px;
     font-family: Lato;
     font-size: 28px;  
-    font-weight: 900;
+    font-weight: 700;
     color: hsl(212, 51%, 39%);
     text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
 }
@@ -85,7 +87,7 @@ div.okaytext {
     font-family: Lato;
     color: hsl(212, 51%, 39%);
     text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
-    font-weight: 900;
+    font-weight: 700;
 }
 
 
@@ -138,6 +140,37 @@ div.okaytext {
     }
   }
 /* /////////topNav/////////////// */
-
-
 /* //////////header///////////////*/
+/* main banner */
+.main-banner-container {
+    /* display: flex;
+    justify-content: center; */
+    background: rgb(49, 96, 150);
+    width: 100%;
+    height: 414px;
+}
+.main-banner-text-searchbar-container{
+    height: 100%;
+    width: 100%;
+}
+.main-banner-compromisedtext{
+    padding-top: 4.5rem;
+    font-size: 37px;
+    line-height: 44px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    font-family: Lato;
+    font-weight: 300;
+    text-align: center;
+}
+.main-banner-enteremail{
+    padding-top: 5px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-family: Lato;
+    text-align: center;
+}
+
+/* //////////main banner///////////////*/
