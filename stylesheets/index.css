@@ -105,7 +105,7 @@ div.okaytext {
     font-size: 1.4rem;
 }
 
-.topnav.responsive a:hover {
+.topnav.responsive a:hover{
     color: #343642;
     background-color: white;
 }
@@ -214,6 +214,12 @@ div.okaytext {
     font-weight: 700;
     letter-spacing: .01em;
     /* box-shadow: 2px 2px #343642; */
+}
+.searchbar-container .button:hover{
+  /* color: #343642;
+ background-color: white; */
+   color: white;
+  background-color: rgb(89, 166, 248);
 }
 .searchbar-or-outline{
     margin-top: 13px;
