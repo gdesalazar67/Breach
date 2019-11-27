@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
     <link rel="manifest" href="media/site.webmanifest">
+
 </head>
 <body>
     <main class="content-container">
@@ -41,7 +42,6 @@
             </div>
 
                            
-                    <!-- <input class="search" type="text" id="email" value="...Enter email..." onblur="if(this.value == ''){this.value='...Enter email...'}" onfocus="this.value=''"/> -->
             
            <!-- <div class="link-container">
                <div class="icon-container">
@@ -70,15 +70,21 @@
                 <div class="main-banner-enteremail">
                     Enter your email address below to find out if you have been compromised.
                 </div>
+                <div class='searchbar-container'>
+                    
+                        <input class="search" type="text" id="email" value="Enter email here..." onfocus="this.value=''"/>
+                        <input class="button" type="button" value="Have I Been Compromised?" onclick="formSubmit()">
+                        <input class="button" type="button" value="Try Our Demo Email" onclick="formSubmit()">
+                </div>
             </div>
         </div>
 
-            <!-- <div class="canvas" id="svg"> </div>
-            <footer>
+             <!-- <div class="canvas" id="svg"> </div>  -->
+            <!-- <footer>
                 source: <a href="https://haveibeenpwned.com/API/v3"> HaveIbeenpawned.com  </a>
                 <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
                         href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </footer> -->
+            </footer> --> 
         </main>
 </body>
     <script>
@@ -91,7 +97,9 @@
                 }
             };
     </script>
+
     <script src="dist/bundle.js"></script>
-    <!-- <script src="src/index.js"></script> -->
+    <script type="text/javascript" src="./src/index.js"></script>
     <script src="src/dendrogram.js"></script> 
+
 </html>

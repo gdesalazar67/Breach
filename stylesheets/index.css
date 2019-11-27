@@ -92,6 +92,9 @@ div.okaytext {
 
 
 #myTopnav {
+    position: absolute;
+    width: 100%;
+    top: 100px;
     padding-top: 0;
 }
 .topnav.responsive a {
@@ -165,6 +168,8 @@ div.okaytext {
 }
 .main-banner-enteremail{
     padding-top: 5px;
+    padding-right: .75rem;
+    padding-left: .75rem;
     font-size: 18px;
     line-height: 25px;
     font-weight: bold;

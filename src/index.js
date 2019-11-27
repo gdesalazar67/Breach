@@ -1,15 +1,6 @@
 // overview of code structure inspired by catena developed by clericl github
 //cors-anywhere used https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141
-import * as Data from "./seed_data";
-
-// export const myFunction = () => {
-//     var x = document.getElementById("myTopnav");
-//     if (x.className === "topnav") {
-//         x.className += " responsive";
-//     } else {
-//         x.className = "topnav";
-//     }
-// };
+// import * as Data from "./seed_data";
 
 
 //on refresh scroll to top of page 
@@ -41,13 +32,7 @@ searchInput.addEventListener("keydown", event=>{
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
 
-        //hide intro and no-breach
-        let intro = document.getElementById("intro");
-        intro.style.display = "none";
-
-        let noBreach = document.getElementById("no-breach");
-            noBreach.style.display = "none";
-
+        
         ///////////////////for testing only 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
@@ -73,3 +58,41 @@ searchInput.addEventListener("keydown", event=>{
             });
     };
 });
+
+const formSubmit = ()=>{
+    console.log("hello")
+    let email = searchInput.value;
+    //send request to cors-anywhere to satisfy CORS header restrictions with/out buiding back end
+    let newUrl = 'https://cors-anywhere.herokuapp.com/https://haveibeenpwned.com/api/v3/breachedaccount/';
+
+    if (ValidateEmail(email)) {
+        email = searchInput.value;
+        email = email.replace(/\s/g, '');
+        newUrl += email + "?truncateResponse=false";
+
+
+        ///////////////////for testing only 
+        // let hiroData = Data.childParentData(email, Data.data);
+        // resultsTree(hiroData);
+        ///////////////////
+
+        //create header for fetch request 
+        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
+        let keyHeaders = new Headers();
+        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
+
+        fetch(newUrl, { method: "GET", headers: keyHeaders })
+            .then(res => res.json())
+            .then(function (data) {
+                //extract data needed 
+                let hiroData = Data.childParentData(email, data);
+                //sent data to tree building function
+                resultsTree(hiroData);
+            })
+            .catch(error => {
+                svg.selectAll("*").remove();
+                noBreach.style.display = "block";
+                searchInput.value = "Enter email";
+            });
+    };
+};
