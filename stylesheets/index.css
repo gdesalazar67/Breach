@@ -16,7 +16,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+    vertical-align: baseline;
+    font-family: Lato;
 }
 
 * {-webkit-font-smoothing: antialiased;}
@@ -66,7 +67,6 @@ div.okaytext {
     /* background-color: aliceblue; */
     padding-bottom: 2px;
     margin-left: 2px;
-    font-family: Lato;
     font-size: 28px;  
     font-weight: 700;
     color: hsl(212, 51%, 39%);
@@ -84,7 +84,6 @@ div.okaytext {
 .topnav a.icon{
     display: block;
     font-size: 35px;
-    font-family: Lato;
     color: hsl(212, 51%, 39%);
     text-shadow: 1px 1px 1px hsl(211, 92%, 66%);
     font-weight: 700;
@@ -100,7 +99,6 @@ div.okaytext {
 .topnav.responsive a {
     display: block;
     text-align: center;
-    font-family: Lato;
     color: #ffffff;
     font-weight: 900;
     padding: 2rem;
@@ -162,7 +160,6 @@ div.okaytext {
     line-height: 44px;
     color: rgb(255, 255, 255);
     letter-spacing: 2px;
-    font-family: Lato;
     font-weight: 300;
     text-align: center;
 }
@@ -174,7 +171,6 @@ div.okaytext {
     line-height: 25px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    font-family: Lato;
     text-align: center;
 }
 .searchbar-container{
@@ -183,11 +179,10 @@ div.okaytext {
     justify-content: center;
     padding-left: 2.25rem;
     padding-right: 2.25rem;
-    padding-top: 2.5rem;
+    padding-top: 2rem;
 }
 .searchbar-notsaved{
     font-size: 9px;
-    font-family: Lato;
     text-align: start;
     color: rgb(255, 255, 255);
     padding-left: .88rem;
@@ -207,6 +202,36 @@ div.okaytext {
     padding-left: .75rem;
     color: #767676;
     outline: none;
+    margin-bottom: 2px;
+}
+
+.searchbar-container .button{
+    background-color: rgb(49, 83, 124);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: .75rem;
+    margin-top: 5px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    /* box-shadow: 2px 2px #343642; */
+}
+.searchbar-or-outline{
+    margin-top: 13px;
+    border-top-style: solid;
+    border-width: thin;
+    border-color: #bbbec78f;
+    display: flex;
+    justify-content: center;
+}
+.searchbar-or{
+    text-align: center;
+    width: 25px;
+    font-size: 11px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.01em;
+    background-color: rgb(49, 96, 150);
+    margin-top:-9px;
+    /* margin-top: 5px; */
 }
 
 /* //////////main banner///////////////*/
