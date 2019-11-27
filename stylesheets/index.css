@@ -22,6 +22,10 @@ time, mark, audio, video {
 
 * {-webkit-font-smoothing: antialiased;}
 
+body{
+    min-width: 375px;
+}
+
 a {
     text-decoration: none;
 }
@@ -180,6 +184,8 @@ div.okaytext {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
     padding-top: 2rem;
+    max-width: 425px;
+    margin: auto;
 }
 .searchbar-notsaved{
     font-size: 9px;
@@ -191,16 +197,12 @@ div.okaytext {
 }
 .searchbar-container .search{
     font-family: Lato;
-    border: .125rem solid rgb(62, 97, 137);
     font-size: 11px;
     font-weight: 400;
-    border-width: 2px;
-    border-style: solid;
     letter-spacing: .01em;
     -webkit-font-smoothing: antialiased;
     padding: .5rem;
     padding-left: .75rem;
-    color: #767676;
     outline: none;
     margin-bottom: 2px;
 }
@@ -238,7 +240,18 @@ div.okaytext {
     letter-spacing: 0.01em;
     background-color: rgb(49, 96, 150);
     margin-top:-9px;
-    /* margin-top: 5px; */
 }
+
+/* main banner responsive */
+@media screen and (min-width:  450px){
+    .main-banner-enteremail{
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+    }
+}
+@media screen and (min-width:  630px){
+    
+}
+/* ///////////main banner responive///// */
 
 /* //////////main banner///////////////*/
