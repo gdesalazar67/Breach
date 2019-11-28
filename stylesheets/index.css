@@ -166,6 +166,9 @@ div.okaytext {
     letter-spacing: 2px;
     font-weight: 300;
     text-align: center;
+    max-width: 630PX;
+    margin: auto;
+
 }
 .main-banner-enteremail{
     padding-top: 5px;
@@ -176,6 +179,8 @@ div.okaytext {
     font-weight: bold;
     color: rgb(255, 255, 255);
     text-align: center;
+    max-width: 550px;
+    margin: auto;
 }
 .searchbar-container{
     display: flex;
@@ -249,7 +254,7 @@ div.okaytext {
         padding-right: 1.75rem;
     }
 }
-@media screen and (min-width:  630px){
+@media screen and (min-width:  765px){
     
 }
 /* ///////////main banner responive///// */
