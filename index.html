@@ -64,7 +64,7 @@
         </header>
         <div class="main-banner-container">
             <div class="main-banner-text-searchbar-container">
-                <div class="main-banner-compromisedtext">
+                <div class="main-banner-compromisedtext" id="compromised">
                     HAVE YOU BEEN COMPROMISED?
                 </div>
                 <div class="main-banner-enteremail">
@@ -90,6 +90,25 @@
             </footer> --> 
         </main>
 </body>
+    <script>
+        
+        function windowSize(){
+            let w = window.innerWidth;
+            let MainBannerText = document.getElementById("compromised");
+            if (w >= 575) {
+                MainBannerText.innerHTML = "HAS YOUR ONLINE IDENTITY BEEN COMPROMISED?";
+            } else {
+                MainBannerText.innerHTML = "HAVE YOU BEEN COMPROMISED?";
+            };
+        };
+
+        windowSize();
+        
+        window.addEventListener("resize", ()=>{
+            windowSize()
+        });
+
+    </script>
     <script>
         function topNavIconToggle() {
                 var x = document.getElementById("myTopnav");

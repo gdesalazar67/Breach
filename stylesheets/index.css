@@ -128,20 +128,35 @@ div.okaytext {
     padding-left: 2.25rem;
     padding-right: 2.25rem;  
     }
+     #myTopnav{
+        right: 0;
+        width: 40%;
+        margin-left: 2rem;
+        margin-right: 2.25rem;
+    };
+   
 }
 
-@media screen and (min-width: 1156px) { 
+@media screen and (min-width: 1150px) { 
     .logo-navburger-container-inner {
     padding-top: .25rem;
     padding-left: 2rem;
     padding-right: 2rem;  
     }
-    .content-container {
+    #myTopnav{
+        top: 104px;
+        right: 2.25rem;
+        width: 253px;
+        margin-right: 0;
+        /* padding-right: 2rem; */
+    }
+    /* .content-container {
         display: flex;
         justify-content: center;
-    }
+    } */
     .logo-navburger-container {
         max-width: 72rem;
+        margin: auto;
     }
   }
 /* /////////topNav/////////////// */
@@ -254,8 +269,12 @@ div.okaytext {
         padding-right: 1.75rem;
     }
 }
-@media screen and (min-width:  765px){
-    
+@media screen and (min-width:  1155px){
+    .content-container {
+        display: flex;
+         flex-direction: column;
+         justify-content: center; 
+    }
 }
 /* ///////////main banner responive///// */
 
