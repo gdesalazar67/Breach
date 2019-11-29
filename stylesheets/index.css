@@ -280,5 +280,59 @@ div.okaytext {
     }
 }
 /* ///////////main banner responive///// */
-
 /* //////////main banner///////////////*/
+/* How it Works */
+.how-it-works-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.how-it-works-text{
+    padding-top: 60px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    /* font-size: 37px;
+    font-weight: 400; */
+    line-height: 44px;
+    color: rgb(49, 96, 150);
+    letter-spacing: 2px;
+}
+.how-it-works-icons-container{
+
+}
+.how-it-works-icons-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 216px;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+.how-it-works-icons-text img{
+    width: 90px;
+    height: 90px;
+}
+.how-it-works-sub-text{
+ text-align: center;
+ margin-top: 15px;
+ margin-bottom: 10px;
+ font-size: 16px;
+ color: #727888;
+ letter-spacing: 1.25px;
+
+}
+.how-it-works-sub-text a{
+    color: hsl(211, 92%, 66%);
+}
+.how-it-works-sub-text a:hover{
+    color: darkgray;
+}
+
+
+
+
+/* /////////How it Works/////////// */
