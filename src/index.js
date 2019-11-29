@@ -3,6 +3,38 @@
 // import * as Data from "./seed_data";
 
 
+///watch window size////
+function windowSize() {
+    let w = window.innerWidth;
+    let MainBannerText = document.getElementById("compromised");
+    if (w >= 575) {
+        MainBannerText.innerHTML = "HAS YOUR ONLINE IDENTITY BEEN COMPROMISED?";
+    } else {
+        MainBannerText.innerHTML = "HAVE YOU BEEN COMPROMISED?";
+    };
+};
+
+windowSize();
+
+window.addEventListener("resize", () => {
+    windowSize()
+});
+
+/////
+
+///dropdown toggle///
+function topNavIconToggle() {
+    var x = document.getElementById("idTopNav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+};
+/////
+
+
+
 //on refresh scroll to top of page 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);

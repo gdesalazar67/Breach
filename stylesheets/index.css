@@ -94,7 +94,7 @@ div.okaytext {
 }
 
 
-#myTopnav {
+#idTopNav {
     position: absolute;
     width: 100%;
     top: 100px;
@@ -129,7 +129,7 @@ div.okaytext {
     padding-right: 2.25rem; 
  
     }
-     #myTopnav{
+     #idTopNav{
         right: 0;
         width: 40%;
         margin-left: 2rem;
@@ -146,7 +146,7 @@ div.okaytext {
     padding-left: 2rem;
     padding-right: 2rem;  
     }
-    #myTopnav{
+    #idTopNav{
         top: 104px;
         right: 2.25rem;
         width: 253px;
