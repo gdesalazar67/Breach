@@ -308,9 +308,15 @@ div.okaytext {
     align-items: center;
     width: 216px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 30px;
 
 }
+#arrow::after{
+    content: " ";
+    background: url("/media/down-arrow\ \(1\).png");
+    height: 24px;
+    width: 24px;
+} 
 
 .how-it-works-icons-text img{
     width: 90px;
@@ -319,7 +325,7 @@ div.okaytext {
 .how-it-works-sub-text{
  text-align: center;
  margin-top: 15px;
- margin-bottom: 10px;
+ margin-bottom: 30px;
  font-size: 16px;
  color: #727888;
  letter-spacing: 1.25px;
