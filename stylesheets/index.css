@@ -286,6 +286,7 @@ div.okaytext {
     display: flex;
     flex-direction: column;
     margin: auto;
+    width: 100%;
 }
 .how-it-works-text{
     padding-top: 60px;
@@ -299,14 +300,12 @@ div.okaytext {
     color: rgb(49, 96, 150);
     letter-spacing: 2px;
 }
-.how-it-works-icons-container{
 
-}
 .how-it-works-icons-text{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 216px;
+    width: 180px;
     margin: auto;
     margin-top: 30px;
 
@@ -337,7 +336,62 @@ div.okaytext {
 .how-it-works-sub-text a:hover{
     color: darkgray;
 }
+/* how it works resoponsive */
+/* need to figure out ::after
+@media screen and (min-width: 1126px){
+    #arrow{
+        background: darkgreen;
+    } 
+       #arrow::after {
+         content: none;
+    }
+} */
+@media screen and (min-width: 900px){
+    .how-it-works-container{
+        height: 414px;
+        align-items: center;
+    }
+    .how-it-works-text{
+        padding-top: 62px;
+        font-size: 40px;
+        font-weight: 400;
+    }
+    .how-it-works-icons-container{
+        padding-top: 70px;
+        display: flex;
+        justify-content: space-around;
+        max-width: 1137px;
+        min-width: 900px;
+        width: 100%;
+    }
+    .how-it-works-icons-text{
+        position: relative;
+        margin: 0;
 
+    }
+    .how-it-works-sub-text{
+        margin-top: 28px;
+    }
+
+    .tv{
+        padding-top: 7px;
+    }
+    #tv{
+        margin-top: 21px;
+    }
+
+    #arrow::after{
+    position: absolute;
+    content: " ";
+    background: url("/media/right-arrow.png");
+    height: 24px;
+    width: 24px;
+    top: 37px;
+    right: -45px;
+    }     
+}
+
+/* //////////how it works resoponsive///////// */
 
 
 
