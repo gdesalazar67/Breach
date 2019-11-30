@@ -33,8 +33,6 @@ function topNavIconToggle() {
 };
 /////
 
-
-
 //on refresh scroll to top of page 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -52,56 +50,31 @@ const ValidateEmail = (email) =>{
     return false
 };
 
-//Event listener on #email tag for keydown on enter;
 searchInput.addEventListener("keydown", event=>{
-    let email = searchInput.value;
-    //send request to cors-anywhere to satisfy CORS header restrictions with/out buiding back end
-    let newUrl = 'https://cors-anywhere.herokuapp.com/https://haveibeenpwned.com/api/v3/breachedaccount/';
-   
-    if (event.key === "Enter" && ValidateEmail(email)){
-        event.preventDefault();
-        email = searchInput.value;
-        email = email.replace(/\s/g, '');
-        newUrl += email + "?truncateResponse=false";
-
-        
-        ///////////////////for testing only 
-        // let hiroData = Data.childParentData(email, Data.data);
-        // resultsTree(hiroData);
-        ///////////////////
-       
-        //create header for fetch request 
-        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
-        let keyHeaders = new Headers();
-        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
-        
-        fetch(newUrl, { method: "GET", headers: keyHeaders })
-        .then(res => res.json())
-        .then(function (data) {
-            //extract data needed 
-            let hiroData = Data.childParentData(email, data); 
-            //sent data to tree building function
-            resultsTree(hiroData);            
-            })
-            .catch(error => {
-                svg.selectAll("*").remove();
-                noBreach.style.display = "block";
-                searchInput.value = "Enter email"; 
-            });
+    if(event.key === "Enter"){
+        fetchData();
     };
 });
 
 const formSubmit = ()=>{
-    console.log("hello")
-    let email = searchInput.value;
+    fetchData();
+};
+
+const demoSubmit = ()=>{
+  let email = "hello1@gmail.com";
+  fetchData(email);
+};
+
+const fetchData = (email = null)=>{
+
+     if(!email) email = searchInput.value;
+
     //send request to cors-anywhere to satisfy CORS header restrictions with/out buiding back end
     let newUrl = 'https://cors-anywhere.herokuapp.com/https://haveibeenpwned.com/api/v3/breachedaccount/';
 
     if (ValidateEmail(email)) {
-        email = searchInput.value;
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
-
 
         ///////////////////for testing only 
         // let hiroData = Data.childParentData(email, Data.data);
@@ -116,7 +89,7 @@ const formSubmit = ()=>{
         fetch(newUrl, { method: "GET", headers: keyHeaders })
             .then(res => res.json())
             .then(function (data) {
-                //extract data needed 
+                console.log(data)
                 let hiroData = Data.childParentData(email, data);
                 //sent data to tree building function
                 resultsTree(hiroData);
@@ -125,6 +98,7 @@ const formSubmit = ()=>{
                 svg.selectAll("*").remove();
                 noBreach.style.display = "block";
                 searchInput.value = "Enter email";
-            });
+            }
+        );
     };
 };
