@@ -76,29 +76,31 @@ const fetchData = (email = null)=>{
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
 
-        ///////////////////for testing only 
+        /////////////////for testing only 
+
+        console.log(data)
+
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
-        ///////////////////
+        /////////////////
 
-        //create header for fetch request 
-        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
-        let keyHeaders = new Headers();
-        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
+        // //create header for fetch request 
+        // const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
+        // let keyHeaders = new Headers();
+        // keyHeaders.append('Hibp-Api-Key', hibpApiKey)
 
-        fetch(newUrl, { method: "GET", headers: keyHeaders })
-            .then(res => res.json())
-            .then(function (data) {
-                console.log(data)
-                let hiroData = Data.childParentData(email, data);
-                //sent data to tree building function
-                resultsTree(hiroData);
-            })
-            .catch(error => {
-                svg.selectAll("*").remove();
-                noBreach.style.display = "block";
-                searchInput.value = "Enter email";
-            }
-        );
+        // fetch(newUrl, { method: "GET", headers: keyHeaders })
+        //     .then(res => res.json())
+        //     .then(function (data) {
+        //         console.log(data)
+        //         let hiroData = Data.childParentData(email, data);
+        //         //sent data to tree building function
+        //         resultsTree(hiroData);
+        //     })
+        //     .catch(error => {
+        //         svg.selectAll("*").remove();
+        //         noBreach.style.display = "block";
+        //         searchInput.value = "Enter email";
+        //     });
     };
 };

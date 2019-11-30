@@ -1,0 +1,56 @@
+.results-container {
+    margin-top: 35px;
+    background: rgb(49, 96, 150);
+}
+
+.results-btn-container {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 40px;
+    
+}
+.results-btn{
+    background-color: rgb(49, 83, 124);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: .75rem;
+    margin-top: 7px;
+    font-weight: 700;
+    letter-spacing: .01em;
+}
+.results-btn:hover {
+    color: white;
+    background-color: rgb(89, 166, 248);
+}
+.results-cards-btn{
+
+}
+.results-top-banner{
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+.results-top-banner #big {
+    padding-top: 4rem;
+    font-size: 37px;
+    line-height: 44px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 630PX;
+    margin: auto;
+    overflow-wrap: break-word;
+}
+.results-text{
+    padding-top: 20px;
+    padding-right: .75rem;
+    padding-left: .75rem;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    max-width: 550px;
+    margin: auto;
+}
