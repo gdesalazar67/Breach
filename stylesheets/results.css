@@ -114,9 +114,40 @@
     margin: auto;
 }
 .breach-card{
-    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
     width: 300px;
-    border: 1px solid grey;
+    background-color: rgb(49, 96, 150);
+    padding: 15px;
+    box-sizing: border-box;
+}
+.breach-card:hover{
+    background-color: rgb(89, 166, 248);
+}
+/* .breach-card .logo-container{
+    width:  70px;
+    margin-left:15px;
+}
+.breach-card img{
+    max-width:  100%;
+    height: auto;
+} */
+.breach-card .h3{
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    padding-top: 4px;
+}
+.card-title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    padding-left: 5px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .info-expander{
     max-height: 1000px;
