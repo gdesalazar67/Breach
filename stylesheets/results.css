@@ -1,3 +1,7 @@
+
+.toogle-container{
+    /* display: none; */
+}
 .results-container {
     margin-top: 35px;
     background: rgb(49, 96, 150);
@@ -89,3 +93,63 @@
         margin-top: 7px;
     }
 }
+/* chart */
+.chart-container{
+    height: 400px;
+}
+/* ////////chart/////// */
+/* breach-results-container */
+.breach-results-container{
+
+}
+.breach-index{
+    padding: 15px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.card-is-collapsed{
+    margin: auto;
+}
+.card-is-expanded{
+    margin: auto;
+}
+.breach-card{
+    height: 300px;
+    width: 300px;
+    border: 1px solid grey;
+}
+.info-expander{
+    max-height: 1000px;
+    min-height: 200px;
+    overflow: visible;
+    margin-top: 30px;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+    background-color: rgb(49, 83, 124);
+    width: 100%;
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    color: rgb(255, 255, 255);
+}
+.card-is-collapsed .info-expander{
+    display: none;
+    /* max-height: 0;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    opacity: 5; */
+}
+.card-is-expanded .info-expander{
+    display: block;
+    /* max-height: 1000px;
+    min-height: 200px;
+    overflow: visible;
+    margin-top: 30px;
+    opacity: 1; */
+}
+
+/*////// breach-results-container/////// */
+
+
