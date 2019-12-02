@@ -118,7 +118,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-height: 110px;
+    min-height: 70px;
     width: 300px;
     background-color: rgb(49, 96, 150);
     padding: 15px;
@@ -127,36 +127,32 @@
 .breach-card:hover{
     background-color: rgb(89, 166, 248);
 }
-/* .breach-card .logo-container{
-    width:  70px;
-    margin-left:15px;
-}
-.breach-card img{
-    max-width:  100%;
-    height: auto;
-} */
+
 .breach-card .h3{
-    font-size: 15px;
+    display: inline-block
+    font-size: 18px;
     color: rgb(255, 255, 255);
     font-weight: 300;
-    padding-top: 4px;
 }
 .card-title {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 700;
     color: rgb(255, 255, 255);
     letter-spacing: 1px;
     padding-left: 5px;
     white-space: nowrap;
     overflow: hidden;
 }
+
 .info-expander{
+    max-width: 300px;
     max-height: 1000px;
     min-height: 200px;
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
     transition: all 0.2s ease-in-out;
-    background-color: rgb(49, 83, 124);
+    background-color: rgb(15, 85, 132);
     width: 100%;
     position: relative;
     /* display: flex;
@@ -179,6 +175,65 @@
     overflow: visible;
     margin-top: 30px;
     opacity: 1; */
+}
+
+.logo-date-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-date-container .logo-container{
+    width:  110px;
+    margin-top: 45px;
+    height: 100%;
+}
+.logo-date-container img{
+    max-width:  100%;
+    height: auto;
+}
+/* .date{
+    margin-top: 20px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    font-size: 15px;
+} */
+.compromised-title{
+    margin-top: 36px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 12px;
+}
+.compromised-items-container{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: fit-content;
+    margin: auto;
+    border: 1.5px solid hsl(212, 51%, 39%);
+    padding-left: 35px;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-right: 9px;
+    padding-bottom: 5px;
+}
+.items{
+    font-size: 16px;
+    letter-spacing: .25px;
+    padding: 12px;
+    padding-left: 0px;
+}
+.info-expander .discription{
+    padding: 25px;
+    padding-left: 30px;
+    font-size: 14x;
+    letter-spacing: .75px;
+    line-height: 1.5;
+}
+.discription a{
+    color: #bbbec7;
+    font-weight: 700;
 }
 
 /*////// breach-results-container/////// */
