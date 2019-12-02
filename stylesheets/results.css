@@ -49,9 +49,7 @@
     letter-spacing: 2px;
     font-weight: 300;
     text-align: center;
-    /* max-width: 630PX; */
     margin: auto;
-    /* overflow-wrap: break-word; */
 }
 .results-text{
     padding-top: 20px;
@@ -123,13 +121,15 @@
     background-color: rgb(49, 96, 150);
     padding: 15px;
     box-sizing: border-box;
+    margin: 15px;
+
 }
 .breach-card:hover{
     background-color: rgb(89, 166, 248);
 }
 
 .breach-card .h3{
-    display: inline-block
+    display: inline-block;
     font-size: 18px;
     color: rgb(255, 255, 255);
     font-weight: 300;
@@ -146,14 +146,14 @@
 
 .info-expander{
     max-width: 300px;
-    max-height: 1000px;
+    /* max-height: 1000px; */
     min-height: 200px;
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
     transition: all 0.2s ease-in-out;
     background-color: rgb(15, 85, 132);
-    width: 100%;
+    /* width: 100%; */
     position: relative;
     /* display: flex;
     justify-content: center;
@@ -170,6 +170,8 @@
 }
 .card-is-expanded .info-expander{
     display: block;
+    margin-left: 15px;
+    margin-right: 15px;
     /* max-height: 1000px;
     min-height: 200px;
     overflow: visible;
@@ -191,12 +193,7 @@
     max-width:  100%;
     height: auto;
 }
-/* .date{
-    margin-top: 20px;
-    font-weight: 700;
-    letter-spacing: .01em;
-    font-size: 15px;
-} */
+
 .compromised-title{
     margin-top: 36px;
     text-align: center;
@@ -220,7 +217,7 @@
 }
 .items{
     font-size: 16px;
-    letter-spacing: .25px;
+    letter-spacing: -.5px;
     padding: 12px;
     padding-left: 0px;
 }
@@ -236,6 +233,27 @@
     font-weight: 700;
 }
 
+@media screen and (min-width: 690px){
+    .info-expander{
+        max-width: none;
+    }
+    .compromised-items-container{
+      flex-flow: row wrap;
+        justify-content: start;
+        margin-right: 50px;
+        margin-left: 50px;
+        width: auto;
+        padding: 12px;
+    }   
+    .items{
+        width: 128px;
+        box-sizing: border-box;
+        padding-left: 0px;
+        margin-left: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
 /*////// breach-results-container/////// */
 
 
