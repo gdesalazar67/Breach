@@ -1,6 +1,6 @@
 
 .toogle-container{
-    /* display: none; */
+    display: none;
 }
 .results-container {
     margin-top: 35px;
@@ -123,10 +123,12 @@
     box-sizing: border-box;
     margin: 15px;
     position: relative;
+    transition: all 0.2s ease-in-out;
 
 }
 .card-is-collapsed .breach-card:hover{
     background-color: rgb(89, 166, 248);
+    transform: scale(1.05);
 }
 .card-is-expanded .breach-card{
     background-color: rgb(89, 166, 248);

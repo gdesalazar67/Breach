@@ -49,16 +49,14 @@ let expandedCard = null
 
 const cardInfoExpander = (tag)=>{
     if(tag.className === "card card-is-collapsed"){
-        console.log('clssname matches')
-        console.log(expandedCard)
         if (expandedCard) expandedCard.className = "card card-is-collapsed";
         tag.className = "card card-is-expanded";
         expandedCard = tag;
     }else{
-        tag.className = "card card-is-collapsed"
-        expandedCard =null
-    }
-}
+        tag.className = "card card-is-collapsed";
+        expandedCard =null;
+    };
+};
 
 
 // console.log(cards)
@@ -108,7 +106,7 @@ const fetchData = (email = null)=>{
         newUrl += email + "?truncateResponse=false";
 
         /////////////////for testing only 
-
+        displayResults()
         console.log(data)
 
         // let hiroData = Data.childParentData(email, Data.data);
