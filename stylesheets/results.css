@@ -122,12 +122,18 @@
     padding: 15px;
     box-sizing: border-box;
     margin: 15px;
+    position: relative;
 
 }
-.breach-card:hover{
+.card-is-collapsed .breach-card:hover{
     background-color: rgb(89, 166, 248);
 }
-
+.card-is-expanded .breach-card{
+    background-color: rgb(89, 166, 248);
+}
+/* .card-is-expanded .breach-card:hover{
+    background-color: rgb(49, 96, 150);
+} */
 .breach-card .h3{
     display: inline-block;
     font-size: 18px;
@@ -178,6 +184,19 @@
     overflow: visible;
     margin-top: 30px;
     opacity: 1; */
+}
+.card-is-expanded .breach-card::after{
+    content: " ";
+    opacity: 1;
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -30px;
+    left: calc(50% - 15px);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(15, 85, 132);
 }
 
 .logo-date-container{
