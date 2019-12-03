@@ -33,6 +33,37 @@ function topNavIconToggle() {
 };
 /////
 
+///results breach cards///
+const cards = document.getElementsByClassName("breach-card");
+
+// add EventLister to each card
+for(let i = 0; i < cards.length; i++){
+    cards[i].addEventListener("click", event=>{
+        console.log("hi from click land")
+        let tag = event.target.closest(".card");
+        cardInfoExpander(tag);
+    });
+};
+
+let expandedCard = null
+
+const cardInfoExpander = (tag)=>{
+    if(tag.className === "card card-is-collapsed"){
+        console.log('clssname matches')
+        console.log(expandedCard)
+        if (expandedCard) expandedCard.className = "card card-is-collapsed";
+        tag.className = "card card-is-expanded";
+        expandedCard = tag;
+    }else{
+        tag.className = "card card-is-collapsed"
+        expandedCard =null
+    }
+}
+
+
+// console.log(cards)
+/////
+
 //on refresh scroll to top of page 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
