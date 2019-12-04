@@ -3,6 +3,7 @@ const displayResults = () => {
 
     let toggle = document.querySelector(".toggle-container");
     toggle.style.display = "block";
+    scrollToDiv(toggle);
 };
 
 const totalBreaches = (number) => {
@@ -136,7 +137,6 @@ const addEventListnerToCard = (card) => {
 
     card.addEventListener("click", event => {
 
-        console.log("hi from click land")
         let tag = event.target.closest(".card");
         cardInfoExpander(tag);
     });
@@ -148,10 +148,29 @@ const cardInfoExpander = (tag) => {
 
     if (tag.className === "card card-is-collapsed") {
         if (expandedCard) expandedCard.className = "card card-is-collapsed";
+        scrollToDiv(tag);
         tag.className = "card card-is-expanded";
         expandedCard = tag;
     } else {
         tag.className = "card card-is-collapsed";
+        scrollToDiv(tag);
         expandedCard = null;
     };
+};
+
+const takeMeTo = (flag) => {
+
+    if(flag === "chart"){
+        scrollToDiv(document.getElementById("cc"));
+    }else{
+        scrollToDiv(document.getElementById("brc"));
+    };
+};
+
+const scrollToDiv = (element) => {
+    window.scrollTo({
+        'behavior': 'smooth',
+        'left': 0,
+        'top': element.offsetTop
+    });
 };
