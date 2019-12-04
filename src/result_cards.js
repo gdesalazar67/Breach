@@ -18,14 +18,32 @@ const newElement = (selector, element = "div") => {
     return node;
 };
 
+const resultSize = (number) => {
+
+    switch(number){
+        case 1:
+            return "one";
+        case 2:
+            return "two";
+        case 3: 
+            return "three";
+        default:
+            return  "four"
+    };
+  
+};
+
 const createCards = (data) => {
 
-    totalBreaches(data.length);
+    let num = data.length;
+    totalBreaches(num);
+    let resultNum = resultSize(num);
 
     let index = newElement("breach-index");
+    index.id = resultNum;
 
     for(let i = 0; i < data.length; i++){
-        let currentCard = createCard(data[i]);
+        let currentCard = createCard(data[i], resultNum);
         addEventListnerToCard(currentCard);
         index.appendChild(currentCard);
     };
@@ -33,7 +51,7 @@ const createCards = (data) => {
     document.getElementById("brc").appendChild(index);
 };
 
-const createCard = (breach) => {
+const createCard = (breach, resultNum) => {
     
     let card = newElement("card card-is-collapsed");
 
@@ -41,7 +59,7 @@ const createCard = (breach) => {
 
     card.appendChild(createBreachBtn(Title));
 
-    card.appendChild(createInfoExpander(Description, LogoPath, DataClasses));
+    card.appendChild(createInfoExpander(resultNum, Description, LogoPath, DataClasses));
 
     return card;
 };
@@ -57,10 +75,10 @@ const createBreachBtn = (title) => {
     return btn;
 };
 
-const createInfoExpander = (description, logo, items) => { 
+const createInfoExpander = (resultNum, description, logo, items) => { 
 
-    let infoExpander = newElement("info-expander");
-
+    let infoExpander = newElement(`info-expander ${resultNum}`);
+    
     infoExpander.appendChild(createLogo(logo));
     
     let compromisedTitle = newElement("compromised-title");

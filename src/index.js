@@ -91,7 +91,7 @@ const fetchData = (email = null) => {
         /////////////////for testing only 
         console.log(data)
         // removeCards()
-        // createCards(data)
+        createCards(data)
         displayResults()
 
         // let hiroData = Data.childParentData(email, Data.data);
@@ -122,16 +122,16 @@ const fetchData = (email = null) => {
 
 
 // /results breach cards///
-const cards = document.getElementsByClassName("breach-card");
+// const cards = document.getElementsByClassName("breach-card");
 
 // add EventLister to each card
-for(let i = 0; i < cards.length; i++){
-    cards[i].addEventListener("click", event=>{
-        console.log("hi from click land")
-        let tag = event.target.closest(".card");
-        cardInfoExpander(tag);
-    });
-};
+// for(let i = 0; i < cards.length; i++){
+//     cards[i].addEventListener("click", event=>{
+//         console.log("hi from click land")
+//         let tag = event.target.closest(".card");
+//         cardInfoExpander(tag);
+//     });
+// };
 
 // let expandedCard = null
 
