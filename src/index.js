@@ -5,8 +5,10 @@
 
 ///watch window size////
 function windowSize() {
+
     let w = window.innerWidth;
     let MainBannerText = document.getElementById("compromised");
+
     if (w >= 575) {
         MainBannerText.innerHTML = "HAS YOUR ONLINE IDENTITY BEEN COMPROMISED?";
     } else {
@@ -17,6 +19,7 @@ function windowSize() {
 windowSize();
 
 window.addEventListener("resize", () => {
+
     windowSize()
 });
 
@@ -24,7 +27,9 @@ window.addEventListener("resize", () => {
 
 ///dropdown toggle///
 function topNavIconToggle() {
+
     var x = document.getElementById("idTopNav");
+
     if (x.className === "topnav") {
         x.className += " responsive";
     } else {
@@ -33,68 +38,46 @@ function topNavIconToggle() {
 };
 /////
 
-///results breach cards///
-const cards = document.getElementsByClassName("breach-card");
 
-// add EventLister to each card
-for(let i = 0; i < cards.length; i++){
-    cards[i].addEventListener("click", event=>{
-        console.log("hi from click land")
-        let tag = event.target.closest(".card");
-        cardInfoExpander(tag);
-    });
-};
-
-let expandedCard = null
-
-const cardInfoExpander = (tag)=>{
-    if(tag.className === "card card-is-collapsed"){
-        if (expandedCard) expandedCard.className = "card card-is-collapsed";
-        tag.className = "card card-is-expanded";
-        expandedCard = tag;
-    }else{
-        tag.className = "card card-is-collapsed";
-        expandedCard =null;
-    };
-};
-
-
-// console.log(cards)
-/////
 
 //on refresh scroll to top of page 
 window.onbeforeunload = function () {
+
     window.scrollTo(0, 0);
 };
 
-//select tag with id email
+// search input functions
 const searchInput = document.querySelector("#email")
 
-// validate email
-const ValidateEmail = (email) =>{
+const ValidateEmail = (email) => {
+
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)) {
         return true
-    }
-    alert("You have entered an invalid email address!")
+    };
+
+    alert("You have entered an invalid email address!");
     return false
 };
 
-searchInput.addEventListener("keydown", event=>{
+searchInput.addEventListener("keydown", event => {
+
     if(event.key === "Enter"){
         fetchData();
     };
 });
 
-const formSubmit = ()=>{
+const formSubmit = () => {
+
     fetchData();
 };
 
-const demoSubmit = ()=>{
-  let email = "hello1@gmail.com";
-  fetchData(email);
+const demoSubmit = () => {
+
+    let email = "hello1@gmail.com";
+    fetchData(email);
 };
 
-const fetchData = (email = null)=>{
+const fetchData = (email = null) => {
 
      if(!email) email = searchInput.value;
 
@@ -106,8 +89,10 @@ const fetchData = (email = null)=>{
         newUrl += email + "?truncateResponse=false";
 
         /////////////////for testing only 
-        displayResults()
         console.log(data)
+        // removeCards()
+        // createCards(data)
+        displayResults()
 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
@@ -133,3 +118,34 @@ const fetchData = (email = null)=>{
         //     });
     };
 };
+
+
+
+// /results breach cards///
+const cards = document.getElementsByClassName("breach-card");
+
+// add EventLister to each card
+for(let i = 0; i < cards.length; i++){
+    cards[i].addEventListener("click", event=>{
+        console.log("hi from click land")
+        let tag = event.target.closest(".card");
+        cardInfoExpander(tag);
+    });
+};
+
+// let expandedCard = null
+
+// const cardInfoExpander = (tag)=>{
+//     if(tag.className === "card card-is-collapsed"){
+//         if (expandedCard) expandedCard.className = "card card-is-collapsed";
+//         tag.className = "card card-is-expanded";
+//         expandedCard = tag;
+//     }else{
+//         tag.className = "card card-is-collapsed";
+//         expandedCard =null;
+//     };
+// };
+
+
+// console.log(cards)
+/////

@@ -1,5 +1,5 @@
 
-.toogle-container{
+.toggle-container{
     display: none;
 }
 .results-container {
@@ -250,7 +250,7 @@
     padding: 12px;
     padding-left: 0px;
 }
-.info-expander .discription{
+.info-expander .description{
     padding: 25px;
     padding-left: 30px;
     font-size: 14x;
@@ -258,7 +258,7 @@
     letter-spacing: .75px;
     line-height: 1.5;
 }
-.discription a{
+.description a{
     color: rgb(255, 255, 255);
     font-weight: 700;
     font-size: 14px;
@@ -320,6 +320,19 @@
         padding-top: 7px;
         padding-bottom: 7px;
     }
+    .info-expander .description{
+        font-size: 16x;
+    }
+
+    .breach-index.one{
+        justify-content: center;
+        width: auto;
+        margin: 0;
+    }
+
+    .one .card-is-expanded .info-expander{
+        margin-left: calc(-50% + 15px);
+    }
 }
 @media screen and (min-width: 990px){
     .breach-index{
@@ -339,6 +352,27 @@
     }
      .card:nth-of-type(3n+3) .info-expander{
         margin-left: calc(-100% - 315px );
+    }
+    .info-expander .description{
+        padding-top: 35px;
+        padding-right: 50px;
+        padding-bottom: 43px;
+        padding-left: 55px;
+    }
+
+      .breach-index.one{
+        justify-content: center;
+        width: auto;
+        margin: 0;
+    }
+
+    .one .card-is-expanded .info-expander{
+        margin-left: calc(-50% + 15px);
+        width: 630px;
+    }
+
+      .compromised-items-border{
+        width: 556px;
     }
   
 }
@@ -371,6 +405,15 @@
     }
       .card:nth-of-type(4n+4) .info-expander{
         margin-left: calc(-300% + 15px );
+    }
+
+      .one .card-is-expanded .info-expander{
+        margin-left: calc(-50% + 15px);
+        width: 630px;
+    }
+
+      .compromised-items-border{
+        width: 556px;
     }
 
 }
