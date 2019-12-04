@@ -107,13 +107,17 @@ const fetchData = (email = null) => {
             .then(res => res.json())
             .then(function (data) {
                 // console.log(data)
+                setEmail(email);
                 createCards(data)
+                displyaOnOff(1);
                 displayResults();
                 // let hiroData = Data.childParentData(email, data);
                 // sent data to tree building function
                 // resultsTree(hiroData);
             })
             .catch(error => {
+                setEmail(email);
+                noResult();
                 alert("nothing returned");
                 // svg.selectAll("*").remove();
                 // noBreach.style.display = "block";

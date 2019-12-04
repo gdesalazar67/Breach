@@ -8,8 +8,16 @@ const displayResults = () => {
 
 const totalBreaches = (number) => {
 
+    let congrats = number === 0 ? "Congratulations<br>": "";
     let div = document.querySelector(".results-text");
-    div.innerHTML = `HIBP has found ${number} Breaches!`;
+    div.innerHTML = `${congrats}HIBP has found ${number} Breaches!`;
+
+};
+
+const setEmail = (email) => {
+    
+    let emailDiv = document.getElementById("email1");
+    emailDiv.innerHTML = email;
 };
 
 const newElement = (selector, element = "div") => {
@@ -158,13 +166,48 @@ const cardInfoExpander = (tag) => {
     };
 };
 
+
+
+const noResult = () => {
+   
+    displyaOnOff(0);
+    totalBreaches(0);
+    displayResults();
+};
+
+const displyaOnOff = (results) => {
+
+    let zeroDiv = document.querySelector(".zero");
+    let areDiv = document.querySelector(".are");
+    let cardDiv = document.getElementById("brc");
+    let chartDiv = document.getElementById("cc");
+
+    if(results){
+        zeroDiv.style.display = "none";
+        areDiv.style.display = "flex";
+        cardDiv.style.display = "block";
+        chartDiv.style.display = "block";
+    }else{
+        zeroDiv.style.display = "flex";
+        areDiv.style.display = "none";
+        cardDiv.style.display = "none";
+        chartDiv.style.display = "none";
+    };
+}
+
 const takeMeTo = (flag) => {
 
-    if(flag === "chart"){
-        scrollToDiv(document.getElementById("cc"));
-    }else{
-        scrollToDiv(document.getElementById("brc"));
+    switch(flag){
+        case "chart":
+            scrollToDiv(document.getElementById("cc"));
+            break;
+        case "cards":
+            scrollToDiv(document.getElementById("brc"));
+            break;
+        case "top":
+            scrollToDiv(document.body);
     };
+   
 };
 
 const scrollToDiv = (element) => {
