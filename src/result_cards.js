@@ -82,6 +82,7 @@ const createInfoExpander = (resultNum, description, logo, items) => {
     infoExpander.appendChild(createLogo(logo));
     
     let compromisedTitle = newElement("compromised-title");
+    compromisedTitle.innerHTML = "COMPROMISED DATA";
     infoExpander.appendChild(compromisedTitle);
 
     infoExpander.appendChild(createCompromisedItems(items));

@@ -89,33 +89,36 @@ const fetchData = (email = null) => {
         newUrl += email + "?truncateResponse=false";
 
         /////////////////for testing only 
-        console.log(data)
+        // console.log(data)
         // removeCards()
-        createCards(data)
-        displayResults()
+        // createCards(data)
+        // displayResults()
 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
         /////////////////
 
         // //create header for fetch request 
-        // const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
-        // let keyHeaders = new Headers();
-        // keyHeaders.append('Hibp-Api-Key', hibpApiKey)
+        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
+        let keyHeaders = new Headers();
+        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
 
-        // fetch(newUrl, { method: "GET", headers: keyHeaders })
-        //     .then(res => res.json())
-        //     .then(function (data) {
-        //         console.log(data)
-        //         let hiroData = Data.childParentData(email, data);
-        //         //sent data to tree building function
-        //         resultsTree(hiroData);
-        //     })
-        //     .catch(error => {
-        //         svg.selectAll("*").remove();
-        //         noBreach.style.display = "block";
-        //         searchInput.value = "Enter email";
-        //     });
+        fetch(newUrl, { method: "GET", headers: keyHeaders })
+            .then(res => res.json())
+            .then(function (data) {
+                // console.log(data)
+                createCards(data)
+                displayResults();
+                // let hiroData = Data.childParentData(email, data);
+                // sent data to tree building function
+                // resultsTree(hiroData);
+            })
+            .catch(error => {
+                alert("nothing returned");
+                // svg.selectAll("*").remove();
+                // noBreach.style.display = "block";
+                searchInput.placeholder = "Enter your email here...";
+            });
     };
 };
 

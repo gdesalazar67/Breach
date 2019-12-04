@@ -401,7 +401,8 @@
         width: 1320px;
     }
     .card-is-expanded .info-expander{
-        width: 1290px;
+        /* width: 1290px; */
+        width: 960px;
         padding-top: 40px;
     }
 
@@ -409,7 +410,8 @@
         margin-top: 40px;
     }
     .compromised-items-border{
-        width: 1100px;
+        /* width: 1100px; */
+        width: 720px;
     }
 
 
@@ -423,7 +425,7 @@
         margin-left: calc(-100% - 315px );
     }
       .card:nth-of-type(4n+4) .info-expander{
-        margin-left: calc(-300% + 15px );
+        margin-left: calc(-200% + 15px );
     }
 
     #one .card-is-expanded .info-expander{
