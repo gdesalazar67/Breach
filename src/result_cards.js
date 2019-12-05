@@ -16,7 +16,7 @@ const displayResults = () => {
 
 const totalBreaches = (number) => {
 
-    let congrats = number === 0 ? "Congratulations<br>": "";
+    let congrats = number === 0 ? "Congratulations,<br>": "";
     let div = document.querySelector(".results-text");
     div.innerHTML = `${congrats}HIBP has found ${number} Breaches!`;
 

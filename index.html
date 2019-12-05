@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/svg.css">
     <link rel="stylesheet" href="stylesheets/results.css">
+    <link rel="stylesheet" href="stylesheets/loader.css">
     <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
@@ -17,9 +18,22 @@
 </head>
 <body>
     <div id="loader">
-        <img src="media/805.svg">
-        <div id="spinner"></div>
+        <!-- <div class="cube">
+            <div class="side side1"></div>
+            <div class="side side2"></div>
+            <div class="side side3"></div>
+            <div class="side side4"></div>
+            <div class="side side5"></div>
+            <div class="side side6"></div>
+        </div> -->
+        <div class="loader-container">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
     </div>
+    <!-- <img src="media/805.svg"> -->
     <main class="content-container">
         <header class="logo-navburger-container">
             <div class="logo-navburger-container-inner">
@@ -28,7 +42,7 @@
                         <div class="logo-container">
                             <image src="media/favicon-32x32.png"/>
                         </div>
-                        <div class="okaytext">Breach</div>
+                        <div class="logotext">Breach</div>
                     </div>
                 </a>
                 <div class="topnav" >
@@ -122,7 +136,7 @@
                     <div class="big" id="email1"></div>
                     <div class="results-text"></div>
                     <div class="are results-btn-container">
-                        <input class="results-btn" type="button" placeholder="chart" value="See Chart of Results" onclick="takeMeTo(this.placeholder)">
+                        <input class="results-btn" type="button" placeholder="chart" value="See Result Chart" onclick="takeMeTo(this.placeholder)">
                         <img src="media/006-shield.png">
                         <input  class="results-btn" type="button" placeholder="cards" value="See Detailed Results" onclick="takeMeTo(this.placeholder)">
                     </div>
