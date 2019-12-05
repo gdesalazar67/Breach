@@ -46,6 +46,8 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 
+
+
 // search input functions
 const searchInput = document.querySelector("#email")
 
@@ -55,6 +57,7 @@ const ValidateEmail = (email) => {
         return true
     };
 
+    loader(false)
     alert("You have entered an invalid email address!");
     return false
 };
@@ -78,7 +81,7 @@ const demoSubmit = () => {
 };
 
 const fetchData = (email = null) => {
-
+    loader(true);
      if(!email) email = searchInput.value;
 
     //send request to cors-anywhere to satisfy CORS header restrictions with/out buiding back end
@@ -110,6 +113,7 @@ const fetchData = (email = null) => {
                 setEmail(email);
                 createCards(data)
                 displyaOnOff(1);
+                loader(false);
                 displayResults();
                 // let hiroData = Data.childParentData(email, data);
                 // sent data to tree building function
@@ -117,6 +121,7 @@ const fetchData = (email = null) => {
             })
             .catch(error => {
                 setEmail(email);
+                loader(false)
                 noResult();
                 alert("nothing returned");
                 // svg.selectAll("*").remove();

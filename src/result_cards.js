@@ -1,4 +1,12 @@
 
+const loader = (flag) => {
+
+    let loader = document.getElementById("loader");
+    let display = flag ? "flex": "none";
+
+    loader.style.display = display;
+};
+
 const displayResults = () => {
 
     let toggle = document.querySelector(".toggle-container");

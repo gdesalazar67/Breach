@@ -114,6 +114,7 @@
     padding: 15px;
     display: flex;
     flex-flow: row wrap;
+    transition: all 0.2s ease-in-out;
 }
 .card-is-collapsed{
     margin: auto;
@@ -139,9 +140,11 @@
 .card-is-collapsed .breach-card:hover{
     background-color: rgb(89, 166, 248);
     transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 .card-is-expanded .breach-card{
     background-color: rgb(89, 166, 248);
+    transition: all 0.2s ease-in-out;
 }
 /* .card-is-expanded .breach-card:hover{
     background-color: rgb(49, 96, 150);
@@ -165,12 +168,12 @@
 .info-expander{
     max-width: 300px;
     /* max-height: 1000px; */
-    min-height: 200px;
+    transition: all 0.2s ease-in-out;
+    height: 0px;
     overflow: visible;
     margin-top: 30px;
     margin-bottom: 15px;
     opacity: 1;
-    transition: all 0.2s ease-in-out;
     background-color: rgb(15, 85, 132);
     /* width: 100%; */
     position: relative;
@@ -181,21 +184,25 @@
 }
 .card-is-collapsed .info-expander{
     display: none;
-    /* max-height: 0;
+    transition: all 0.2s ease-in-out;
+    max-height: 0;
     min-height: 0;
     overflow: hidden;
-    margin-top: 0;
-    opacity: 5; */
+    /* margin-top: 0; */
+    opacity: 5;
 }
 .card-is-expanded .info-expander{
     display: block;
     margin-left: 15px;
     margin-right: 15px;
-    /* max-height: 1000px;
+    transition: all 0.2s ease-in-out;
+    min-height: 200px;
+    height: auto;
+    max-height: 1000px;
     min-height: 200px;
     overflow: visible;
-    margin-top: 30px;
-    opacity: 1; */
+    /* margin-top: 30px; */
+    opacity: 1;
 }
 .card-is-expanded .breach-card::after{
     content: " ";
@@ -209,6 +216,7 @@
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 15px solid rgb(15, 85, 132);
+    transition: all 0.2s ease-in-out;
 }
 
 .logo-date-container{

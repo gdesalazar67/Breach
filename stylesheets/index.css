@@ -30,6 +30,24 @@ a {
     text-decoration: none;
 }
 
+/* loader */
+#loader {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f342;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+#loader img{
+  
+}
+
 /* header */
 .logo-navburger-container {
     position: relative;
