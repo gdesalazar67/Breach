@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="stylesheets/svg.css">
     <link rel="stylesheet" href="stylesheets/results.css">
     <link rel="stylesheet" href="stylesheets/loader.css">
+    <link rel="stylesheet" href="stylesheets/scatter_plot.css">
     <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
@@ -61,23 +62,7 @@
 
                            
             
-           <!-- <div class="link-container">
-               <div class="icon-container">
-                   <a href="https://github.com/gdesalazar67/Breach">
-                    <img class="icon" src="media/kisspng-github-computer-icons-icon-design-desktop-wallpape-5b3d3614612ed1.4650172215307381963981.png">
-                   </a>
-                </div>
-               <div class="icon-container">
-                   <a href="https://linkedin.com/in/galo-desalazar-44092b41">
-                    <img class="icon" src="media/linkedin.png">
-                   </a>
-                </div>
-               <div class="icon-container">
-                   <a href="https://gdesalazar67.github.io/gdesalazar67/">
-                    <img class="icon" src="media/website-globe.png">
-                   </a>
-                </div>
-           </div> -->
+          
            
         </header>
         <div class="main-banner-container">
@@ -146,6 +131,7 @@
                 </div>
             </div>
             <div class="chart-container" id="cc">
+                <div class="canvas" id="svg-container"></div> 
             </div>
 
 
@@ -304,7 +290,6 @@
             </div> -->
         </div>
             
-             <!-- <div class="canvas" id="svg"> </div>  -->
             <footer>
                  <div>Powered by <a href="https://haveibeenpwned.com/API/v3">HABI API</a></div>
                 <div>Icons made by 
@@ -318,40 +303,29 @@
             </footer> 
         </main>
 </body>
-    <!-- <script>
-        
-        function windowSize(){
-            let w = window.innerWidth;
-            let MainBannerText = document.getElementById("compromised");
-            if (w >= 575) {
-                MainBannerText.innerHTML = "HAS YOUR ONLINE IDENTITY BEEN COMPROMISED?";
-            } else {
-                MainBannerText.innerHTML = "HAVE YOU BEEN COMPROMISED?";
-            };
-        };
-
-        windowSize();
-        
-        window.addEventListener("resize", ()=>{
-            windowSize()
-        });
-
-    </script> -->
-    <!-- <script>
-        function topNavIconToggle() {
-                var x = document.getElementById("idTopNav");
-                if (x.className === "topnav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "topnav";
-                }
-            };
-    </script> -->
 
     <script src="dist/bundle.js"></script>
     <script type="text/javascript" src="./src/index.js"></script>
     <script type="text/javascript" src="./src/seed_data.js"></script>
     <script type="text/javascript" src="./src/result_cards.js"></script>
-    <script src="src/dendrogram.js"></script> 
+    <script type="text/javascript" src="./src/scatter_plot.js"></script>
 
 </html>
+
+<!-- <div class="link-container">
+               <div class="icon-container">
+                   <a href="https://github.com/gdesalazar67/Breach">
+                    <img class="icon" src="media/kisspng-github-computer-icons-icon-design-desktop-wallpape-5b3d3614612ed1.4650172215307381963981.png">
+                   </a>
+                </div>
+               <div class="icon-container">
+                   <a href="https://linkedin.com/in/galo-desalazar-44092b41">
+                    <img class="icon" src="media/linkedin.png">
+                   </a>
+                </div>
+               <div class="icon-container">
+                   <a href="https://gdesalazar67.github.io/gdesalazar67/">
+                    <img class="icon" src="media/website-globe.png">
+                   </a>
+                </div>
+           </div> -->

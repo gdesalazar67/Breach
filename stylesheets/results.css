@@ -102,9 +102,9 @@
     }
 }
 /* chart */
-.chart-container{
-    height: 400px;
-}
+
+/* contained in scatter_plot.css  */
+
 /* ////////chart/////// */
 /* breach-results-container */
 .breach-results-container{

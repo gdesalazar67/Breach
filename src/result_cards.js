@@ -7,7 +7,7 @@ const loader = (flag) => {
     loader.style.display = display;
 };
 
-const displayResults = () => {
+const displayChartCardsResults = () => {
 
     let toggle = document.querySelector(".toggle-container");
     toggle.style.display = "block";
@@ -178,12 +178,12 @@ const cardInfoExpander = (tag) => {
 
 const noResult = () => {
    
-    displyaOnOff(0);
+    displayZeroOrAreDiv(0);
     totalBreaches(0);
-    displayResults();
+    displayChartCardsResults();
 };
 
-const displyaOnOff = (results) => {
+const displayZeroOrAreDiv = (results) => {
 
     let zeroDiv = document.querySelector(".zero");
     let areDiv = document.querySelector(".are");

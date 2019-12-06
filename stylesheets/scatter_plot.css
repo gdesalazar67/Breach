@@ -1,0 +1,16 @@
+#cc {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+#svg-container {
+    display: none;
+    height: 4000px;
+}
+
+.box-size {
+    height: 100%;
+    width: 100%
+}
+

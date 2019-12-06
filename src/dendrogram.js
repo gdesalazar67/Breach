@@ -1,4 +1,4 @@
-
+// not in use delete once done 
 
 const svgDiv = document.getElementById("svg")
 let svg = d3.select(svgDiv) 
