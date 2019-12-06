@@ -98,7 +98,7 @@ const fetchData = (email = null) => {
         createCards(data);
         displayZeroOrAreDiv(1);
 
-        buildChart(data);
+        buildChart(allMajorBreaches);
         loader(false);
         displayChartCardsResults()
 
