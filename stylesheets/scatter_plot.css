@@ -1,16 +1,42 @@
 #cc {
     display: none;
-    height: 100%;
-    width: 100%;
+  
 }
 
 #svg-container {
     display: none;
-    height: 4000px;
+    padding: .75rem;
 }
 
 .box-size {
-    height: 100%;
-    width: 100%
+  /* height: 3567px;
+  width: 100%; */
+  
+}
+
+.axis .domain{
+    stroke: rgb(204, 204, 204);
+    stroke-width: 1;
+    opacity: 1;
+    shape-rendering: crispEdges;
+}
+
+.axis line {
+    stroke: none;
+    stroke-width: none;
+}
+.axis  text{
+    font-size: 18px;
+    font-weight: 700;
+    fill: #666666;
+    font-family: Lato;
+}
+
+.axis rect {
+    fill: none;
+    stroke: rgb(204, 204, 204);
+    stroke-width: 2;
+    fill: none; 
+    border-radius: 1;
 }
 

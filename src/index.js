@@ -94,10 +94,11 @@ const fetchData = (email = null) => {
 
         /////////////////for testing only 
         setEmail(email);
-        createCards(data)
+        removeCards();
+        createCards(data);
         displayZeroOrAreDiv(1);
 
-        buildChart(data)
+        buildChart(data);
         loader(false);
         displayChartCardsResults()
 
