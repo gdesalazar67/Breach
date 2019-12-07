@@ -19,7 +19,7 @@ const resetSvg = () => {
 };
 
 const buildChart = (dataSet) => {
-    console.log(dataSet.length);
+   
     chartToggleOnOff(true);
     resetSvg();
 
