@@ -1,8 +1,4 @@
 
-
-
-
-
 const chartToggleOnOff = (flag) => {
     
     let display = flag ? "block" : "none";
@@ -24,14 +20,15 @@ const buildChart = (dataSet) => {
     resetSvg();
 
     let svgDiv = document.getElementById("svg-container");
+    let viewWidth = window.innerWidth -24;
+    console.log(viewWidth);
     let svg = d3.select(svgDiv)
         .append("svg")
         .attr("class", "box-size")
         // .attr("width", 351)
         // .attr("height", 3576);
         // .attr("preserveAspectRatio", "none")
-        .attr("viewBox", `0 0 351 3576`);
-        // .attr("preserveAspectRatio" = "none");
+        .attr("viewBox", `0 0 ${viewWidth} 3576`);
 
     buildYaxis(svg);
     
@@ -50,7 +47,6 @@ const buildYaxis = (svg) => {
     let axis = svg.append("g")
         .attr("class", "axis")
         .attr("transform", "translate(0, 20)")
-        // .attr("transform", "translate(50, 10)")
         .call(yAxis);
 
     let txt = axis.selectAll("text")
@@ -73,8 +69,6 @@ const buildYaxis = (svg) => {
         .attr("width", 150)
         .attr("height", 26)
         .attr("transform", "translate(1,-14.5)");
-
-   
 
 };
     

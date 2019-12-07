@@ -93,13 +93,7 @@ const fetchData = (email = null) => {
         newUrl += email + "?truncateResponse=false";
 
         /////////////////for testing only 
-        setEmail(email);
-        removeCards();
-        createCards(data);
-        displayZeroOrAreDiv(1);
-        buildChart(majorBreaches);
-        loader(false);
-        displayChartCardsResults()
+        testing(email);
 
         // let hiroData = Data.childParentData(email, Data.data);
         // resultsTree(hiroData);
@@ -139,31 +133,12 @@ const fetchData = (email = null) => {
 
 
 
-// /results breach cards///
-// const cards = document.getElementsByClassName("breach-card");
-
-// add EventLister to each card
-// for(let i = 0; i < cards.length; i++){
-//     cards[i].addEventListener("click", event=>{
-//         console.log("hi from click land")
-//         let tag = event.target.closest(".card");
-//         cardInfoExpander(tag);
-//     });
-// };
-
-// let expandedCard = null
-
-// const cardInfoExpander = (tag)=>{
-//     if(tag.className === "card card-is-collapsed"){
-//         if (expandedCard) expandedCard.className = "card card-is-collapsed";
-//         tag.className = "card card-is-expanded";
-//         expandedCard = tag;
-//     }else{
-//         tag.className = "card card-is-collapsed";
-//         expandedCard =null;
-//     };
-// };
-
-
-// console.log(cards)
-/////
+const testing = (email) => {
+    setEmail(email);
+    removeCards();
+    createCards(data);
+    displayZeroOrAreDiv(1);
+    buildChart(majorBreaches);
+    loader(false);
+    displayChartCardsResults()
+};
