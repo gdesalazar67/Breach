@@ -39,3 +39,7 @@
     border-radius: 1;
 }
 
+.r-circles:hover {
+        width: 200px;
+        fill: blue;
+}
