@@ -43,15 +43,17 @@ const buildChart = (dataSet) => {
         // .attr("preserveAspectRatio", "none")
         .attr("viewBox", `0 0 ${viewWidth} ${viewHeight}`);
 
-    buildYaxis(svg);
+    buildYaxis(svg, viewHeight);
     
 };
 
-const buildYaxis = (svg) => {
+const buildYaxis = (svg, height) => {
 
+    height = height === 3576 ? 3525: 4709;
+    
     let yScale = d3.scaleLinear()
         .domain([2020, 2009])
-        .range([0, 3525])
+        .range([0, height])
         .clamp(true);
     
     let yAxis = d3.axisLeft().scale(yScale).tickFormat(d3.format("d"));
