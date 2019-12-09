@@ -7,6 +7,20 @@ const chartToggleOnOff = (flag) => {
     document.getElementById("svg-container").style.display = display;  
 };
 
+const viewBoxDims = () => {
+    let w = window.innerWidth;
+    let h;
+    if(w < 500){
+        w -= 24;
+        h = 3576;
+    }else{
+        w -= 24;
+        h = 4759;
+    }
+
+    return [w, h];
+};
+
 const resetSvg = () => {
 
     if(document.getElementsByTagName("svg").length){
@@ -20,15 +34,14 @@ const buildChart = (dataSet) => {
     resetSvg();
 
     let svgDiv = document.getElementById("svg-container");
-    let viewWidth = window.innerWidth -24;
-    console.log(viewWidth);
+    let [viewWidth, viewHeight] = viewBoxDims();
     let svg = d3.select(svgDiv)
         .append("svg")
         .attr("class", "box-size")
         // .attr("width", 351)
         // .attr("height", 3576);
         // .attr("preserveAspectRatio", "none")
-        .attr("viewBox", `0 0 ${viewWidth} 3576`);
+        .attr("viewBox", `0 0 ${viewWidth} ${viewHeight}`);
 
     buildYaxis(svg);
     
@@ -72,6 +85,10 @@ const buildYaxis = (svg) => {
 
 };
     
+
+const buildBubbleChart = () => {
+
+};
     
     
     
