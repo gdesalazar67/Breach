@@ -1,13 +1,13 @@
 // unused data 
 const allMajorBreaches = [
-    {
-        "recordsLost": "(use 3m, 4m, 5m or 10m to approximate unknown figures) ",
-        "year": "year story broke",
-        "sector": "web\nhealthcare\napp\nretail\ngaming\ntransport\nfinancial\ntech\ngovernment\ntelecoms\nlegal\nmedia\nacademic\nenergy\nmilitary",
-        "method": "poor security\nhacked\noops!\nlost device \ninside job",
-        "dataSensitivity": "1. Just email address/Online information \n2 SSN/Personal details \n3 Credit card information \n4 Health & other personal records \n5 Full details",
-        "displayedRecords": "=IF(C3>100000000,C3,\")"
-    },
+    // {
+    //     "recordsLost": "(use 3m, 4m, 5m or 10m to approximate unknown figures) ",
+    //     "year": "year story broke",
+    //     "sector": "web\nhealthcare\napp\nretail\ngaming\ntransport\nfinancial\ntech\ngovernment\ntelecoms\nlegal\nmedia\nacademic\nenergy\nmilitary",
+    //     "method": "poor security\nhacked\noops!\nlost device \ninside job",
+    //     "dataSensitivity": "1. Just email address/Online information \n2 SSN/Personal details \n3 Credit card information \n4 Health & other personal records \n5 Full details",
+    //     "displayedRecords": "=IF(C3>100000000,C3,\")"
+    // },
     {
         "entity": "AOL",
         "alternativeName": "American Online",

@@ -15,6 +15,8 @@
 //     return bByYear;
 // };
 
+const pallete = [ "#e8f1fa", "#e7f1fa", "#e7f0fa", "#e6f0f9", "#e5eff9", "#e0ecf7", "#dfebf7", "#a8cee5", "#a7cde5", "#a5cde4", "#a4cce4", "#a3cbe3", "#a1cbe3", "#a0cae3", "#9ec9e2", "#9dc9e2", "#81badb", "#7fb9da", "#70b0d6", "#6fafd6", "#6daed5", "#6caed5", "#6badd5", "#69acd4", "#68abd4", "#1864aa", "#1763aa", "#1662a9", "#1561a8", "#1560a7", "#145fa6", "#135ea5", "#135da4", "#125ca4", "#115ba3", "#115aa2", "#1059a1", "#1058a0", "#0f579f", "#0e569e", "#0e559d", "#0e549c", "#0d539a", "#0a498e", "#0a488d", "#083471", "#083370", "#08326e", "#08316d", "#08306b"].reverse();
+
 const majorBreaches = {
     "2009": [
         {
