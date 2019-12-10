@@ -1,10 +1,10 @@
 #cc {
-    display: none;
+    /* display: none; */
   
 }
 
 #svg-container {
-    display: none;
+    /* display: none; */
     padding: 12px;
 }
 
@@ -40,6 +40,19 @@
 }
 
 .r-circles:hover {
-        width: 200px;
-        fill: blue;
+        /* width: 200px;
+        fill: blue; */
+        stroke-width: 3;
+}
+.story{
+    width: 100px;
+    height: 100px;
+}
+
+.story.active {
+    display: block;
+    font-size: 13px;
+}
+.bubble-title{
+    margin-bottom: 2px;
 }

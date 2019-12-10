@@ -46,6 +46,9 @@ const buildChart = (dataSet) => {
     buildYaxis(svg, viewHeight);
     buildBubbleChart(svg, viewWidth, viewHeight);
     
+    svg.selectAll(".story")
+        .style("display", "none");
+
 };
 
 const buildYaxis = (svg, height) => {
@@ -104,15 +107,21 @@ const buildBubbleChart = (svg, width, height) => {
     pack.radius(d => sizeScale(d.value)); 
 
     let root =  d3.hierarchy({children: classes}).sum(d => d.recordsLost);
-
+    let rootPack = pack(root).leaves();
     let leaf = svg.append("g")
         .attr("class", "bubbecluster")
         .attr("transform", `translate(0,1500)`)
         .selectAll("g")
-        .data(pack(root).leaves())
+        .data(rootPack)
         .enter()
         .append("g")
-        .attr("transform", d => `translate(${d.x +1},${d.y + 1})`);
+        .attr("transform", d => `translate(${d.x +1},${d.y + 1})`)
+        .on("mouseover", function (d, i) {
+            mouseOver(this);
+        })
+        .on("mouseout", function (d, i) {
+            mouseOut(this)
+        });
 
     const color = d3.scaleOrdinal()
         .domain([2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
@@ -122,15 +131,50 @@ const buildBubbleChart = (svg, width, height) => {
         .domain([17, 60])
         .range(pallete);
 
-    // const mouseOver = () => {
-    //     console.log("mouseOver on " + this)
+    const mouseOver = (node) => {
 
-    // }
+        let parent = node.closest("g");
+        d3.select(parent)
+            .select(".bubble-title")
+            .attr("transform", "translate(0,-80)")
+            .style("font-weight", 700)
+            .style("font-size", 15);
+
+        d3.select(parent)
+            .raise()
+            .select(".story")
+            .style("display", "block")
+            .attr("transform", "translate(0,-60)");
+
+        d3.select(parent)
+            .select("circle")
+            .transition()
+            .duration(200)
+            .attr("r", 120);
+    }
         
 
-    // const mouseOut = (circle) => {
-    //     console.log(circle);
-    // };
+    const mouseOut = (node) => {
+
+        let parent = node.closest("g");
+        d3.select(parent)
+            .select(".bubble-title")
+            .attr("transform", "translate(0,0)")
+            .style("font-weight", 400)
+            .style("font-size", 11);
+
+       d3.select(parent)
+            .select(".r-circles")
+            .transition()
+            .duration(200)
+            .attr("r", d => d.r);
+
+        d3.select(parent)
+            .select(".story")
+            .style("display", "none")
+            .attr("transform", "translate(0,0)");
+
+    };
 
     const circle = leaf.append("circle")
         .attr("r", d => d.r)
@@ -138,59 +182,108 @@ const buildBubbleChart = (svg, width, height) => {
 
         .attr("stroke", "white")
         .attr("fill", d => color2(d.value))
-        // .on("mouseover", mouseOver)
-        .on("mouseover", function (d,i) {
-            console.log("mouseOver on " + this)
-            let parent = this.closest("g");
-            d3.select(parent).raise();
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("r", d => d.r * 2);
+        // .on("mouseover", function (d,i) {
+        //     mouseOver(this);  
+        // })
+        // .on("mouseout", function (d,i) {
+        //     mouseOut(this)
+        // } );
 
-        })
-        .on("mouseout", function (d,i) {
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("r", d => d.r);
-        } );
-
-    let format = d3.format = d3.format(",d");
+    // let format = d3.format = d3.format(",d");
     // leaf.append("clipPath")
     //     .attr("id", d => (d.clipUid = DOM.uid("clip")).id)
     //     .append("use")
     //     .attr("xlink:href", d => d.leafUid.href);
+    
+
+
+
 
     leaf.append("text")
         // .attr("clip-path", d => d.clipUid)
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
+        .attr("font-size", 11)
+        .attr("fill", "white")
+        .attr("class", "bubble-title")
         .selectAll("tspan")
         .data(d => d.data.entity.split(/(?=[A-Z][^A-Z])/g))
         .enter()
         .append("tspan")
-        // .style("font-size", function (d) { return Math.min(2 * d.r, (2 * d.r - 8) / this.getComputedTextLength() * 24) + "px"; })
-        .attr("font-size", 11)
-        .attr("fill", "white")
         .attr("x", 0)
         .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
         .text(d => d);
+        // .on("mouseover", function (d, i) {
+        //     mouseOver(this);
+        // })
+        // .on("mouseout", function (d, i) {
+        //     mouseOut(this)
+        // });
 
-    // leaf.append("title")
-    //     .text(d => `${d.data.entity}\n${format(d.value)}`);
+   
+
+    
+// implemented Mike Bostock’s  text wrap function https://bl.ocks.org/mbostock/7555321
+    function wrap(text, width) {
+
+        text.each(function () {
+            let text = d3.select(this),
+                words = text.text().split(/\s+/).reverse(),
+                word,
+                line = [],
+                lineNumber = 0,
+                lineHeight = 1.1, // ems
+                x = text.attr("x"),
+                y = text.attr("y"),
+                dy = 1.1,
+                tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em").text(word);
+                }
+            }
+        });
+    };
+
+
+    
+    leaf.append("text")
+        .attr("text-anchor", "middle")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", 11)
+        .attr("fill", "white")
+        .attr("class", "story")
+        .attr("x", 0)
+        .text(d => d.data.story)
+        .call(wrap, 150)
+        // .on("mouseover", function (d, i) {
+        //     mouseOver(this);
+        // })
+        // .on("mouseout", function (d, i) {
+        //     mouseOut(this)
+        // });
+
+    // new d3plus.TextBox()
+    //     .container(d3.select(".story"))
+    //     .draw();
+        
+    // let height1 = parseInt(leaf.select('text').node().getBoundingClientRect().height);
 
 // on mouse over
 
    
 
-
-
-
-
-
-
 }
+
+
+
+
+
 
         // onclick functions //
    
