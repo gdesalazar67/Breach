@@ -81,10 +81,6 @@ const buildBubbleChart = (svg, width, dataset) => {
         .domain([2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
         .range(["#59a6f81f", "#e3eef9", "#cfe1f2", "#b5d4e9", "#93c3df", "#6daed5", "#4b97c9", "#2f7ebc", "#1864aa", "#0a4a90", "#08306b"]);
 
-    const color2 = d3.scaleOrdinal()
-        .domain([17, 60])
-        .range(pallete);
-
     const mouseOver = (node) => {
 
         let parent = node.closest("g");
@@ -133,9 +129,7 @@ const buildBubbleChart = (svg, width, dataset) => {
     leaf.append("circle")
         .attr("r", d => d.r)
         .attr("class", "r-circles")
-
         .attr("stroke", "white")
-        // .attr("fill", d => color2(d.value))
         .attr("fill", d => color(d.data.year))
     
     leaf.append("text")
@@ -143,7 +137,12 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
         .attr("font-size", 11)
-        .attr("fill", "white")
+        .attr("fill", d => {
+            if (d.data.year < 2015) {
+                return "black"
+            };
+            return "white"
+        })
         .attr("class", "bubble-title")
         .selectAll("tspan")
         .data(d => d.data.entity.split(/(?=[A-Z][^A-Z])/g))
@@ -187,7 +186,12 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
         .attr("font-size", 12)
-        .attr("fill", "white")
+        .attr("fill", d => {
+            if(d.data.year < 2015){
+                return "black"
+            };
+            return "white"
+        })
         .attr("class", "story")
         .attr("x", 0)
         .text(d => d.data.story)
