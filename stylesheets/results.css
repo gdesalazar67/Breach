@@ -15,9 +15,7 @@
     padding-bottom: 40px;
     max-width: 550px;
 }
-/* .are.results-btn-container{
-    display: block;
-} */
+
 .zero.results-btn-container{
     display: none;
 }
@@ -107,14 +105,12 @@
 
 /* ////////chart/////// */
 /* breach-results-container */
-.breach-results-container{
-
-}
 .breach-index{
     padding: 15px;
     display: flex;
     flex-flow: row wrap;
     transition: all 0.2s ease-in-out;
+    min-height: 350px;
 }
 .card-is-collapsed{
     margin: auto;
@@ -146,9 +142,7 @@
     background-color: rgb(89, 166, 248);
     transition: all 0.2s ease-in-out;
 }
-/* .card-is-expanded .breach-card:hover{
-    background-color: rgb(49, 96, 150);
-} */
+
 .breach-card .h3{
     display: inline-block;
     font-size: 18px;
@@ -167,7 +161,6 @@
 
 .info-expander{
     max-width: 300px;
-    /* max-height: 1000px; */
     transition: all 0.2s ease-in-out;
     height: 0px;
     overflow: visible;
@@ -175,11 +168,7 @@
     margin-bottom: 15px;
     opacity: 1;
     background-color: rgb(15, 85, 132);
-    /* width: 100%; */
     position: relative;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     color: rgb(255, 255, 255);
 }
 .card-is-collapsed .info-expander{
@@ -188,7 +177,6 @@
     max-height: 0;
     min-height: 0;
     overflow: hidden;
-    /* margin-top: 0; */
     opacity: 5;
 }
 .card-is-expanded .info-expander{
@@ -201,7 +189,6 @@
     max-height: 1000px;
     min-height: 200px;
     overflow: visible;
-    /* margin-top: 30px; */
     opacity: 1;
 }
 .card-is-expanded .breach-card::after{
@@ -256,7 +243,6 @@
     width: fit-content;
     margin: auto;
     padding-left: 35px;
-    /* margin-top: 15px; */
     padding-top: 5px;
     padding-right: 9px;
     padding-bottom: 5px;
@@ -419,7 +405,6 @@
         width: 1320px;
     }
     .card-is-expanded .info-expander{
-        /* width: 1290px; */
         width: 960px;
         padding-top: 40px;
     }
@@ -428,7 +413,6 @@
         margin-top: 40px;
     }
     .compromised-items-border{
-        /* width: 1100px; */
         width: 720px;
     }
 
