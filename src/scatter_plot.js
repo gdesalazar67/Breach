@@ -135,8 +135,8 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("class", "r-circles")
 
         .attr("stroke", "white")
-        .attr("fill", d => color2(d.value))
-        // .attr("fill", d => color(d.data.year))
+        // .attr("fill", d => color2(d.value))
+        .attr("fill", d => color(d.data.year))
     
     leaf.append("text")
         // .attr("clip-path", d => d.clipUid)

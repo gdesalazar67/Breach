@@ -140,5 +140,6 @@ const testing = (email) => {
     createCards(data);
     displayChartCardsResults()
     buildChart(allMajorBreaches.reverse())
+    // buildChart(allMajorBreaches)
     loader(false);
 };
