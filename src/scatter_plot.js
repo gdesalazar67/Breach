@@ -100,7 +100,14 @@ const buildBubbleChart = (svg, width, dataset) => {
             .raise()
             .select(".story")
             .style("display", "block")
-            .attr("transform", "translate(0,-50)");
+            .attr("transform", d => {
+                if(d.data.personal){
+                    return "translate(0,-25)"
+                }
+                return "translate(0,-50)"
+            });
+            
+            
 
         d3.select(parent)
             .select("circle")
@@ -162,7 +169,6 @@ const buildBubbleChart = (svg, width, dataset) => {
     
 // implemented Mike Bostock’s  text wrap function https://bl.ocks.org/mbostock/7555321
     function wrap(text, width) {
-        console.log(text)
         text.each(function () {
             let text = d3.select(this),
                 words = text.text().split(/\s+/).reverse(),
@@ -192,7 +198,12 @@ const buildBubbleChart = (svg, width, dataset) => {
     leaf.append("text")
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 12)
+        .attr("font-size", d => {
+            if(d.data.personal){
+                return 16
+            }
+            return 12
+        })
         .attr("fill", d => {
             if(d.data.year < 2015){
                 return "black"
