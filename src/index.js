@@ -134,6 +134,8 @@ const fetchData = (email = null) => {
 
 
 const testing = (email) => {
+    reConfigure(data)
+    console.log(data)
     setEmail(email);
     removeCards();
     displayZeroOrAreDiv(1);

@@ -32,6 +32,22 @@ const childParentData = (email, data)=>{
     return dataStructure;
 }
 
+const renameKey = (obj, newKey, oldkey) => {
+    obj[newKey] = obj[oldkey];
+    delete obj[oldkey];
+}
+
+const reConfigure = (dataSet) => {
+
+    for(let i = 0; i < dataSet.length; i++){
+        let current = dataSet[i];
+        renameKey(current, 'entity','Name');
+        renameKey(current, 'recordsLost', 'PwnCount');
+        renameKey(current, 'story', 'Description')
+        current["year"] = parseInt(current.BreachDate.slice(0,4), 10); 
+        current['personal'] = true;
+    }
+};
 
 
 ///dummy data for testing purposes 

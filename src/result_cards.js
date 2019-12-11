@@ -72,11 +72,11 @@ const createCard = (breach, resultNum) => {
     
     let card = newElement("card card-is-collapsed");
 
-    const {Title, DataClasses, Description, LogoPath} = breach;
+    const {Title, DataClasses, story, LogoPath} = breach;
 
     card.appendChild(createBreachBtn(Title));
 
-    card.appendChild(createInfoExpander(resultNum, Description, LogoPath, DataClasses));
+    card.appendChild(createInfoExpander(resultNum, story, LogoPath, DataClasses));
 
     return card;
 };
