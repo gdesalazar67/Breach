@@ -136,8 +136,14 @@ const buildBubbleChart = (svg, width, dataset) => {
     leaf.append("circle")
         .attr("r", d => d.r)
         .attr("class", "r-circles")
-        .attr("stroke", "white")
-        .attr("fill", d => color(d.data.year))
+        .attr("stroke", "white")       
+        .attr("fill", d => {
+            if (d.data.personal) {
+                return "#f17e3b"
+            };
+            return color(d.data.year);
+        });
+        // .attr("fill", d => color(d.data.year))
     
     leaf.append("text")
         .attr("text-anchor", "middle")

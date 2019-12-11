@@ -141,7 +141,8 @@ const testing = (email) => {
     displayZeroOrAreDiv(1);
     createCards(data);
     displayChartCardsResults()
-    buildChart(allMajorBreaches.reverse())
+    // buildChart(data.concat(allMajorBreaches.reverse()))
+    buildChart(allMajorBreaches)
     // buildChart(allMajorBreaches)
     loader(false);
 };
