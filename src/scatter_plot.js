@@ -79,7 +79,7 @@ const buildBubbleChart = (svg, width, dataset) => {
 
     const color = d3.scaleOrdinal()
         .domain([2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
-        .range(["#59a6f81f", "#e3eef9", "#cfe1f2", "#b5d4e9", "#93c3df", "#6daed5", "#4b97c9", "#2f7ebc", "#1864aa", "#0a4a90", "#08306b"]);
+        .range(["#e3ebf6f2", "#e3eef9", "#cfe1f2", "#b5d4e9", "#93c3df", "#6daed5", "#4b97c9", "#2f7ebc", "#1864aa", "#0a4a90", "#08306b"]);
 
     const mouseOver = (node) => {
 
@@ -87,6 +87,12 @@ const buildBubbleChart = (svg, width, dataset) => {
         d3.select(parent)
             .select(".bubble-title")
             .attr("transform", "translate(0,-80)")
+            .attr("fill", d => {
+                if (d.data.year < 2015) {
+                    return "black"
+                };
+                return "white"
+            })
             .style("font-weight", 700)
             .style("font-size", 15);
 
@@ -110,6 +116,7 @@ const buildBubbleChart = (svg, width, dataset) => {
         d3.select(parent)
             .select(".bubble-title")
             .attr("transform", "translate(0,0)")
+            .attr("fill", "white")
             .style("font-weight", 400)
             .style("font-size", 11);
 
@@ -133,16 +140,10 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("fill", d => color(d.data.year))
     
     leaf.append("text")
-        // .attr("clip-path", d => d.clipUid)
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
         .attr("font-size", 11)
-        .attr("fill", d => {
-            if (d.data.year < 2015) {
-                return "black"
-            };
-            return "white"
-        })
+        .attr("fill", "white")
         .attr("class", "bubble-title")
         .selectAll("tspan")
         .data(d => d.data.entity.split(/(?=[A-Z][^A-Z])/g))
