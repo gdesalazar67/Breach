@@ -1,6 +1,6 @@
 
 const loader = (flag) => {
-
+    console.log("hello")
     let loader = document.getElementById("loader");
     let display = flag ? "flex": "none";
 
@@ -10,7 +10,7 @@ const loader = (flag) => {
 const displayChartCardsResults = () => {
 
     let toggle = document.querySelector(".toggle-container");
-    toggle.style.display = "block";
+    toggle.style.display = "block"
     scrollToDiv(toggle);
 };
 

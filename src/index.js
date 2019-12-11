@@ -34,7 +34,7 @@ function topNavIconToggle() {
         x.className += " responsive";
     } else {
         x.className = "topnav";
-    }
+    };
 };
 /////
 
@@ -136,9 +136,9 @@ const fetchData = (email = null) => {
 const testing = (email) => {
     setEmail(email);
     removeCards();
-    createCards(data);
     displayZeroOrAreDiv(1);
-    buildChart(majorBreaches);
-    loader(false);
+    createCards(data);
     displayChartCardsResults()
+    buildChart(allMajorBreaches.reverse())
+    loader(false);
 };

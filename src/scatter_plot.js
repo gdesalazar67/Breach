@@ -1,11 +1,11 @@
 
-const chartToggleOnOff = (flag) => {
+// const chartToggleOnOff = (flag) => {
     
-    let display = flag ? "block" : "none";
+//     let display = flag ? "block" : "none";
 
-    document.getElementById("cc").style.display = display;
-    document.getElementById("svg-container").style.display = display;  
-};
+//     document.getElementById("cc").style.display = display;
+//     document.getElementById("svg-container").style.display = display;  
+// };
 
 const viewBoxDims = () => {
     let w = window.innerWidth;
@@ -18,7 +18,7 @@ const viewBoxDims = () => {
         h = 4759;
     }
 
-    return [w, h];
+    return [w, 1050];
 };
 
 const resetSvg = () => {
@@ -29,8 +29,7 @@ const resetSvg = () => {
 };
 
 const buildChart = (dataSet) => {
-   
-    chartToggleOnOff(true);
+    // chartToggleOnOff(true);
     resetSvg();
 
     let svgDiv = document.getElementById("svg-container");
@@ -38,63 +37,18 @@ const buildChart = (dataSet) => {
     let svg = d3.select(svgDiv)
         .append("svg")
         .attr("class", "box-size")
-        // .attr("width", 351)
-        // .attr("height", 3576);
-        // .attr("preserveAspectRatio", "none")
         .attr("viewBox", `0 0 ${viewWidth} ${viewHeight}`);
 
-    buildYaxis(svg, viewHeight);
-    buildBubbleChart(svg, viewWidth, viewHeight);
+    buildBubbleChart(svg, viewWidth, dataSet);
     
     svg.selectAll(".story")
         .style("display", "none");
 
 };
 
-const buildYaxis = (svg, height) => {
+const buildBubbleChart = (svg, width, dataset) => {
 
-    height = height === 3576 ? 3525: 4709;
-
-    let yScale = d3.scaleLinear()
-        .domain([2020, 2009])
-        .range([0, height])
-        .clamp(true);
-    
-    let yAxis = d3.axisLeft().scale(yScale).tickFormat(d3.format("d"));
-        yAxis.tickSizeOuter([0]);
-
-    let axis = svg.append("g")
-        .attr("class", "axis")
-        .attr("transform", "translate(0, 20)")
-        .call(yAxis);
-
-    let txt = axis.selectAll("text")
-        .attr("transform", "translate(60,0)");
-    
-    // let txtNodes = txt.nodes();
-    // d3.select(txtNodes[txtNodes.length - 1])
-    //     .text("2009 and Earlier")
-    //     .attr("transform", "translate(150,0)");
-
-    let rects = axis.selectAll("g")
-        .append("rect")
-        .attr("width", 60.5)
-        .attr("height", 26)
-        .attr("rx", 5)
-        .attr("transform", "translate(1,-14.5)");
-
-    // let rectsNodes = rects.nodes();
-    // d3.select(rectsNodes[rectsNodes.length-1])
-    //     .attr("width", 150)
-    //     .attr("height", 26)
-    //     .attr("transform", "translate(1,-14.5)");
-
-};
-    
-
-const buildBubbleChart = (svg, width, height) => {
-
-    let classes = majorBreaches["2019"];
+    let classes = dataset;
 
     const sizeScale = d3.scaleSqrt()
         .range([17, 60]);
@@ -102,7 +56,7 @@ const buildBubbleChart = (svg, width, height) => {
     sizeScale.domain(d3.extent(classes, d => d.recordsLost));
     
     let pack = d3.pack()
-        .size([width, 325]);
+        .size([width, 847]);
     
     pack.radius(d => sizeScale(d.value)); 
 
@@ -110,7 +64,7 @@ const buildBubbleChart = (svg, width, height) => {
     let rootPack = pack(root).leaves();
     let leaf = svg.append("g")
         .attr("class", "bubbecluster")
-        .attr("transform", `translate(0,1500)`)
+        .attr("transform", `translate(0,110)`)
         .selectAll("g")
         .data(rootPack)
         .enter()
@@ -144,7 +98,7 @@ const buildBubbleChart = (svg, width, height) => {
             .raise()
             .select(".story")
             .style("display", "block")
-            .attr("transform", "translate(0,-60)");
+            .attr("transform", "translate(0,-50)");
 
         d3.select(parent)
             .select("circle")
@@ -176,29 +130,14 @@ const buildBubbleChart = (svg, width, height) => {
 
     };
 
-    const circle = leaf.append("circle")
+    leaf.append("circle")
         .attr("r", d => d.r)
         .attr("class", "r-circles")
 
         .attr("stroke", "white")
         .attr("fill", d => color2(d.value))
-        // .on("mouseover", function (d,i) {
-        //     mouseOver(this);  
-        // })
-        // .on("mouseout", function (d,i) {
-        //     mouseOut(this)
-        // } );
-
-    // let format = d3.format = d3.format(",d");
-    // leaf.append("clipPath")
-    //     .attr("id", d => (d.clipUid = DOM.uid("clip")).id)
-    //     .append("use")
-    //     .attr("xlink:href", d => d.leafUid.href);
+        // .attr("fill", d => color(d.data.year))
     
-
-
-
-
     leaf.append("text")
         // .attr("clip-path", d => d.clipUid)
         .attr("text-anchor", "middle")
@@ -213,19 +152,11 @@ const buildBubbleChart = (svg, width, height) => {
         .attr("x", 0)
         .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
         .text(d => d);
-        // .on("mouseover", function (d, i) {
-        //     mouseOver(this);
-        // })
-        // .on("mouseout", function (d, i) {
-        //     mouseOut(this)
-        // });
-
-   
-
+       
     
 // implemented Mike Bostock’s  text wrap function https://bl.ocks.org/mbostock/7555321
     function wrap(text, width) {
-
+        console.log(text)
         text.each(function () {
             let text = d3.select(this),
                 words = text.text().split(/\s+/).reverse(),
@@ -255,74 +186,78 @@ const buildBubbleChart = (svg, width, height) => {
     leaf.append("text")
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 11)
+        .attr("font-size", 12)
         .attr("fill", "white")
         .attr("class", "story")
         .attr("x", 0)
         .text(d => d.data.story)
         .call(wrap, 150)
-        // .on("mouseover", function (d, i) {
-        //     mouseOver(this);
-        // })
-        // .on("mouseout", function (d, i) {
-        //     mouseOut(this)
-        // });
-
-    // new d3plus.TextBox()
-    //     .container(d3.select(".story"))
-    //     .draw();
-        
-    // let height1 = parseInt(leaf.select('text').node().getBoundingClientRect().height);
-
-// on mouse over
-
-   
-
-}
+     
+};
 
 
+// ** feature implementaions for smaller screens and mobile
+// const buildYaxis = (svg, width, height, dataSet) => {
+
+//     height = height === 3576 ? 3525 : 4709;
+
+//     let yScale = d3.scaleLinear()
+//         .domain([2020, 2009])
+//         .range([0, height])
+//         .clamp(true);
+
+//     let yAxis = d3.axisLeft().scale(yScale).tickFormat(d3.format("d"));
+//     yAxis.tickSizeOuter([0]);
+
+//     let axis = svg.append("g")
+//         .attr("class", "axis")
+//         .attr("transform", "translate(0, 20)")
+//         .call(yAxis);
+
+//     let txt = axis.selectAll("text")
+//         .attr("transform", "translate(60,0)");
+
+//     // let txtNodes = txt.nodes();
+//     // d3.select(txtNodes[txtNodes.length - 1])
+//     //     .text("2009 and Earlier")
+//     //     .attr("transform", "translate(150,0)");
+
+//     // axis.selectAll("g")
+//     //     .selectAll("g")
+//     //     .data(dataSet)
+//     //     .enter()
+//     //     .append("g")
+
+//     // container.each((d,i,node) => {
+//     //         console.log(node[i])
+//     //         console.log(d)
+//     //         console.log('break');
+//     //         // return 
+//     //         // buildBubbleChart(null, width, d)
+//     //     });
 
 
+//     let rects = axis.selectAll("g")
+//         .append("rect")
+//         .attr("width", 60.5)
+//         .attr("height", 26)
+//         .attr("rx", 5)
+//         .attr("transform", "translate(1,-14.5)");
 
-
-        // onclick functions //
-   
-    // let current_circle = undefined;
-
-    // function selectOccupation(d) {
-    //     if(current_circle !== undefined){
-    //         current_circle.attr("fill", d => color(d.data.year));
-    //         svg.selectAll("#details-popup").remove();
-    //     };
-
-
-    //     current_circle = d3.select(this);
-    //     current_circle.attr("fill", "#b2e1f9");
-        
-    //     let textblock = svg.selectAll("#detail-popup")
-    //         .data([d])
-    //         .enter()
-    //         .append("g")
-    //         .attr("id", "details-popup")
-    //         .attr("font-size", 14)
-    //         .attr("font-family", "sans-serif")
-    //         .attr("text-anchor", "center")
-    //         .attr("transform", d => `translate(0, 20)`);
-
-    //     textblock.append("text")
-    //         .text(d => "Comapnay: " + d.data.entity)
-    //         .attr("y", "16");
-    //     textblock.append("text")
-    //         .text(d => d.data.recordsLost)
-    //         .attr("y", "32");
-    //     textblock.append("text")
-    //         .text(d => d.data.year)
-    //         .attr("y", "48");
-    // };
-
-    // circle.on("click", selectOccupation)
+//     // let rectsNodes = rects.nodes();
+//     // d3.select(rectsNodes[rectsNodes.length-1])
+//     //     .attr("width", 150)
+//     //     .attr("height", 26)
+//     //     .attr("transform", "translate(1,-14.5)");
 
 // };
+
+
+
+
+
+
+  
     
     
     

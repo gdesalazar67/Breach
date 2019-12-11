@@ -15,10 +15,10 @@
 //     return bByYear;
 // };
 
-const pallete = [ "#e8f1fa", "#e7f1fa", "#e7f0fa", "#e6f0f9", "#e5eff9", "#e0ecf7", "#dfebf7", "#a8cee5", "#a7cde5", "#a5cde4", "#a4cce4", "#a3cbe3", "#a1cbe3", "#a0cae3", "#9ec9e2", "#9dc9e2", "#81badb", "#7fb9da", "#70b0d6", "#6fafd6", "#6daed5", "#6caed5", "#6badd5", "#69acd4", "#68abd4", "#1864aa", "#1763aa", "#1662a9", "#1561a8", "#1560a7", "#145fa6", "#135ea5", "#135da4", "#125ca4", "#115ba3", "#115aa2", "#1059a1", "#1058a0", "#0f579f", "#0e569e", "#0e559d", "#0e549c", "#0d539a", "#0a498e", "#0a488d", "#083471", "#083370", "#08326e", "#08316d", "#08306b"].reverse();
+const pallete = [ "#e8f1fa", "#e7f1fa", "#e7f0fa", "#e6f0f9", "#e5eff9", "#e0ecf7", "#dfebf7", "#a8cee5", "#a7cde5", "#a5cde4", "#a4cce4", "#a3cbe3", "#a1cbe3", "#a0cae3", "#9ec9e2", "#9dc9e2", "#81badb", "#7fb9da", "#70b0d6", "#6fafd6", "#6daed5", "#6caed5", "#6badd5", "#69acd4", "#68abd4", "#1864aa", "#1763aa", "#1662a9", "#1561a8", "#1560a7", "#145fa6", "#135ea5", "#135da4", "#125ca4", "#115ba3", "#115aa2", "#1059a1", "#1058a0", "#0f579f", "#0e569e", "#0e559d", "#0e549c", "#0d539a", "#0a498e", "#0a488d", "#083471", "#083370", "#08326e", "#08316d", "#08306b"];
 
-const majorBreaches = {
-    "2009": [
+const majorBreaches = [
+    [
         {
             "entity": "Heartland",
             "alternativeName": "Independent payment processor",
@@ -145,7 +145,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.wired.com/threatlevel/2009/10/probe-targets-archives-handling-of-data-on-70-million-vets/"
         }
     ],
-    "2010": [
+    [
         {
             "entity": "AvMed, Inc.",
             "recordsLost": 1220000,
@@ -327,7 +327,7 @@ const majorBreaches = {
             "ndSourceLink": "https://blogs.gartner.com/jack-santos/2010/12/27/year-end-2010-healthcare-breach-synopsis/"
         }
     ],
-    "2011": [
+    [
         {
             "entity": "New York City Health & Hospitals Corp.",
             "alternativeName": "New York City Health & Hospitals Corporation's North Bronx Healthcare Network",
@@ -758,7 +758,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.reuters.com/article/us-data-breach-texas-idUSTRE78S5JG20110929"
         }
     ],
-    "2012": [
+    [
         {
             "entity": "China Software Developer Network",
             "recordsLost": 6000000,
@@ -1032,7 +1032,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.infoworld.com/article/2615754/cyber-crime/south-carolina-reveals-massive-data-breach-of-social-security-numbers--credit-cards.html"
         }
     ],
-    "2013": [
+    [
         {
             "entity": "Massive American business hack",
             "alternativeName": "7-Eleven, JC Penney, Hannaford, Heartland, JetBlue, Dow Jones, Euronet, Visa Jordan, Global Payment, Diners Singapore and Ingenicard",
@@ -1468,7 +1468,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.huffingtonpost.com/2013/12/19/target-hacked-customer-credit-card-data-accessed_n_4471672.html?utm_hp_ref=mostpopular"
         }
     ],
-    "2014": [
+    [
         {
             "entity": "Neiman Marcus",
             "alternativeName": "US retailer",
@@ -1691,7 +1691,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.theguardian.com/technology/2014/aug/05/mozilla-leak-developer-email-addresses-passwords-firefox"
         }
     ],
-    "2015": [
+    [
         {
             "entity": "Carefirst",
             "alternativeName": "Blue Cross, Blue Shield US medical insurer",
@@ -1998,7 +1998,7 @@ const majorBreaches = {
             "ndSourceLink": "https://healthitsecurity.com/news/ucla-health-reaches-7.5m-settlement-over-2015-breach-of-4.5m"
         }
     ],
-    "2016": [
+    [
         {
             "entity": "LinkedIn",
             "recordsLost": 117000000,
@@ -2387,7 +2387,7 @@ const majorBreaches = {
             "ndSourceLink": "http://www.digitaltrends.com/computing/clixsense-hacked/"
         }
     ],
-    "2017": [
+    [
         {
             "entity": "Disqus",
             "recordsLost": 17500000,
@@ -2676,7 +2676,7 @@ const majorBreaches = {
             "ndSourceLink": "https://thehackernews.com/2017/09/hacker-track-car.html"
         }
     ],
-    "2018": [
+    [
         {
             "entity": "Click2Gov",
             "recordsLost": 300000,
@@ -3193,7 +3193,7 @@ const majorBreaches = {
             "ndSourceLink": "https://yro.slashdot.org/story/18/09/19/1417242/hackers-stole-customer-credit-cards-in-newegg-data-breach?utm_source=rss1.0mainlinkanon&utm_medium=feed"
         }
     ],
-    "2019": [
+    [
         {
             "entity": "Desjardins Group",
             "recordsLost": 2900000,
@@ -3676,4 +3676,4 @@ const majorBreaches = {
             "ndSourceLink": "https://arstechnica.com/information-technology/2019/10/data-for-a-whopping-26-million-stolen-payment-cards-leaked-in-hack-of-fraud-bazaar/"
         }
     ]
-}
+]

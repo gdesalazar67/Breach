@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breach</title>
     <script src='https://d3js.org/d3.v4.min.js'></script>
-    <script src="https://d3plus.org/js/d3plus-text.v0.9.full.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/svg.css">
@@ -20,14 +19,6 @@
 </head>
 <body>
     <div id="loader">
-        <!-- <div class="cube">
-            <div class="side side1"></div>
-            <div class="side side2"></div>
-            <div class="side side3"></div>
-            <div class="side side4"></div>
-            <div class="side side5"></div>
-            <div class="side side6"></div>
-        </div> -->
         <div class="loader-container">
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
@@ -35,7 +26,6 @@
             <div class="shape shape-4"></div>
         </div>
     </div>
-    <!-- <img src="media/805.svg"> -->
     <main class="content-container">
         <header class="logo-navburger-container">
             <div class="logo-navburger-container-inner">
@@ -49,22 +39,13 @@
                 </a>
                 <div class="topnav" >
                     <a href="javascript:void(0);" class="icon" onclick="topNavIconToggle()">&#9776;</a>
-                    <!-- <a href="https://github.com/gdesalazar67/Breach">GitHub</a>
-                    <a href="https://linkedin.com/in/galo-desalazar-44092b41">Linkedin</a>
-                    <a href="https://gdesalazar67.github.io/gdesalazar67/">Portfolio</a> -->
-                </div>
-                
+                </div>    
             </div>
             <div class="topnav" id="idTopNav">
                     <a href="https://github.com/gdesalazar67/Breach" class="github">GitHub</a>
                     <a href="https://linkedin.com/in/galo-desalazar-44092b41" class="linkedin">Linkedin</a>
                     <a href="https://gdesalazar67.github.io/gdesalazar67/" class="port">Portfolio</a>
             </div>
-
-                           
-            
-          
-           
         </header>
         <div class="main-banner-container">
             <div class="main-banner-text-searchbar-container">
@@ -134,188 +115,32 @@
             <div class="chart-container" id="cc">
                 <div class="canvas" id="svg-container"></div> 
             </div>
-
-
-
-
-
             <div class="breach-results-container" id="brc">
-                <div class="how-it-works-text">Detailed Results</div>
-                <!-- <div class="breach-index" id="four"> -->
-                    <!-- <div class="card-is-expanded" id="card"> -->
-                    <!-- <div class="card card-is-collapsed" >
-                        <div class="breach-card">
-                            <p class="card-title">MyFitnessPal</p>                        </div>
-                        <div class="info-expander four">
-                            <div class="logo-date-container">
-                                <div class="logo-container">
-                                    <img src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MyFitnessPal.png">
-                                </div>
-                            </div>
-                            <div class="compromised-title">COMPROMISED DATA</div>
-                            <div class="compromised-items-border">
-                                <ul class="compromised-items-container">
-                                    <li class="items">Email addresses</li>
-                                    <li class="items">password</li>
-                                    <li class="items">address</li>
-                                    <li class="items">Password hints</li>
-                                    <li class="items">password</li>
-                                    <li class="items">address</li>
-                                    <li class="items">password hints</li>
-                                    <li class="items">address</li>
-                                    <li class="items">Password hints</li>
-                                    <li class="items">password</li>
-                                    <li class="items">address</li>
-                                </ul>
-                            </div>
-
-                            <div class="description">&emsp;&emsp;In February 2018, the diet and exercise service <a
-                                href=\"https://content.myfitnesspal.com/security-information/FAQ.html\" target=\"_blank\"
-                                rel=\"noopener\">MyFitnessPal suffered a data breach</a>. The incident exposed 144 million unique email addresses
-                            alongside usernames, IP addresses and passwords stored as SHA-1 and bcrypt hashes (the former for earlier accounts, the
-                            latter for newer accounts). In 2019, <a
-                                href=\"https://www.theregister.co.uk/2019/02/11/620_million_hacked_accounts_dark_web/\" target=\"_blank\"
-                                rel=\"noopener\">the data appeared listed for sale on a dark web marketplace</a> (along with several other large
-                            breaches) and subsequently began circulating more broadly. The data was provided to HIBP by a source who requested it to
-                            be attributed to &quot;BenjaminBlue@exploit.im&quot;.
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="card card-is-expanded" > -->
-                        <!-- <div class="card card-is-collapsed">
-                        <div class="breach-card">
-                            <p class="card-title">MyFitnessPal</p>
-                        </div>
-                        <div class="info-expander four">
-                            <div class="logo-date-container">
-                                <div class="logo-container">
-                                    <img src="https://haveibeenpwned.com/Content/Images/PwnedLogos/HauteLook.png">
-                                </div>
-                            </div>
-                            <div class="compromised-title">COMPROMISED DATA</div>
-                            <div class="compromised-items-border">
-                                <ul class="compromised-items-container">
-                                    <li class="items">email</li>
-                                    <li class="items">password</li>
-                                    <li class="items">address</li>
-                                </ul>
-                            </div>
-                    
-                            <div class="description">&emsp;&nbsp;In February 2018, the diet and exercise service <a
-                                    href=\"https://content.myfitnesspal.com/security-information/FAQ.html\" target=\"_blank\"
-                                    rel=\"noopener\">MyFitnessPal suffered a data breach</a>. The incident exposed 144 million unique email
-                                addresses
-                                alongside usernames, IP addresses and passwords stored as SHA-1 and bcrypt hashes (the former for earlier
-                                accounts, the
-                                latter for newer accounts). In 2019, <a
-                                    href=\"https://www.theregister.co.uk/2019/02/11/620_million_hacked_accounts_dark_web/\"
-                                    target=\"_blank\" rel=\"noopener\">the data appeared listed for sale on a dark web marketplace</a>
-                                (along with several other large
-                                breaches) and subsequently began circulating more broadly. The data was provided to HIBP by a source who
-                                requested it to
-                                be attributed to &quot;BenjaminBlue@exploit.im&quot;.
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="card card-is-expanded" > -->
-                    <!-- <div class="card card-is-collapsed">
-                        <div class="breach-card"> 
-                            <p class="card-title">MyFitnessPal</p>
-                        </div>
-                        <div class="info-expander four">
-                            <div class="logo-date-container">
-                                <div class="logo-container">
-                                    <img src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MyFitnessPal.png">
-                                </div>
-                            </div>
-                            <div class="compromised-title">3 COMPROMISED DATA</div>
-                            <ul class="compromised-items-container">
-                                <li class="items">email</li>
-                                <li class="items">password</li>
-                                <li class="items">address</li>
-                            </ul>
-                    
-                            <div class="description">&emsp;&nbsp;In February 2018, the diet and exercise service <a
-                                    href=\"https://content.myfitnesspal.com/security-information/FAQ.html\" target=\"_blank\"
-                                    rel=\"noopener\">MyFitnessPal suffered a data breach</a>. The incident exposed 144 million unique email
-                                addresses
-                                alongside usernames, IP addresses and passwords stored as SHA-1 and bcrypt hashes (the former for earlier
-                                accounts, the
-                                latter for newer accounts). In 2019, <a
-                                    href=\"https://www.theregister.co.uk/2019/02/11/620_million_hacked_accounts_dark_web/\"
-                                    target=\"_blank\" rel=\"noopener\">the data appeared listed for sale on a dark web marketplace</a>
-                                (along with several other large
-                                breaches) and subsequently began circulating more broadly. The data was provided to HIBP by a source who
-                                requested it to
-                                be attributed to &quot;BenjaminBlue@exploit.im&quot;.
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="card card-is-expanded" > -->
-                    <!-- <div class="card card-is-collapsed" > 
-                        <div class="breach-card">
-                            <p class="card-title">Linkedin</p>
-                        </div>
-                        <div class="info-expander four">
-                            <div class="logo-date-container">
-                                <div class="logo-container">
-                                    <img src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MyFitnessPal.png">
-                                </div>
-                            </div>
-                            <div class="compromised-title">4 COMPROMISED DATA</div>
-                            <div class="compromised-items-border">
-                                <ul class="compromised-items-container">
-                                    <li class="items">email</li>
-                                    <li class="items">password</li>
-                                    <li class="items">address</li>
-                                </ul>
-                            </div>
-                                
-                            <div class="description">&emsp;&nbsp;In February 2018, the diet and exercise service <a
-                                    href=\"https://content.myfitnesspal.com/security-information/FAQ.html\" target=\"_blank\"
-                                    rel=\"noopener\">MyFitnessPal suffered a data breach</a>. The incident exposed 144 million unique email
-                                addresses
-                                alongside usernames, IP addresses and passwords stored as SHA-1 and bcrypt hashes (the former for earlier
-                                accounts, the
-                                latter for newer accounts). In 2019, <a
-                                    href=\"https://www.theregister.co.uk/2019/02/11/620_million_hacked_accounts_dark_web/\"
-                                    target=\"_blank\" rel=\"noopener\">the data appeared listed for sale on a dark web marketplace</a>
-                                (along with several other large
-                                breaches) and subsequently began circulating more broadly. The data was provided to HIBP by a source who
-                                requested it to
-                                be attributed to &quot;BenjaminBlue@exploit.im&quot;.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-            
+                <div class="how-it-works-text">Detailed Results</div>  
+            </div>            
             <footer>
-                 <div>Powered by <a href="https://haveibeenpwned.com/API/v3">HABI API</a></div>
-                <div>Icons made by 
-                    <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, 
-                    <a href="https://www.flaticon.com/authors/monkik" title="monkik">Monkik</a>, 
-                    <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, and
-                    <a href="https://www.flaticon.com/authors/pongsakornred" title="pongsakornRed">PongsakornRed</a> from
-                    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-                </div>
-                
+                <div>Powered by <a href="https://haveibeenpwned.com/API/v3">HABI API</a></div>
+                    <div>Icons made by 
+                        <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, 
+                        <a href="https://www.flaticon.com/authors/monkik" title="monkik">Monkik</a>, 
+                        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, and
+                        <a href="https://www.flaticon.com/authors/pongsakornred" title="pongsakornRed">PongsakornRed</a> from
+                        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    </div>         
             </footer> 
-        </main>
+        </div>
+    </main>
 </body>
 
     <script src="dist/bundle.js"></script>
     <script src="https://d3js.org/d3-scale.v3.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <!-- <script src="//d3plus.org/js/d3.js"></script>
-    <script src="//d3plus.org/js/d3plus.js"></script> -->
     <script type="text/javascript" src="./src/index.js"></script>
     <script type="text/javascript" src="./src/seed_data.js"></script>
     <script type="text/javascript" src="./src/result_cards.js"></script>
     <script type="text/javascript" src="./src/scatter_plot.js"></script>
     <script type="text/javascript" src="./src/hibp_data.js"></script>
-    <script type="text/javascript" src="./src/unUsedData.js"></script>
+    <script type="text/javascript" src="./src/all_major_breaches_data.js"></script>
 
 </html>
 
