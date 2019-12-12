@@ -101,15 +101,8 @@ const buildBubbleChart = (svg, width, dataset) => {
 
         d3.select(parent)
             .select(".bubble-title")
-            .attr("transform", "translate(0,-80)")
-            .attr("fill", d => {
-                if (d.data.year < 2015) {
-                    return "black"
-                };
-                return "white"
-            })
-            .style("font-weight", 700)
-            .style("font-size", 15);
+            .style("display", "none")
+        
 
         d3.select(parent)
             .raise()
@@ -119,7 +112,7 @@ const buildBubbleChart = (svg, width, dataset) => {
                 if(d.data.personal){
                     return "translate(0,-25)"
                 }
-                return "translate(0,-50)"
+                return "translate(0,-75)"
             });
                    
     }
@@ -130,10 +123,8 @@ const buildBubbleChart = (svg, width, dataset) => {
         let parent = node.closest("g");
         d3.select(parent)
             .select(".bubble-title")
-            .attr("transform", "translate(0,0)")
-            .attr("fill", "white")
-            .style("font-weight", 400)
-            .style("font-size", 11);
+            .style("display", "block")
+            
 
        d3.select(parent)
             .select(".r-circles")
@@ -182,6 +173,7 @@ const buildBubbleChart = (svg, width, dataset) => {
         .text(d => d);
        
     
+
 // implemented Mike Bostock’s  text wrap function https://bl.ocks.org/mbostock/7555321
     function wrap(text, width) {
         text.each(function () {
@@ -194,7 +186,7 @@ const buildBubbleChart = (svg, width, dataset) => {
                 x = text.attr("x"),
                 y = text.attr("y"),
                 dy = 1.1,
-                tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+                tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + .4 + "em");
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
@@ -229,6 +221,23 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("x", 0)
         .text(d => d.data.story)
         .call(wrap, 150)
+
+    leaf.select(".story")
+        .append("tspan")
+        .attr("x", 0)
+        .attr("dy", "1.4em")
+        .style("font-weight", 700)
+        .style("font-size", 13)
+        .text(d=> `${d.data.recordsLost} records lost`)
+        .lower()
+    
+    leaf.select(".story")
+        .append("tspan")
+        .attr("x", 0)
+        .style("font-weight", 700)
+        .style("font-size", 19)
+        .text(d => d.data.entity)
+        .lower()
      
 };
 

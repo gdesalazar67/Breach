@@ -142,7 +142,7 @@ const testing = (email) => {
     createCards(data);
     displayChartCardsResults()
     // buildChart(data.concat(allMajorBreaches.reverse()))
-    buildChart(allMajorBreaches.concat(data))
+    buildChart(allMajorBreaches.concat(data.slice(0)))
     // buildChart(allMajorBreaches)
     loader(false);
 };
