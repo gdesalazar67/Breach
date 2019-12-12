@@ -1,3 +1,5 @@
+// Source of all major breaches data 
+// https://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/
 
 const allMajorBreaches = [
     {
@@ -2443,6 +2445,7 @@ const allMajorBreaches = [
     {
         "entity": "OVH",
         "alternativeName": "French Internet host",
+        "recordsLost": 4000000,
         "year": 2013,
         "story": "Jul 2013. A hacker was able to obtain access to an email account of a system administrator, then to the internal VPN of another employee, with which they were able to compromise the access of one of the system administrators who handles the the internal backoffice.\n",
         "sector": "web",

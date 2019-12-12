@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breach</title>
+    <script type="text/javascript">
+        document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+    </script>
     <script src='https://d3js.org/d3.v4.min.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/index.css">
@@ -108,7 +111,7 @@
                         <input  class="results-btn" type="button" placeholder="cards" value="See Detailed Results" onclick="takeMeTo(this.placeholder)">
                     </div>
                     <div class="zero results-btn-container">
-                        <input class="zero results-btn" type="button" placeholder="top" value="Check another email" onclick="takeMeTo(this.placeholder)">
+                        <input class="zero results-btn" type="button" placeholder="top" value="Check another email or try Demo" onclick="takeMeTo(this.placeholder)">
                     </div>
                 </div>
             </div>

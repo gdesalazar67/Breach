@@ -54,11 +54,14 @@ const searchInput = document.querySelector("#email")
 const ValidateEmail = (email) => {
 
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)) {
+        searchInput.classList.remove("invalid")
         return true
     };
 
     loader(false)
-    alert("You have entered an invalid email address!");
+    searchInput.value = ""
+    searchInput.placeholder = "Invalid email address!"
+    searchInput.classList.add("invalid");
     return false
 };
 
@@ -93,41 +96,34 @@ const fetchData = (email = null) => {
         newUrl += email + "?truncateResponse=false";
 
         /////////////////for testing only 
-        testing(email);
-
-        // let hiroData = Data.childParentData(email, Data.data);
-        // resultsTree(hiroData);
-        /////////////////
+        // testing(email);
 
         // //create header for fetch request 
-        // const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
-        // let keyHeaders = new Headers();
-        // keyHeaders.append('Hibp-Api-Key', hibpApiKey)
+        const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
+        let keyHeaders = new Headers();
+        keyHeaders.append('Hibp-Api-Key', hibpApiKey)
 
-        // fetch(newUrl, { method: "GET", headers: keyHeaders })
-        //     .then(res => res.json())
-        //     .then(function (data) {
-        //         // console.log(data)
-        //         // setEmail(email);
-        //         // createCards(data)
-        //         // displayZeroOrAreDiv(1);
-
-        //         // buildChart(data)
-        //         // loader(false);
-        //         // displayChartCardsResults();
-        //         // let hiroData = Data.childParentData(email, data);
-        //         // sent data to tree building function
-        //         // resultsTree(hiroData);
-        //     })
-        //     .catch(error => {
-        //         setEmail(email);
-        //         loader(false)
-        //         noResult();
-        //         // svg.selectAll("*").remove();
-        //         // noBreach.style.display = "block";
-        //         searchInput.value = ""
-        //         searchInput.placeholder = "Enter your email here...";
-        //     });
+        fetch(newUrl, { method: "GET", headers: keyHeaders })
+            .then(res => res.json())
+            .then(function (data) {
+                reConfigure(data)
+                setEmail(email);
+                displayZeroOrAreDiv(1);
+                removeCards();
+                createCards(data);
+                displayChartCardsResults();
+                buildChart(allMajorBreaches.concat(data.slice(0)));
+                loader(false);  
+                scrollToDiv(document.querySelector(".toggle-container"));
+            })
+            .catch(error => {
+                setEmail(email);
+                noResult();
+                loader(false);
+                scrollToDiv(document.querySelector(".toggle-container"));
+                searchInput.value = ""
+                searchInput.placeholder = "Enter your email here...";
+            });
     };
 };
 

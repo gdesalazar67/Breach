@@ -1,6 +1,5 @@
 
 const loader = (flag) => {
-    console.log("hello")
     let loader = document.getElementById("loader");
     let display = flag ? "flex": "none";
 
@@ -10,8 +9,7 @@ const loader = (flag) => {
 const displayChartCardsResults = () => {
 
     let toggle = document.querySelector(".toggle-container");
-    toggle.style.display = "block"
-    scrollToDiv(toggle);
+    toggle.style.display = "block";
 };
 
 const totalBreaches = (number) => {
@@ -73,8 +71,7 @@ const createCard = (breach, resultNum) => {
     let card = newElement("card card-is-collapsed");
     
     const {Title, DataClasses, Description, LogoPath, recordsLost} = breach;
-    card.id = `${Title}-${recordsLost}`
-    
+    card.id = `${Title}-${recordsLost}`;
     card.appendChild(createBreachBtn(Title));
 
     card.appendChild(createInfoExpander(resultNum, Description, LogoPath, DataClasses));

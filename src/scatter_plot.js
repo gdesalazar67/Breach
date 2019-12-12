@@ -22,7 +22,7 @@ const viewBoxDims = () => {
 };
 
 const resetSvg = () => {
-
+    
     if(document.getElementsByTagName("svg").length){
         d3.select("svg").remove();
     };
@@ -30,7 +30,7 @@ const resetSvg = () => {
 
 const buildChart = (dataSet) => {
     // chartToggleOnOff(true);
-    resetSvg();
+    resetSvg()
 
     let svgDiv = document.getElementById("svg-container");
     let [viewWidth, viewHeight] = viewBoxDims();
@@ -80,8 +80,7 @@ const buildBubbleChart = (svg, width, dataset) => {
             if(d.data.personal){
                 document.getElementById(`${d.data.Title}-${d.data.recordsLost}`).click();
             }else{
-                loader(true);
-                window.location = d.data.ndSourceLink
+                window.open(d.data.ndSourceLink);
             };
         });
 
@@ -200,8 +199,10 @@ const buildBubbleChart = (svg, width, dataset) => {
         });
     };
 
-
-    
+    const toCommas = (value) => {
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+     
     leaf.append("text")
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
@@ -228,7 +229,9 @@ const buildBubbleChart = (svg, width, dataset) => {
         .attr("dy", "1.4em")
         .style("font-weight", 700)
         .style("font-size", 13)
-        .text(d=> `${d.data.recordsLost} records lost`)
+        .text(d => {
+            return `${toCommas(d.data.recordsLost)} records lost`
+        })
         .lower()
     
     leaf.select(".story")

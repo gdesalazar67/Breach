@@ -229,6 +229,17 @@ div.logotext {
     margin-bottom: 2px;
 }
 
+
+.searchbar-container .search::placeholder{
+    color: gray;
+}
+.searchbar-container .search.invalid::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+
+
 .searchbar-container .button{
     background-color: rgb(49, 83, 124);
     border: none;
@@ -392,6 +403,7 @@ div.logotext {
 /* footer */
 
 footer {
+     margin-top: 350px;
      background: rgb(49, 83, 124); 
      width: 100%
      
