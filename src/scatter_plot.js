@@ -75,6 +75,14 @@ const buildBubbleChart = (svg, width, dataset) => {
         })
         .on("mouseout", function (d, i) {
             mouseOut(this)
+        })
+        .on("click", d => {
+            if(d.data.personal){
+                document.getElementById(`${d.data.Title}-${d.data.recordsLost}`).click();
+            }else{
+                loader(true);
+                window.location = d.data.ndSourceLink
+            };
         });
 
     const color = d3.scaleOrdinal()
@@ -84,6 +92,13 @@ const buildBubbleChart = (svg, width, dataset) => {
     const mouseOver = (node) => {
 
         let parent = node.closest("g");
+
+        d3.select(parent)
+            .select("circle")
+            .transition()
+            .duration(200)
+            .attr("r", 120);
+
         d3.select(parent)
             .select(".bubble-title")
             .attr("transform", "translate(0,-80)")
@@ -106,14 +121,7 @@ const buildBubbleChart = (svg, width, dataset) => {
                 }
                 return "translate(0,-50)"
             });
-            
-            
-
-        d3.select(parent)
-            .select("circle")
-            .transition()
-            .duration(200)
-            .attr("r", 120);
+                   
     }
         
 
@@ -140,6 +148,13 @@ const buildBubbleChart = (svg, width, dataset) => {
 
     };
 
+    // leaf.append("a")
+    //     .attr("xlink:href", d => {
+    //         if(d.data.personal){
+    //             return "https://www.google.com/"
+    //         }
+    //         return d.data.ndSourceLink
+    //     })
     leaf.append("circle")
         .attr("r", d => d.r)
         .attr("class", "r-circles")

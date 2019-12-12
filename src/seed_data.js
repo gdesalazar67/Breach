@@ -45,7 +45,7 @@ const reConfigure = (dataSet) => {
         renameKey(current, 'recordsLost', 'PwnCount');
         current["year"] = parseInt(current.BreachDate.slice(0,4), 10); 
         current['personal'] = true;
-        current['story'] = "See Detailed Results below";
+        current['story'] = "Click to See more Details";
     }
 };
 
