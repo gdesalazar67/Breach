@@ -121,8 +121,10 @@
 }
 .card-is-expanded{
     margin: auto;
+    cursor: pointer;
 }
 .breach-card{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;

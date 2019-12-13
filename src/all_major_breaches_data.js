@@ -1,6 +1,25 @@
 // Source of all major breaches data 
 // https://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/
 
+
+
+const renameKey = (obj, newKey, oldkey) => {
+    obj[newKey] = obj[oldkey];
+    delete obj[oldkey];
+}
+
+const reConfigure = (dataSet) => {
+
+    for (let i = 0; i < dataSet.length; i++) {
+        let current = dataSet[i];
+        renameKey(current, 'entity', 'Name');
+        renameKey(current, 'recordsLost', 'PwnCount');
+        current["year"] = parseInt(current.BreachDate.slice(0, 4), 10);
+        current['personal'] = true;
+        current['story'] = "Click to See more Details";
+    }
+};
+
 const allMajorBreaches = [
     {
         "entity": "BriansClub",

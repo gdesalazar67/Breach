@@ -251,9 +251,9 @@ div.logotext {
 .searchbar-container .search::placeholder{
     color: gray;
 }
-.searchbar-container .search.invalid::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.searchbar-container .search.invalid::placeholder { 
   color: red;
-  opacity: 1; /* Firefox */
+  opacity: 1; 
 }
 
 
@@ -319,8 +319,6 @@ div.logotext {
     text-align: center;
     font-size: 28px;
     font-weight: 700;
-    /* font-size: 37px;
-    font-weight: 400; */
     line-height: 44px;
     color: rgb(49, 96, 150);
     letter-spacing: 2px;
@@ -361,16 +359,7 @@ div.logotext {
 .how-it-works-sub-text a:hover{
     color: darkgray;
 }
-/* how it works resoponsive */
-/* need to figure out ::after
-@media screen and (min-width: 1126px){
-    #arrow{
-        background: darkgreen;
-    } 
-       #arrow::after {
-         content: none;
-    }
-} */
+
 @media screen and (min-width: 900px){
     .how-it-works-container{
         height: 414px;
@@ -452,7 +441,6 @@ footer {
 footer a{
     color: rgb(255, 255, 255);
     font-weight: 400;
-    /* font-size: 14px; */
 }
 
 .link-container{

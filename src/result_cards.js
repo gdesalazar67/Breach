@@ -71,6 +71,7 @@ const createCard = (breach, resultNum) => {
     let card = newElement("card card-is-collapsed");
     
     const {Title, DataClasses, Description, LogoPath, recordsLost} = breach;
+    
     card.id = `${Title}-${recordsLost}`;
     card.appendChild(createBreachBtn(Title));
 
@@ -144,9 +145,6 @@ const removeCards = () => {
 
 
 ///results breach cards///
-// const cards = document.getElementsByClassName("breach-card");
-
-// add EventLister to each card
 const addEventListnerToCard = (card) => {
 
     card.addEventListener("click", event => {

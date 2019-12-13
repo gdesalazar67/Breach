@@ -1,7 +1,4 @@
-// overview of code structure inspired by catena developed by clericl github
 //cors-anywhere used https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141
-// import * as Data from "./seed_data";
-
 
 ///watch window size////
 function windowSize() {
@@ -16,16 +13,24 @@ function windowSize() {
     };
 };
 
+let chartDisplayed = null;
+
+const chartResize = (dataSet) => {
+    buildChart(dataSet)
+};
+
 windowSize();
 
 window.addEventListener("resize", () => {
 
-    windowSize()
-});
+    windowSize();
 
+    if (chartDisplayed){
+        chartResize(allMajorBreaches.concat(apiData));
+    };
+});
 /////
 
-///dropdown toggle///
 function topNavIconToggle(y) {
     y.classList.toggle("change");
     var x = document.getElementById("idTopNav");
@@ -36,13 +41,8 @@ function topNavIconToggle(y) {
         x.className = "topnav";
     };
 };
-/////
 
-
-
-//on refresh scroll to top of page 
 window.onbeforeunload = function () {
-
     window.scrollTo(0, 0);
 };
 
@@ -50,6 +50,11 @@ window.onbeforeunload = function () {
 
 // search input functions
 const searchInput = document.querySelector("#email")
+
+const setEmailPlaceHolder = () =>{
+    searchInput.value = ""
+    searchInput.placeholder = "Enter your email here...";
+};
 
 const ValidateEmail = (email) => {
 
@@ -65,13 +70,6 @@ const ValidateEmail = (email) => {
     return false
 };
 
-searchInput.addEventListener("keydown", event => {
-
-    if(event.key === "Enter"){
-        fetchData();
-    };
-});
-
 const formSubmit = () => {
 
     fetchData();
@@ -82,6 +80,10 @@ const demoSubmit = () => {
     let email = "hello1@gmail.com";
     fetchData(email);
 };
+
+const toogleContainer = document.querySelector(".toggle-container");
+
+let apiData = null;
 
 const fetchData = (email = null) => {
 
@@ -94,10 +96,7 @@ const fetchData = (email = null) => {
     if (ValidateEmail(email)) {
         email = email.replace(/\s/g, '');
         newUrl += email + "?truncateResponse=false";
-
-        /////////////////for testing only 
-        // testing(email);
-
+       
         // //create header for fetch request 
         const hibpApiKey = '2b084434e60e47c89f6906fdb1af671c';
         let keyHeaders = new Headers();
@@ -107,38 +106,27 @@ const fetchData = (email = null) => {
             .then(res => res.json())
             .then(function (data) {
                 reConfigure(data)
+                apiData = data
                 setEmail(email);
                 displayZeroOrAreDiv(1);
                 removeCards();
                 createCards(data);
                 displayChartCardsResults();
-                buildChart(allMajorBreaches.concat(data.slice(0)));
+                buildChart(allMajorBreaches.concat(data));
                 loader(false);  
-                scrollToDiv(document.querySelector(".toggle-container"));
+                scrollToDiv(toogleContainer);
+                setEmailPlaceHolder();
             })
             .catch(error => {
+                console.log("404 is what HIBP returns when email has no associated breach results, it's a good thing")
                 setEmail(email);
                 noResult();
                 loader(false);
-                scrollToDiv(document.querySelector(".toggle-container"));
-                searchInput.value = ""
-                searchInput.placeholder = "Enter your email here...";
+                scrollToDiv(toogleContainer);
+                setEmailPlaceHolder();
             });
     };
 };
 
 
 
-const testing = (email) => {
-    reConfigure(data)
-    console.log(data)
-    setEmail(email);
-    removeCards();
-    displayZeroOrAreDiv(1);
-    createCards(data);
-    displayChartCardsResults()
-    // buildChart(data.concat(allMajorBreaches.reverse()))
-    buildChart(allMajorBreaches.concat(data.slice(0)))
-    // buildChart(allMajorBreaches)
-    loader(false);
-};

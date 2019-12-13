@@ -1,53 +1,18 @@
-//https://www.youtube.com/watch?v=DvqeaVSe6Ko used as referance for d3 data structuring
-
-//helper function to create child/parent obj
-const childParentObject = (child, parent, details = undefined) =>{
-    return({
-        "child": child,
-        "parent": parent,
-        details,
-    })
-}
-
-//convert json date into array of objects with child/parent info.
-// Run array through D3.stratify function. D3 can now work with data. 
-const childParentData = (email, data)=>{
-    let array = [];
-    const rootParent = {"child": email, "parent": "", "details": [email]};
-    array.push(rootParent);
-    
-    data.map(breach =>{
-        array.push(childParentObject(breach["Title"], email, [breach["Title"], breach["LogoPath"]]));
-        array.push(childParentObject(breach["Description"], breach["Title"], ["Breach Info"]));
-        breach["DataClasses"].map(type =>{
-            array.push(childParentObject(type, breach["Description"], ["Data Leaked"]));
-        })
-    })
-    
-    let dataStructure = d3.stratify()
-    .id(function(d){return d.child;})
-    .parentId(function(d){return d.parent})
-    (array);
-    
-    return dataStructure;
-}
-
-const renameKey = (obj, newKey, oldkey) => {
-    obj[newKey] = obj[oldkey];
-    delete obj[oldkey];
-}
-
-const reConfigure = (dataSet) => {
-
-    for(let i = 0; i < dataSet.length; i++){
-        let current = dataSet[i];
-        renameKey(current, 'entity','Name');
-        renameKey(current, 'recordsLost', 'PwnCount');
-        current["year"] = parseInt(current.BreachDate.slice(0,4), 10); 
-        current['personal'] = true;
-        current['story'] = "Click to See more Details";
-    }
-};
+// const testing = (email) => {
+//     console.log("hello from fetch")
+//     reConfigure(data)
+//     console.log(data)
+//     apiData = data
+//     console.log(apiData)
+//     setEmail(email);
+//     displayZeroOrAreDiv(1);
+//     removeCards();
+//     createCards(data);
+//     displayChartCardsResults();
+//     buildChart(allMajorBreaches.concat(data.slice(0)));
+//     loader(false);
+//     scrollToDiv(document.querySelector(".toggle-container"));
+// };
 
 
 ///dummy data for testing purposes 
@@ -99,3 +64,92 @@ const reConfigure = (dataSet) => {
 //         "IsSpamList": false
 //     }
 // ]
+
+// const bByYear = {};
+
+// const fillInMemo = (dataSet) => {
+
+//     for(let i = 1; i < dataSet.length; i++){
+//         let current = dataSet[i];
+//         let {year} = current;
+
+//         if(!bByYear[year]) bByYear[year]= [];
+//         bByYear[year] = bByYear[year].concat([current]);
+//     };
+//     return bByYear;
+// };
+
+// ** feature implementaions for smaller screens and mobile
+// const buildYaxis = (svg, width, height, dataSet) => {
+
+//     height = height === 3576 ? 3525 : 4709;
+
+//     let yScale = d3.scaleLinear()
+//         .domain([2020, 2009])
+//         .range([0, height])
+//         .clamp(true);
+
+//     let yAxis = d3.axisLeft().scale(yScale).tickFormat(d3.format("d"));
+//     yAxis.tickSizeOuter([0]);
+
+//     let axis = svg.append("g")
+//         .attr("class", "axis")
+//         .attr("transform", "translate(0, 20)")
+//         .call(yAxis);
+
+//     let txt = axis.selectAll("text")
+//         .attr("transform", "translate(60,0)");
+
+//     // let txtNodes = txt.nodes();
+//     // d3.select(txtNodes[txtNodes.length - 1])
+//     //     .text("2009 and Earlier")
+//     //     .attr("transform", "translate(150,0)");
+
+//     // axis.selectAll("g")
+//     //     .selectAll("g")
+//     //     .data(dataSet)
+//     //     .enter()
+//     //     .append("g")
+
+//     // container.each((d,i,node) => {
+//     //         console.log(node[i])
+//     //         console.log(d)
+//     //         console.log('break');
+//     //         // return 
+//     //         // buildBubbleChart(null, width, d)
+//     //     });
+
+
+//     let rects = axis.selectAll("g")
+//         .append("rect")
+//         .attr("width", 60.5)
+//         .attr("height", 26)
+//         .attr("rx", 5)
+//         .attr("transform", "translate(1,-14.5)");
+
+//     // let rectsNodes = rects.nodes();
+//     // d3.select(rectsNodes[rectsNodes.length-1])
+//     //     .attr("width", 150)
+//     //     .attr("height", 26)
+//     //     .attr("transform", "translate(1,-14.5)");
+
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+    // console.log(axis._groups[0][0].lastChild.childNodes[1].childNodes[0].data)
+    //  axis.selectAll("text").remove();
+    //  axis.selectAll("g").remove();
+    // axis.selectAll("width", 60.5)
+
+    // axis.select("g:last-of-type text")
+    //     .text("2009 and Earlier")
