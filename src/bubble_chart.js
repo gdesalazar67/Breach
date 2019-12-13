@@ -190,10 +190,10 @@ const buildBubbleChart = (svg, width, dataset) => {
             return 12
         })
         .attr("fill", d => {
-            if(d.data.year < 2015){
-                return "black"
+            if (d.data.personal || d.data.year >= 2015){
+                return "white"
             };
-            return "white"
+            return "black"
         })
         .attr("class", "story")
         .attr("x", 0)
