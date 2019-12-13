@@ -26,8 +26,8 @@ window.addEventListener("resize", () => {
 /////
 
 ///dropdown toggle///
-function topNavIconToggle() {
-
+function topNavIconToggle(y) {
+    y.classList.toggle("change");
     var x = document.getElementById("idTopNav");
 
     if (x.className === "topnav") {

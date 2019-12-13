@@ -22,7 +22,7 @@ const viewBoxDims = () => {
 };
 
 const resetSvg = () => {
-    
+
     if(document.getElementsByTagName("svg").length){
         d3.select("svg").remove();
     };
@@ -78,7 +78,12 @@ const buildBubbleChart = (svg, width, dataset) => {
         })
         .on("click", d => {
             if(d.data.personal){
-                document.getElementById(`${d.data.Title}-${d.data.recordsLost}`).click();
+                let div = document.getElementById(`${d.data.Title}-${d.data.recordsLost}`)  
+                if(div.classList[1] === "card-is-expanded"){
+                    scrollToDiv(div);
+                }else{
+                    div.click();
+                };
             }else{
                 window.open(d.data.ndSourceLink);
             };
