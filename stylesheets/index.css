@@ -336,7 +336,7 @@ div.logotext {
 #arrow::after{
     content: " ";
     /* background: url("/media/down-arrow\ \(1\).png"); */
-    background-image: url("/media/down-arrow.png");
+    background-image: url("../media/down-arrow.png");
     height: 24px;
     width: 24px;
 } 
@@ -398,7 +398,7 @@ div.logotext {
     #arrow::after{
     position: absolute;
     content: " ";
-    background-image: url("/media/right-arrow.png");
+    background-image: url("../media/right-arrow.png");
     height: 24px;
     width: 24px;
     top: 37px;
