@@ -1,8 +1,23 @@
 
+let timer;
+
+const loaderPopUp = (flag) => {
+    let display = flag ? "block" : "none";
+    let div = document.getElementById("loaderPopUp");
+    div.style.display = display;
+}
+
 const loader = (flag) => {
     let loader = document.getElementById("loader");
     let display = flag ? "flex": "none";
-
+    if(flag){
+        timer = setTimeout(function (){
+            loaderPopUp(true)
+        }, 1000);
+    }else{
+        clearTimeout(timer);
+        loaderPopUp(false);
+    }
     loader.style.display = display;
 };
 

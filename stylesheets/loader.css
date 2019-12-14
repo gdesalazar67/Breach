@@ -1,6 +1,23 @@
 /* loader prvovided by Amine Bahmed 
 https://gitlab.com/MohamedBahmed/google-loaders-redesign/tree/master/animation-2 */
 
+#loader{
+  flex-direction: column;
+}
+#loaderPopUp {
+  display: none;
+      font-family: lato;
+    text-align: center;
+    margin-bottom: 33px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: hsl(212, 51%, 39%);
+    color: white;
+    padding: 25px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
 .loader-container {
   position: relative;
   width: 30px;
