@@ -13,7 +13,7 @@ const loader = (flag) => {
     if(flag){
         timer = setTimeout(function (){
             loaderPopUp(true)
-        }, 1000);
+        }, 1500);
     }else{
         clearTimeout(timer);
         loaderPopUp(false);
