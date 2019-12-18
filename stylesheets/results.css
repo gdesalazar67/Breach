@@ -121,7 +121,7 @@
 }
 .card-is-expanded{
     margin: auto;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .breach-card{
     cursor: pointer;
@@ -176,6 +176,18 @@
     background-color: rgb(15, 85, 132);
     position: relative;
     color: rgb(255, 255, 255);
+}
+
+.info-expander::before{
+    display: inline-block;
+    content: "\00d7";
+    font-size: 60px;
+    font-weight: 300;
+    left: calc(50% - 15px);
+    position: absolute;
+    top: 8px;
+    left: calc(50% + 100px);
+    cursor: pointer;
 }
 .card-is-collapsed .info-expander{
     display: none;
@@ -343,6 +355,10 @@
     #one .card-is-expanded .info-expander{
         margin-left: calc(-50% + 15px);
     }
+
+    .info-expander::before{
+        left: calc(90%);
+    }
 }
 @media screen and (min-width: 990px){
     .breach-index{
@@ -402,6 +418,9 @@
 
     .card:nth-of-type(2) .two{
         margin-left: calc(-100% + 15px);
+    }
+    .info-expander::before{
+        left: calc(93%);
     }
      
 }
