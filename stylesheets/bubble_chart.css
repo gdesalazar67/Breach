@@ -1,4 +1,8 @@
 
+.chart-container {
+    position: relative;
+}
+
 .chart-container .main-banner-enteremail{
     color: rgb(49, 96, 150);
     letter-spacing: 1.5px;
@@ -6,13 +10,47 @@
 .outer-key-container{
     display: flex;
     flex-direction: column;
-    padding-left: 15px;
+    align-items: center;
+    position: absolute;
+    top: 218px;
+    background: white;
+}
+.keytext {
+    text-align: center;
+    line-height: 1.25;
+    color: rgb(49, 96, 150);
+    width: -webkit-fill-available;
+    border-bottom: 1px solid lightgray;
+    padding: 15px 40px 15px 40px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.keytext span{
+    font-weight: 700;
+    font-size: 18px
 }
 .key-container{
     display: flex;
     flex-direction: row;
-    margin: 0px 12px 0px;
+    margin: 30px 12px 0px;
 }
+.keytext:first-child{
+    font-weight: 700;
+    font-size: 24px;
+    padding-top: 11px;
+    background: rgb(49, 96, 150);
+    color: #ffffff;
+    border: none;
+    font-size: 37px;
+    line-height: 44px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
 .key-date{
     margin-left: 9px;
     font-size: 13px;
@@ -31,6 +69,7 @@
 
     margin-top: 20px;
     margin-left: 12px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
