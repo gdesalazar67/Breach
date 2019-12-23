@@ -198,6 +198,7 @@ const displayZeroOrAreDiv = (results) => {
 
     let zeroDiv = document.querySelector(".zero");
     let areDiv = document.querySelector(".are");
+    let areLink = document.querySelector(".norton")
     let cardDiv = document.getElementById("brc");
     let chartDiv = document.getElementById("cc");
 
@@ -206,11 +207,13 @@ const displayZeroOrAreDiv = (results) => {
         areDiv.style.display = "flex";
         cardDiv.style.display = "block";
         chartDiv.style.display = "block";
+        areLink.style.display = "block";
     }else{
         zeroDiv.style.display = "flex";
         areDiv.style.display = "none";
         cardDiv.style.display = "none";
         chartDiv.style.display = "none";
+        areLink.style.display = "none";
     };
 }
 

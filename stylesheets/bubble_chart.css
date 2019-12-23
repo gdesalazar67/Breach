@@ -192,7 +192,7 @@ text {
     cursor: pointer;
 }
 
-@media screen and (min-width: 690px){
+@media screen and (min-width: 570px){
     .outer-key-container{
         top: 170px;
         max-width: 378px;
@@ -204,14 +204,4 @@ text {
     }
 }
 
-@media screen and (min-width: 990px){
-    .outer-key-container.key-collapsed {
-    left: calc(50% - 500px);
-    }
-}
-@media screen and (min-width: 1215px){
-    .outer-key-container.key-collapsed {
-    left: calc(50% - 600px);
-    }
-}
 

@@ -75,6 +75,11 @@
     margin: auto;
     letter-spacing: 1.25px;
 }
+a .results-text{
+   color: hsl(38, 91%, 66%);
+}
+
+
 
 @media screen and (min-width: 800px){
     .results-btn-container{
