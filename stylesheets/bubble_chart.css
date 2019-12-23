@@ -14,6 +14,54 @@
     position: absolute;
     top: 218px;
     background: white;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+.outer-key-container.key-collapsed  .keytext{
+    display: none;
+}
+.outer-key-container.key-collapsed  .keytext:first-child{
+    display: block;
+    font-size: 18px;
+    line-height: 16px;
+    padding: 11px;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+.outer-key-container.key-collapsed  .keytext:first-child:hover{
+    background-color: rgb(89, 166, 248);
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.outer-key-container.key-collapsed  .key-container{
+    display: none;
+}
+.outer-key-container.key-collapsed  .dot-container{
+    display: none;
+}
+.outer-key-container.key-collapsed::before{
+    display: none;
+}
+.outer-key-container.key-collapsed {
+    /* font-size: 18px;
+    line-height: 16px;
+    padding: 11px; */
+    margin-bottom: 0;
+    width: fit-content;
+}
+
+.outer-key-container::before{
+   display: inline-block;
+    content: "\00d7";
+    font-size: 50px;
+    font-weight: 300;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    cursor: pointer;
+    color: #ffffff;
 }
 .keytext {
     text-align: center;
@@ -37,7 +85,7 @@
 .keytext:first-child{
     font-weight: 700;
     font-size: 24px;
-    padding-top: 11px;
+    padding-top: 40px;
     background: rgb(49, 96, 150);
     color: #ffffff;
     border: none;
@@ -143,3 +191,27 @@ g {
 text {
     cursor: pointer;
 }
+
+@media screen and (min-width: 690px){
+    .outer-key-container{
+        top: 170px;
+        max-width: 378px;
+        left: calc(50% - 189px);
+    }
+
+    .outer-key-container.key-collapsed{
+        left: 20px;
+    }
+}
+
+@media screen and (min-width: 990px){
+    .outer-key-container.key-collapsed {
+    left: calc(50% - 500px);
+    }
+}
+@media screen and (min-width: 1215px){
+    .outer-key-container.key-collapsed {
+    left: calc(50% - 600px);
+    }
+}
+

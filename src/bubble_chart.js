@@ -221,3 +221,7 @@ const buildBubbleChart = (svg, width, dataset) => {
      
 };
 
+const keyExpander = (y) => {
+    y.classList.toggle("key-collapsed");
+}
+

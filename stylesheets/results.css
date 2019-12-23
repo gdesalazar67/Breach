@@ -287,8 +287,7 @@
 }
 
 @media screen and (min-width: 690px){
-    .breach-results-container .how-it-works-text{
-    
+    .breach-results-container .how-it-works-text{    
       font-size: 40px;
       font-weight: 400;
       padding-bottom: 40px;
@@ -359,6 +358,7 @@
     .info-expander::before{
         left: calc(90%);
     }
+
 }
 @media screen and (min-width: 990px){
     .breach-index{
