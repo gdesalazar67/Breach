@@ -16,7 +16,13 @@
   ### Fetch(): <br>
     Upon entering email and pressing enter. A get request is sent to th HIBP. An array of Json is received, reconfigured, sent to bubble chart builder and index card creaters<br>
   ```javascript
- const fetchData = (email = null) => {
+async function requestToApi(newUrl, header){
+    let response = await fetch(newUrl, header);
+    let data = await response.json();
+    return data
+}
+
+const fetchData = (email = null) => {
 
     loader(true);
      if(!email) email = searchInput.value;
@@ -33,8 +39,7 @@
         let keyHeaders = new Headers();
         keyHeaders.append('Hibp-Api-Key', hibpApiKey)
 
-        fetch(newUrl, { method: "GET", headers: keyHeaders })
-            .then(res => res.json())
+        requestToApi(newUrl, { method: "GET", headers: keyHeaders })
             .then(function (data) {
                 reConfigure(data)
                 apiData = data
@@ -44,11 +49,10 @@
                 createCards(data);
                 displayChartCardsResults();
                 buildChart(allMajorBreaches.concat(data));
-                loader(false);  
+                loader(false);
                 scrollToDiv(toogleContainer);
                 setEmailPlaceHolder();
-            })
-            .catch(error => {
+            }).catch(error =>{
                 console.log("404 is what HIBP returns when email has no associated breach results, it's a good thing")
                 setEmail(email);
                 noResult();

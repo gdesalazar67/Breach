@@ -78,6 +78,9 @@
 a .results-text{
    color: hsl(38, 91%, 66%);
 }
+a .results-text:hover{
+ color: hsl(38, 92%, 53%);
+}
 
 
 
